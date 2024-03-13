@@ -8,11 +8,10 @@
 </head>
 
 <body>
-  <p>color: </p>
+  <p>Color: </p>
   <input type="color" id="colorPicker" oninput="updateColor(this.value)">
 
   <script type="module">
-    // JavaScript code to update color and trigger the handler
     import { editor } from '@wix/editor';
     import { createClient } from '@wix/sdk';
     import { widget } from '@wix/editor';
@@ -25,7 +24,6 @@
       },
     });
 
-    // Define updateColor in the global scope
     window.updateColor = function(color) {
       client.widget.setProp('color', color);
     };
