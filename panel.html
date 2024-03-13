@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Color Picker</title>
 </head>
+
 <body>
-<p>color: </p>
-<input type="color" id="colorPicker" oninput="updateColor(this.value)">
+  <p>color: </p>
+  <input type="color" id="colorPicker" oninput="updateColor(this.value)">
 
-<script>
-  // JavaScript code to update color and trigger the handler
-import { editor } from '@wix/editor;
-import { createClient } from '@wix/sdk';
+  <script>
+    // JavaScript code to update color and trigger the handler
+    import { editor } from '@wix/editor;
+    import { createClient } from '@wix/sdk';
 
-const client = createClient({
-  host: editor.host(),
-  modules: {
-    widget,
-  info
-  },
-});
+    const client = createClient({
+      host: editor.host(),
+      modules: {
+        widget,
+        info
+      },
+    });
 
-  function updateColor(color) {
-    client.widget.setProp('color',color);
-  }
-</script>
+    function updateColor(color) {
+      client.customElement.setProp('color', color);
+    }
+  </script>
 
 </body>
+
 </html>
