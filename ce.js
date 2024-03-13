@@ -1,25 +1,40 @@
-class CeJoshElement extends HTMLElement {
+class ColoredBox extends HTMLElement {
     constructor() {
-        super();
-        this.attachShadow({ mode: 'open' });
+      super();
+  
+      // Create a shadow root
+      this.attachShadow({ mode: 'open' });
+  
+      // Set the initial color
+      this.setColor(this.getAttribute('color'));
     }
-
-    connectedCallback() {
-        this.render();
+  
+    // Define the observed attributes
+    static get observedAttributes() {
+      return ['color'];
     }
-
-    render() {
-        this.shadowRoot.innerHTML = `
-            <style>
-                :host {
-                    display: block;
-                    width: 100px;
-                    height: 100px;
-                    background-color: red;
-                }
-            </style>
-        `;
+  
+    // Callback when an observed attribute changes
+    attributeChangedCallback(name, oldValue, newValue) {
+      if (name === 'color' && oldValue !== newValue) {
+        this.setColor(newValue);
+      }
     }
-}
-
-customElements.define('ce-josh', CeJoshElement);
+  
+    // Set the color of the box
+    setColor(color) {
+      this.shadowRoot.innerHTML = `
+        <style>
+          :host {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: ${color || 'gray'};
+          }
+        </style>
+      `;
+    }
+  }
+  
+  // Define the custom element
+  customElements.define('ce-josh', ColoredBox);
