@@ -13,8 +13,9 @@
 
   <script type="module">
     // JavaScript code to update color and trigger the handler
-    import { editor } from '@wix/editor;
+    import { editor } from '@wix/editor';
     import { createClient } from '@wix/sdk';
+    import { widget } from '@wix/editor';
 
     const client = createClient({
       host: editor.host(),
@@ -24,11 +25,10 @@
       },
     });
 
-    import { widget } from '@wix/editor';
-      
-    function updateColor(color) {
+    // Define updateColor in the global scope
+    window.updateColor = function(color) {
       client.customElement.setProp('color', color);
-    }
+    };
   </script>
 
 </body>
