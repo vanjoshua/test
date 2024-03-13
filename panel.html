@@ -11,8 +11,20 @@
 
 <script>
   // JavaScript code to update color and trigger the handler
+import { editor } from '@wix/editor;
+import { createClient } from '@wix/sdk';
+
+const client = createClient({
+  host: editor.host(),
+  modules: {
+    widget,
+  info
+  },
+});
+
+  
   function updateColor(color) {
-    parent.handleColorChange(color);
+    widget.setProp('color',color);
   }
 </script>
 
