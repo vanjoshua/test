@@ -5,6 +5,14 @@ class ColoredBox extends HTMLElement {
     // Create a shadow root
     this.attachShadow({ mode: 'open' });
 
+    // Create a container for the text content
+    this.textElement = document.createElement('span');
+    this.shadowRoot.appendChild(this.textElement);
+
+    // Create a style element to set the background color
+    this.styleElement = document.createElement('style');
+    this.shadowRoot.appendChild(this.styleElement);
+
     // Set the initial color and text content
     this.setColor(this.getAttribute('color'));
     this.setTextContent(this.getAttribute('bookingsServiceId'));
@@ -26,14 +34,12 @@ class ColoredBox extends HTMLElement {
 
   // Set the color of the box
   setColor(color) {
-    this.shadowRoot.style.backgroundColor = color || 'gray';
+    this.styleElement.textContent = `:host { background-color: ${color || 'gray'}; }`;
   }
 
   // Set the text content of the box
   setTextContent(text) {
-    const textElement = document.createElement('span');
-    textElement.textContent = text || '';
-    this.shadowRoot.appendChild(textElement);
+    this.textElement.textContent = text || '';
   }
 }
 
