@@ -7,19 +7,19 @@ class ColoredBox extends HTMLElement {
 
     // Set the initial color and text content
     this.setColor(this.getAttribute('color'));
-    this.setTextContent(this.getAttribute('serviceId'));
+    this.setTextContent(this.getAttribute('bookingsServiceId'));
   }
 
   // Define the observed attributes
   static get observedAttributes() {
-    return ['color', 'serviceId'];
+    return ['color', 'bookingsServiceId'];
   }
 
   // Callback when an observed attribute changes
   attributeChangedCallback(name, oldValue, newValue) {
     if (name === 'color' && oldValue !== newValue) {
       this.setColor(newValue);
-    } else if (name === 'serviceId' && oldValue !== newValue) {
+    } else if (name === 'bookingsServiceId' && oldValue !== newValue) {
       this.setTextContent(newValue);
     }
   }
