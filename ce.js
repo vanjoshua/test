@@ -5,13 +5,14 @@ class ColoredBox extends HTMLElement {
     // Create a shadow root
     this.attachShadow({ mode: 'open' });
 
+    // Create a container for the content
+    this.container = document.createElement('div');
+    this.container.style.padding = '10px';  // Add padding for better visibility
+    this.shadowRoot.appendChild(this.container);
+
     // Create a container for the text content
     this.textElement = document.createElement('span');
-    this.shadowRoot.appendChild(this.textElement);
-
-    // Create a style element to set the background color
-    this.styleElement = document.createElement('style');
-    this.shadowRoot.appendChild(this.styleElement);
+    this.container.appendChild(this.textElement);
 
     // Set the initial color and text content
     this.setColor(this.getAttribute('color'));
@@ -34,7 +35,7 @@ class ColoredBox extends HTMLElement {
 
   // Set the color of the box
   setColor(color) {
-    this.styleElement.textContent = `:host { background-color: ${color || 'gray'}; }`;
+    this.container.style.backgroundColor = color || 'gray';
   }
 
   // Set the text content of the box
