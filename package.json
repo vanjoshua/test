@@ -1,0 +1,8 @@
+{
+  "name": "test-1",
+  "version": "1.0.0",
+  "main": "ce.js",
+  "repository": "https://github.com/vanjoshua/test",
+  "author": "joshua-sc <joshua-sc@wix.com>",
+  "license": "MIT"
+}
