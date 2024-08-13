@@ -4,5 +4,10 @@
   "main": "ce.js",
   "repository": "https://github.com/vanjoshua/test",
   "author": "joshua-sc <joshua-sc@wix.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@wix/editor": "^1.304.0",
+    "@wix/sdk": "^1.12.12",
+    "@wix/site": "^1.11.0"
+  }
 }
