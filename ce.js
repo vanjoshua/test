@@ -33,9 +33,6 @@ class ColoredBox extends HTMLElement {
     if (name === 'color' && oldValue !== newValue) {
       this.setColor(newValue);
     } else if (name === 'bookingsServiceId' && oldValue !== newValue) {
-      wixClient.products.queryProducts().find().then((products) => {
-        console.log(`Custom Element loaded Wix site Products: ${products.items}`)
-      });
 
       let startRange = new Date();
       let endRange = new Date();
@@ -46,11 +43,13 @@ class ColoredBox extends HTMLElement {
         startDateTime: startRange,
         endDateTime: endRange,
       };
-      const availability = await bookings.getServiceAvailability(
+      wixClient.bookings.getServiceAvailability(
         serviceId,
         rangeOptions,
       );
+
       const slots = availability.slots;
+
 
       // get the date of the first available slot
       const options = { weekday: "long", day: "numeric", month: "short" };
@@ -70,7 +69,7 @@ accessTokenListener(accessTokenGetter) {
   const wixClient = createClient({
     host: site.host({ applicationId: "766caf23-967f-4b3f-9999-8ece1efdf29b" }),
     auth: site.auth(accessTokenGetter),
-    modules: { products },
+    modules: { bookings },
   });
   console.log(`createClient`, wixClient)
 
