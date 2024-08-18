@@ -69,7 +69,7 @@ class ColoredBox extends HTMLElement {
   }
 }
 
-accessTokenListener(accessTokenGetter) {
+function accessTokenListener(accessTokenGetter) {
   const wixClient = createClient({
     host: site.host({ applicationId: "766caf23-967f-4b3f-9999-8ece1efdf29b" }),
     auth: site.auth(accessTokenGetter),
@@ -80,12 +80,12 @@ accessTokenListener(accessTokenGetter) {
 }
 
 // Set the color of the box
-setColor(color) {
+function setColor(color) {
   this.container.style.backgroundColor = color || 'gray';
 }
 
 // Set the text content of the box
-setTextContent(text) {
+function setTextContent(text) {
   this.textElement.textContent = text || '';
 }
 
