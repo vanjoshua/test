@@ -1,6 +1,10 @@
-import { createClient } from "@wix/sdk";
-import { site } from "@wix/site";
-import { bookings } from "@wix/site-bookings";
+const wixSdk = require('@wix/sdk');
+const wixSite = require('@wix/site');
+const wixBookings = require('@wix/site-bookings');
+
+const createClient = wixSdk.createClient;
+const site = wixSite.site;
+const bookings = wixBookings.bookings;
 
 class ColoredBox extends HTMLElement {
   constructor() {
