@@ -1,3 +1,10 @@
+import { createClient } from "@wix/sdk";
+import { site } from "@wix/site";
+import { bookings } from "@wix/site-bookings";
+
+
+let wixClient;
+
 class MyCustomElement extends HTMLElement {
   connectedCallback() {
     // Create a shadow root
