@@ -63,26 +63,27 @@ class ColoredBox extends HTMLElement {
 
 
   }
-}
 
-accessTokenListener(accessTokenGetter) {
-  const wixClient = createClient({
-    host: site.host({ applicationId: "766caf23-967f-4b3f-9999-8ece1efdf29b" }),
-    auth: site.auth(accessTokenGetter),
-    modules: { bookings },
-  });
-  console.log(`createClient`, wixClient)
+  accessTokenListener(accessTokenGetter) {
+    const wixClient = createClient({
+      host: site.host({ applicationId: "766caf23-967f-4b3f-9999-8ece1efdf29b" }),
+      auth: site.auth(accessTokenGetter),
+      modules: { bookings },
+    });
+    console.log(`createClient`, wixClient)
 
-}
+  }
 
-// Set the color of the box
-setColor(color) {
-  this.container.style.backgroundColor = color || 'gray';
-}
+  // Set the color of the box
+  setColor(color) {
+    this.container.style.backgroundColor = color || 'gray';
+  }
 
-// Set the text content of the box
-setTextContent(text) {
-  this.textElement.textContent = text || '';
+  // Set the text content of the box
+  setTextContent(text) {
+    this.textElement.textContent = text || '';
+  }
+
 }
 
 customElements.define('ce-josh', ColoredBox);
