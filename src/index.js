@@ -50,7 +50,8 @@ class ColoredBox extends HTMLElement {
 
       const slots = availability.slots;
 
-
+      console.log("slots: ", slots);
+      
       // get the date of the first available slot
       const options = { weekday: "long", day: "numeric", month: "short" };
       const firstSlotDate = slots[0].startDateTime.toLocaleDateString(
