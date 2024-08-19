@@ -25,14 +25,14 @@ class ColoredBox extends HTMLElement {
 
   // Define the observed attributes
   static get observedAttributes() {
-    return ['color', 'bookingsServiceId'];
+    return ['color', 'bookingsserviceid'];
   }
 
   // Callback when an observed attribute changes
   async attributeChangedCallback(name, oldValue, newValue) {
     if (name === 'color' && oldValue !== newValue) {
       this.setColor(newValue);
-    } else if (name === 'bookingsServiceId' && oldValue !== newValue) {
+    } else if (name === 'bookingsserviceid' && oldValue !== newValue) {
 
       //  const service = await wixClient.services.
       console.log("Booking ID attribute changed");
