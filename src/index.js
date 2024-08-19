@@ -50,7 +50,7 @@ class ColoredBox extends HTMLElement {
     const wixClient = createClient({
       host: site.host({ applicationId: "7dea53d2-fbd3-463a-990a-22216a7cfb35" }),
       auth: site.auth(accessTokenGetter),
-      modules: { services },
+      modules: { bookings },
     });
     console.log(`createClient`, wixClient)
 
