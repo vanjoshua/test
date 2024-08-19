@@ -1,6 +1,6 @@
 import { createClient } from "@wix/sdk";
 import { site } from "@wix/site";
-import { bookings } from "@wix/site-bookings";
+import { services } from "@wix/site-bookings";
 
 class ColoredBox extends HTMLElement {
   constructor() {
@@ -20,7 +20,7 @@ class ColoredBox extends HTMLElement {
 
     // Set the initial color and text content
     this.setColor(this.getAttribute('color'));
-    this.setTextContent(this.getAttribute('bookingsServiceId'));
+    this.setTextContent("init");
   }
 
   // Define the observed attributes
@@ -34,42 +34,18 @@ class ColoredBox extends HTMLElement {
       this.setColor(newValue);
     } else if (name === 'bookingsServiceId' && oldValue !== newValue) {
 
-      let startRange = new Date();
-      let endRange = new Date();
-      endRange.setDate(startRange.getDate() + 365); // one year from now
+      //  const service = await wixClient.services.
+      console.log("Booking ID attribute changed");
 
-      // get the service availability for the upcoming year
-      const rangeOptions = {
-        startDateTime: startRange,
-        endDateTime: endRange,
-      };
-      const availability = await wixClient.bookings.getServiceAvailability(
-        serviceId,
-        rangeOptions,
-      );
-
-      const slots = availability.slots;
-
-      console.log("slots: ", slots);
-      
-      // get the date of the first available slot
-      const options = { weekday: "long", day: "numeric", month: "short" };
-      const firstSlotDate = slots[0].startDateTime.toLocaleDateString(
-        "en-US",
-        options,
-      );
-
-      this.setTextContent("Next availability: " + firstSlotDate);
+      this.setTextContent("Service ID: " + newValue);
     };
-
-
   }
 
   accessTokenListener(accessTokenGetter) {
     const wixClient = createClient({
       host: site.host({ applicationId: "766caf23-967f-4b3f-9999-8ece1efdf29b" }),
       auth: site.auth(accessTokenGetter),
-      modules: { bookings },
+      modules: { services },
     });
     console.log(`createClient`, wixClient)
 
