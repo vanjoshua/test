@@ -41,13 +41,10 @@ class ColoredBox extends HTMLElement {
         const availability = await wixClient.bookings.getServiceAvailability(bookingsserviceid);
         let slots = availability.slots;
         let firstSlot = slots[0];
-
-        //  const service = await wixClient.services.
         console.log(firstSlot);
-
         this.setTextContent("Fist slot: " + JSON.stringify(firstSlot));
-      };
-    } else { console.log("No client") }
+      } else { console.log("No client") }
+    }
   }
 
   accessTokenListener(accessTokenGetter) {
