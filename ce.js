@@ -1,10 +1,6 @@
-const wixSdk = require('@wix/sdk');
-const wixSite = require('@wix/site');
-const wixBookings = require('@wix/site-bookings');
-
-const createClient = wixSdk.createClient;
-const site = wixSite.site;
-const bookings = wixBookings.bookings;
+import { createClient } from "@wix/sdk";
+import { site } from "@wix/site";
+import { bookings } from "@wix/site-bookings";
 
 class ColoredBox extends HTMLElement {
   constructor() {
@@ -69,7 +65,7 @@ class ColoredBox extends HTMLElement {
   }
 }
 
-function accessTokenListener(accessTokenGetter) {
+accessTokenListener(accessTokenGetter) {
   const wixClient = createClient({
     host: site.host({ applicationId: "766caf23-967f-4b3f-9999-8ece1efdf29b" }),
     auth: site.auth(accessTokenGetter),
@@ -80,12 +76,12 @@ function accessTokenListener(accessTokenGetter) {
 }
 
 // Set the color of the box
-function setColor(color) {
+setColor(color) {
   this.container.style.backgroundColor = color || 'gray';
 }
 
 // Set the text content of the box
-function setTextContent(text) {
+setTextContent(text) {
   this.textElement.textContent = text || '';
 }
 
