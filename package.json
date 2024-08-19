@@ -8,6 +8,12 @@
   "dependencies": {
     "@wix/editor": "^1.304.0",
     "@wix/sdk": "^1.12.12",
-    "@wix/site": "^1.11.0"
+    "@wix/site": "^1.13.0",
+    "@wix/site-bookings": "^1.10.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
   }
 }
