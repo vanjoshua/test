@@ -1,20 +1,11 @@
-import { createClient } from "@wix/sdk";
-import { site } from "@wix/site";
-import { bookings } from "@wix/site-bookings";
-
-
-let wixClient;
-
-class ColoredBox extends HTMLElement {
-  constructor() {
-    super();
-
+class MyCustomElement extends HTMLElement {
+  connectedCallback() {
     // Create a shadow root
     this.attachShadow({ mode: 'open' });
 
     // Create a container for the content
     this.container = document.createElement('div');
-    this.container.style.padding = '10px';  // Add padding for better visibility
+    this.container.style.padding = '10px';
     this.shadowRoot.appendChild(this.container);
 
     // Create a container for the text content
@@ -24,14 +15,15 @@ class ColoredBox extends HTMLElement {
     // Set the initial color and text content
     this.setColor(this.getAttribute('color'));
     this.setTextContent("init");
+
+    // Handle wixClient initialization as needed (adjust based on your requirements)
+    // ...
   }
 
-  // Define the observed attributes
   static get observedAttributes() {
     return ['color', 'bookingsserviceid'];
   }
 
-  // Callback when an observed attribute changes
   async attributeChangedCallback(name, oldValue, newValue) {
     if (name === 'color' && oldValue !== newValue) {
       console.log("Color attribute changed");
@@ -54,19 +46,15 @@ class ColoredBox extends HTMLElement {
       modules: { bookings },
     });
     console.log(`createClient`, wixClient)
-
   }
 
-  // Set the color of the box
   setColor(color) {
     this.container.style.backgroundColor = color || 'gray';
   }
 
-  // Set the text content of the box
   setTextContent(text) {
     this.textElement.textContent = text || '';
   }
-
 }
 
-customElements.define('ce-josh', ColoredBox);
+customElements.define('ce-josh', MyCustomElement);
