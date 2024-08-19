@@ -2,6 +2,9 @@ import { createClient } from "@wix/sdk";
 import { site } from "@wix/site";
 import { bookings } from "@wix/site-bookings";
 
+
+let wixClient;
+
 class ColoredBox extends HTMLElement {
   constructor() {
     super();
@@ -34,20 +37,21 @@ class ColoredBox extends HTMLElement {
       console.log("Color attribute changed");
       this.setColor(newValue);
     } else if (name === 'bookingsserviceid' && oldValue !== newValue) {
+      if (wixClient) {
+        const availability = await wixClient.bookings.getServiceAvailability(bookingsserviceid);
+        let slots = availability.slots;
+        let firstSlot = slots[0];
 
-      const availability = await wixClient.bookings.getServiceAvailability(bookingsserviceid);
-      let slots = availability.slots;
-      let firstSlot = slots[0];
-  
-      //  const service = await wixClient.services.
-      console.log(firstSlot);
+        //  const service = await wixClient.services.
+        console.log(firstSlot);
 
-      this.setTextContent("Fist slot: " + JSON.stringify(firstSlot));
-    };
+        this.setTextContent("Fist slot: " + JSON.stringify(firstSlot));
+      };
+    } else { console.log("No client") }
   }
 
   accessTokenListener(accessTokenGetter) {
-    const wixClient = createClient({
+    wixClient = createClient({
       host: site.host({ applicationId: "7dea53d2-fbd3-463a-990a-22216a7cfb35" }),
       auth: site.auth(accessTokenGetter),
       modules: { bookings },
