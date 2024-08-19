@@ -29,7 +29,7 @@ class ColoredBox extends HTMLElement {
   }
 
   // Callback when an observed attribute changes
-  attributeChangedCallback(name, oldValue, newValue) {
+  async attributeChangedCallback(name, oldValue, newValue) {
     if (name === 'color' && oldValue !== newValue) {
       this.setColor(newValue);
     } else if (name === 'bookingsServiceId' && oldValue !== newValue) {
@@ -43,7 +43,7 @@ class ColoredBox extends HTMLElement {
         startDateTime: startRange,
         endDateTime: endRange,
       };
-      wixClient.bookings.getServiceAvailability(
+      const availability = await wixClient.bookings.getServiceAvailability(
         serviceId,
         rangeOptions,
       );
