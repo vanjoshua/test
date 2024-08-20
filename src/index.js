@@ -5,6 +5,14 @@ import { bookings } from "@wix/site-bookings";
 
 let wixClient;
 
+async function setAvailability(serviceId) {
+  const availability = await wixClient.bookings.getServiceAvailability(serviceId);
+  let slots = availability.slots;
+  let firstSlot = slots[0];
+  console.log(firstSlot);
+  this.setTextContent("Fist slot: " + JSON.stringify(firstSlot));
+}
+
 class MyCustomElement extends HTMLElement {
   connectedCallback() {
     // Create a shadow root
@@ -60,13 +68,7 @@ class MyCustomElement extends HTMLElement {
     this.textElement.textContent = text || '';
   }
 
-  async setAvailability(serviceId) {
-    const availability = await wixClient.bookings.getServiceAvailability(serviceId);
-    let slots = availability.slots;
-    let firstSlot = slots[0];
-    console.log(firstSlot);
-    this.setTextContent("Fist slot: " + JSON.stringify(firstSlot));
-  }
+
 }
 
 customElements.define('ce-josh', MyCustomElement);
