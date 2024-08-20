@@ -37,11 +37,7 @@ class MyCustomElement extends HTMLElement {
       this.setColor(newValue);
     } else if (name === 'bookingsserviceid' && oldValue !== newValue) {
       if (wixClient) {
-        const availability = await wixClient.bookings.getServiceAvailability(newValue);
-        let slots = availability.slots;
-        let firstSlot = slots[0];
-        console.log(firstSlot);
-        this.setTextContent("Fist slot: " + JSON.stringify(firstSlot));
+        setAvailability(newValue)
       } else { console.log("No client") }
     }
   }
@@ -53,6 +49,7 @@ class MyCustomElement extends HTMLElement {
       modules: { bookings },
     });
     console.log(`createClient`, wixClient)
+    setAvailability(this.getAttribute('bookingsserviceid'))
   }
 
   setColor(color) {
@@ -61,6 +58,14 @@ class MyCustomElement extends HTMLElement {
 
   setTextContent(text) {
     this.textElement.textContent = text || '';
+  }
+
+  async setAvailability(serviceId) {
+    const availability = await wixClient.bookings.getServiceAvailability(serviceId);
+    let slots = availability.slots;
+    let firstSlot = slots[0];
+    console.log(firstSlot);
+    this.setTextContent("Fist slot: " + JSON.stringify(firstSlot));
   }
 }
 
