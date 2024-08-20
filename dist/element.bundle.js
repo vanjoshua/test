@@ -1827,7 +1827,7 @@ class MyCustomElement extends HTMLElement {
 
     // Set the initial color and text content
     this.setColor(this.getAttribute('color'));
-    this.setTextContent("init");
+    this.setTextContent("...");
 
   }
 
