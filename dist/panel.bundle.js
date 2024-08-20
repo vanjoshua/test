@@ -5459,6 +5459,9 @@ var __webpack_exports__ = {};
   !*** ./src/panel.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   updateColor: () => (/* binding */ updateColor)
+/* harmony export */ });
 /* harmony import */ var _wix_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wix/editor */ "./node_modules/@wix/editor/dist/esm/index.js");
 /* harmony import */ var _wix_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/sdk */ "./node_modules/@wix/sdk/build/wixClient.js");
 console.log('before import');
@@ -5480,5 +5483,6 @@ function updateColor(color) {
     console.log("update color")
     client.widget.setProp('color', color);
 };
+
 /******/ })()
 ;

@@ -13,7 +13,7 @@ const client = createClient({
     },
 });
 
-function updateColor(color) {
+export function updateColor(color) {
     console.log("update color")
     client.widget.setProp('color', color);
 };
