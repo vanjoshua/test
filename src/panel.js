@@ -6,10 +6,10 @@ const client = createClient({
     host: editor.host(),
     modules: {
         widget,
-        info
     },
 });
 
 function updateColor(color) {
+    console.log("update color")
     client.widget.setProp('color', color);
 };
