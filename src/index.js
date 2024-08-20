@@ -12,7 +12,7 @@ class MyCustomElement extends HTMLElement {
   setTextContent(text) {
     this.textElement.textContent = text || '';
   }
-  
+
   connectedCallback() {
     // Create a shadow root
     this.attachShadow({ mode: 'open' });
@@ -44,7 +44,7 @@ class MyCustomElement extends HTMLElement {
       this.setColor(newValue);
     } else if (name === 'bookingsserviceid' && oldValue !== newValue) {
       if (wixClient) {
-        setAvailability(newValue)
+        this.setAvailability(newValue)
       } else { console.log("No client") }
     }
   }
