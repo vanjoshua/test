@@ -397,39 +397,40 @@
   resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@webpack-cli/serve/-/serve-2.0.5.tgz#325db42395cd49fe6c14057f9a900e427df8810e"
   integrity sha512-lqaoKnRYBdo1UgDX8uF24AfGMifWK19TxPmM5FHc2vAGxrJ/qtyUyFBWoY1tISZdelsQ5fBcOusifo5o5wSJxQ==
 
-"@wix/editor-application-context@1.249.0":
-  version "1.249.0"
-  resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/editor-application-context/-/editor-application-context-1.249.0.tgz#5ccab9f3cfd47fc0de1fb251cc4c21e3dc1e2028"
-  integrity sha512-sDeM3yUH/wPpu7kYZs8Cz2uq9IcsQTM4gQl0L4DjvOPTj5fZMylSSJ0WcnPufUGZRcvLbfmxsRN4WjNzdW3JKQ==
+"@wix/editor-application-context@1.262.0":
+  version "1.262.0"
+  resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/editor-application-context/-/editor-application-context-1.262.0.tgz#5ead0e7c1d5118a3d46ff093be2ea910bdc6db20"
+  integrity sha512-4wNrP+3/xKQjcCgYPgiZz3EgsGMcZbuADgomvZtusdsb8NSRoVVVB8nryS6T25FegabUUtyF8T49Rxqbnd73CA==
   dependencies:
-    "@wix/editor-platform-transport" "1.8.0"
+    "@wix/editor-platform-transport" "1.9.0"
     "@wix/public-editor-platform-errors" "1.8.0"
     "@wix/public-editor-platform-events" "1.295.0"
     "@wix/public-editor-platform-interfaces" "1.7.0"
 
-"@wix/editor-application@1.326.0":
-  version "1.326.0"
-  resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/editor-application/-/editor-application-1.326.0.tgz#796c0573c4fe481fd0a57c47ef53a789cdf14879"
-  integrity sha512-+4+QU7JSdhXj+0xsYwINoYH/WYM3S3Au4rK+xlZ0vN8L7LTKdb0wpC0ySx++Eu9EtdLgb3f0CaQqHXMptP14NA==
+"@wix/editor-application@1.339.0":
+  version "1.339.0"
+  resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/editor-application/-/editor-application-1.339.0.tgz#67000abf510d9b6cfba9d6e33861a611f8d209f5"
+  integrity sha512-Bc982HoJRJEMDjVfznUoBcRgvw+iryFnbZwnwRHRFcWPj8R6apOjiM+xdMa992cobv323GJ36CYrQihbTYdT1A==
   dependencies:
-    "@wix/editor-platform-transport" "1.8.0"
+    "@wix/editor-platform-transport" "1.9.0"
     "@wix/public-editor-platform-errors" "1.8.0"
     "@wix/public-editor-platform-events" "1.295.0"
     "@wix/public-editor-platform-interfaces" "1.7.0"
+    "@wix/sdk" "1.12.9"
 
-"@wix/editor-platform-transport@1.8.0":
-  version "1.8.0"
-  resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/editor-platform-transport/-/editor-platform-transport-1.8.0.tgz#4d3345fce197679e1ad42e071379c513c8fc8c87"
-  integrity sha512-rSpmn7heN3LEMLkNM+Slbos9yVUO94Fg6LmRZrJMq9yGeP1G9b2sNiJ013yEqRKaHgQM4irmPgz4BU/PfVmGOQ==
+"@wix/editor-platform-transport@1.9.0":
+  version "1.9.0"
+  resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/editor-platform-transport/-/editor-platform-transport-1.9.0.tgz#4b413903e7253fe9fbdf717b8e09bb8ff00ae384"
+  integrity sha512-mkq+ZEx3xcOvrs4hDtdZ8wWszFR8dmd5Gt7R8j65JDIHsOBbM3QzFuJF1SuxS5lKsLEotYuSZ4mPrwcxdHP7mw==
 
-"@wix/editor@^1.304.0":
-  version "1.304.0"
-  resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/editor/-/editor-1.304.0.tgz#46fae9b1789adc74081bdb0ede8a1691a0bd1a67"
-  integrity sha512-0JaWr0Ki38hq8wEXMjHnXQRdlqz7R9ASVvQSbunBZOWIDPMcBhUH59DeATq0rJ+qc4pTc4pThRw3tvVI9nakTQ==
+"@wix/editor@^1.307.0":
+  version "1.307.0"
+  resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/editor/-/editor-1.307.0.tgz#6e018ba2ebe87976734ac035596c205d67e76363"
+  integrity sha512-KTodlzSdpmiEJBofLNpiXbOLJXX0YI7ta97DvlzPZ6FSKSiU8WK0UyAP1/qC4U7PgvSlflZ0pYhfoRhDULT0LA==
   dependencies:
-    "@wix/editor-application" "1.326.0"
-    "@wix/editor-application-context" "1.249.0"
-    "@wix/editor-platform-transport" "1.8.0"
+    "@wix/editor-application" "1.339.0"
+    "@wix/editor-application-context" "1.262.0"
+    "@wix/editor-platform-transport" "1.9.0"
     "@wix/public-editor-platform-errors" "1.8.0"
     "@wix/public-editor-platform-interfaces" "1.7.0"
     "@wix/sdk-runtime" "^0.3.16"
@@ -494,7 +495,7 @@
     "@wix/sdk-runtime" "^0.2.10"
     "@wix/sdk-types" "^1.5.11"
 
-"@wix/image-kit@^1.78.0":
+"@wix/image-kit@^1.77.0", "@wix/image-kit@^1.78.0":
   version "1.80.0"
   resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/image-kit/-/image-kit-1.80.0.tgz#f417214e5d005ae20506da7d2eaa263f40ca2293"
   integrity sha512-dnnXINbqD0kUK0Q/oScpWuyRb/U40liSmtKgLXWPV3yIQwng+UV+tpqIMICCAtI4ZKDtwKmKHr0rSjaRqqEKyA==
@@ -633,6 +634,14 @@
   resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/sdk-context/-/sdk-context-0.0.1.tgz#8c1436d382b720f80e72dd0c1c4e0576b6ab3fec"
   integrity sha512-ziSzrceUC0KFn4IJIVBn1cXXKrZ49ZKG5tQ6fl+TpontyUw5p/Z4VofFUUsnqNl9JYCpYNTzIXpzwok93Vrl8A==
 
+"@wix/sdk-runtime@0.3.14":
+  version "0.3.14"
+  resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/sdk-runtime/-/sdk-runtime-0.3.14.tgz#0cad6f2924da8759f19b4422e5489364f7b314dd"
+  integrity sha512-Jcla+79MCicbAS3KXqYnxPDA2cXxpkyo27vtJtIalNbppF+2YDmEu7BwXMj6rvNXTrk8hcxgRLs8ga840AWa7A==
+  dependencies:
+    "@wix/sdk-context" "^0.0.1"
+    "@wix/sdk-types" "^1.9.2"
+
 "@wix/sdk-runtime@0.3.16", "@wix/sdk-runtime@^0.3.11", "@wix/sdk-runtime@^0.3.16":
   version "0.3.16"
   resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/sdk-runtime/-/sdk-runtime-0.3.16.tgz#fca3c7661fa296c29623a40ddee665a1c6bb8691"
@@ -652,6 +661,27 @@
   version "1.9.3"
   resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/sdk-types/-/sdk-types-1.9.3.tgz#f80a296f460d84314f8ef2d72caaf2c212ca5748"
   integrity sha512-qJBeONESQ1CwCewtFp8vJqPAqPczkrUlcae+VY2WGLesDzyZoIRxTnHJloV3LkvBti5JTdUQK7OoJDz+0gLN8g==
+
+"@wix/sdk@1.12.9":
+  version "1.12.9"
+  resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/sdk/-/sdk-1.12.9.tgz#da92751ae7d741134ef1ea76d331e3b13c3c50a1"
+  integrity sha512-gJSSIqaCxNvzPlS8QGVsRUwkGqJwuUqZyU0fikM2AgL4pNpjouoGgbLnz+PjubkPHl+IiSv9cJEIBJFHGaBSSQ==
+  dependencies:
+    "@babel/runtime" "^7.23.2"
+    "@wix/identity" "^1.0.78"
+    "@wix/image-kit" "^1.77.0"
+    "@wix/redirects" "^1.0.41"
+    "@wix/sdk-context" "^0.0.1"
+    "@wix/sdk-runtime" "0.3.14"
+    "@wix/sdk-types" "^1.9.2"
+    crypto-js "^4.2.0"
+    jose "^5.2.1"
+    nanoevents "^9.0.0"
+    pkce-challenge "^3.1.0"
+    querystring "^0.2.1"
+    type-fest "^4.9.0"
+  optionalDependencies:
+    graphql "^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0"
 
 "@wix/sdk@^1.12.12":
   version "1.12.12"
@@ -1891,6 +1921,11 @@ multicast-dns@^7.2.5:
   dependencies:
     dns-packet "^5.2.2"
     thunky "^1.0.2"
+
+nanoevents@^9.0.0:
+  version "9.0.0"
+  resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/nanoevents/-/nanoevents-9.0.0.tgz#c44fa7dde1615ac092023d5c881a3ee0b0a8c8fd"
+  integrity sha512-X8pU7IOpgKXVLPxYUI55ymXc8XuBE+uypfEyEFBtHkD1EX9KavYTVc+vXZHFyHKzA1TaZoVDqklLdQBBrxIuAw==
 
 negotiator@0.6.3:
   version "0.6.3"
