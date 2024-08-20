@@ -65,7 +65,7 @@ class MyCustomElement extends HTMLElement {
       const slots = availability.slots;
       const firstSlot = slots[0];
       console.log(firstSlot);
-      this.setTextContent("Fist available slot: " + JSON.stringify(firstSlot));
+      this.setTextContent("Fist available slot: " + JSON.stringify(firstSlot.startDateTime));
     } catch (error) {
       console.error("Error fetching availability:", error);
       // Handle the error appropriately, e.g., display an error message to the user
