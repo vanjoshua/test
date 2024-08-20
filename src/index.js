@@ -13,6 +13,14 @@ async function setAvailability(serviceId) {
   this.setTextContent("Fist slot: " + JSON.stringify(firstSlot));
 }
 
+function setColor(color) {
+  this.container.style.backgroundColor = color || 'gray';
+}
+
+function setTextContent(text) {
+  this.textElement.textContent = text || '';
+}
+
 class MyCustomElement extends HTMLElement {
   connectedCallback() {
     // Create a shadow root
@@ -28,8 +36,8 @@ class MyCustomElement extends HTMLElement {
     this.container.appendChild(this.textElement);
 
     // Set the initial color and text content
-    this.setColor(this.getAttribute('color'));
-    this.setTextContent("init");
+    setColor(this.getAttribute('color'));
+    setTextContent("init");
 
     // Handle wixClient initialization as needed (adjust based on your requirements)
     // ...
@@ -59,15 +67,6 @@ class MyCustomElement extends HTMLElement {
     console.log(`createClient`, wixClient)
     setAvailability(this.getAttribute('bookingsserviceid'))
   }
-
-  setColor(color) {
-    this.container.style.backgroundColor = color || 'gray';
-  }
-
-  setTextContent(text) {
-    this.textElement.textContent = text || '';
-  }
-
 
 }
 
