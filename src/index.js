@@ -6,7 +6,7 @@ let wixClient;
 
 class MyCustomElement extends HTMLElement {
   setColor(color) {
-    this.container.style.backgroundColor = color || 'gray';
+    this.container.style.backgroundColor = color || 'white';
   }
 
   setTextContent(text) {
@@ -24,6 +24,7 @@ class MyCustomElement extends HTMLElement {
 
     // Create a container for the text content
     this.textElement = document.createElement('span');
+    this.textElement.style.fontSize = '18px';
     this.container.appendChild(this.textElement);
 
     // Set the initial color and text content
@@ -70,7 +71,7 @@ class MyCustomElement extends HTMLElement {
         "en-US",
         options,
       );
-      this.setTextContent("Fist available slot: " + firstSlotDate);
+      this.setTextContent("Next availability: " + firstSlotDate);
     } catch (error) {
       console.error("Error fetching availability:", error);
       // Handle the error appropriately, e.g., display an error message to the user
