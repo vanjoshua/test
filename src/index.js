@@ -37,7 +37,7 @@ class MyCustomElement extends HTMLElement {
       this.setColor(newValue);
     } else if (name === 'bookingsserviceid' && oldValue !== newValue) {
       if (wixClient) {
-        const availability = await wixClient.bookings.getServiceAvailability(bookingsserviceid);
+        const availability = await wixClient.bookings.getServiceAvailability(newValue);
         let slots = availability.slots;
         let firstSlot = slots[0];
         console.log(firstSlot);
