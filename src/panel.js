@@ -1,6 +1,10 @@
+console.log('before import');
+
 import { editor } from '@wix/editor';
 import { createClient } from '@wix/sdk';
 import { widget } from '@wix/editor';
+
+console.log('after import');
 
 const client = createClient({
     host: editor.host(),
