@@ -2,24 +2,7 @@ import { createClient } from "@wix/sdk";
 import { site } from "@wix/site";
 import { bookings } from "@wix/site-bookings";
 
-
 let wixClient;
-
-async function setAvailability(serviceId) {
-  const availability = await wixClient.bookings.getServiceAvailability(serviceId);
-  let slots = availability.slots;
-  let firstSlot = slots[0];
-  console.log(firstSlot);
-  setTextContent("Fist available slot: " + JSON.stringify(firstSlot));
-}
-
-function setColor(color) {
-  this.container.style.backgroundColor = color || 'gray';
-}
-
-function setTextContent(text) {
-  this.textElement.textContent = text || '';
-}
 
 class MyCustomElement extends HTMLElement {
   connectedCallback() {
@@ -36,8 +19,8 @@ class MyCustomElement extends HTMLElement {
     this.container.appendChild(this.textElement);
 
     // Set the initial color and text content
-    setColor(this.getAttribute('color'));
-    setTextContent("init");
+    this.setColor(this.getAttribute('color'));
+    this.setTextContent("init");
 
     // Handle wixClient initialization as needed (adjust based on your requirements)
     // ...
@@ -67,7 +50,22 @@ class MyCustomElement extends HTMLElement {
     console.log(`createClient`, wixClient)
     setAvailability(this.getAttribute('bookingsserviceid'))
   }
+  
+  async setAvailability(serviceId) {
+    const availability = await wixClient.bookings.getServiceAvailability(serviceId);
+    let slots = availability.slots;
+    let firstSlot = slots[0];
+    console.log(firstSlot);
+    this.setTextContent("Fist available slot: " + JSON.stringify(firstSlot));
+  }
 
+  setColor(color) {
+    this.container.style.backgroundColor = color || 'gray';
+  }
+
+  setTextContent(text) {
+    this.textElement.textContent = text || '';
+  }
 }
 
 customElements.define('ce-josh', MyCustomElement);
