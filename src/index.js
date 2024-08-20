@@ -56,7 +56,7 @@ class MyCustomElement extends HTMLElement {
       modules: { bookings },
     });
     console.log(`createClient`, wixClient)
-    setAvailability(this.getAttribute('bookingsserviceid'))
+    this.setAvailability(this.getAttribute('bookingsserviceid'))
   }
 
   async setAvailability(serviceId) {
