@@ -1810,6 +1810,7 @@ class MyCustomElement extends HTMLElement {
 
     // Create a container for the content
     this.container = document.createElement('div');
+    this.container.style.borderRadius = '10px';
     this.container.style.padding = '10px';
     this.shadowRoot.appendChild(this.container);
 
@@ -1828,8 +1829,6 @@ class MyCustomElement extends HTMLElement {
     this.setColor(this.getAttribute('color'));
     this.setTextContent("init");
 
-    // Handle wixClient initialization as needed (adjust based on your requirements)
-    // ...
   }
 
   static get observedAttributes() {
