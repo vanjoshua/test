@@ -60,11 +60,17 @@ class MyCustomElement extends HTMLElement {
   }
 
   async setAvailability(serviceId) {
-    const availability = await wixClient.bookings.getServiceAvailability(serviceId);
-    let slots = availability.slots;
-    let firstSlot = slots[0];
-    console.log(firstSlot);
-    this.setTextContent("Fist available slot: " + JSON.stringify(firstSlot));
+    try {
+      const availability = await wixClient.bookings.getServiceAvailability(serviceId);
+      const slots = availability.slots;
+      const firstSlot = slots[0];
+      console.log(firstSlot);
+      this.setTextContent("Fist available slot: " + JSON.stringify(firstSlot));
+    } catch (error) {
+      console.error("Error fetching availability:", error);
+      // Handle the error appropriately, e.g., display an error message to the user
+      this.setTextContent("Error fetching availability");
+    }
   }
 }
 
