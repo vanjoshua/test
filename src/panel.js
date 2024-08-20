@@ -10,6 +10,6 @@ const client = createClient({
     },
 });
 
-window.updateColor = function (color) {
+function updateColor(color) {
     client.widget.setProp('color', color);
 };
