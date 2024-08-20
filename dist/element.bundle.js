@@ -1815,7 +1815,13 @@ class MyCustomElement extends HTMLElement {
 
     // Create a container for the text content
     this.textElement = document.createElement('h2');
-    // this.textElement.style.fontSize = '18px';
+
+    const root = document.documentElement;
+    const font = getComputedStyle(root).getPropertyValue('--wst-font-style-h2');
+    console.log(font); // Output: the value of the CSS variable
+
+    this.textElement.style.font = font;
+
     this.container.appendChild(this.textElement);
 
     // Set the initial color and text content
