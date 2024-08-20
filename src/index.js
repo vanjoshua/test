@@ -5,6 +5,14 @@ import { bookings } from "@wix/site-bookings";
 let wixClient;
 
 class MyCustomElement extends HTMLElement {
+  setColor(color) {
+    this.container.style.backgroundColor = color || 'gray';
+  }
+
+  setTextContent(text) {
+    this.textElement.textContent = text || '';
+  }
+  
   connectedCallback() {
     // Create a shadow root
     this.attachShadow({ mode: 'open' });
@@ -50,21 +58,13 @@ class MyCustomElement extends HTMLElement {
     console.log(`createClient`, wixClient)
     setAvailability(this.getAttribute('bookingsserviceid'))
   }
-  
+
   async setAvailability(serviceId) {
     const availability = await wixClient.bookings.getServiceAvailability(serviceId);
     let slots = availability.slots;
     let firstSlot = slots[0];
     console.log(firstSlot);
     this.setTextContent("Fist available slot: " + JSON.stringify(firstSlot));
-  }
-
-  setColor(color) {
-    this.container.style.backgroundColor = color || 'gray';
-  }
-
-  setTextContent(text) {
-    this.textElement.textContent = text || '';
   }
 }
 
