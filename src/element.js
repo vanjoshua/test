@@ -23,8 +23,8 @@ class MyCustomElement extends HTMLElement {
     this.shadowRoot.appendChild(this.container);
 
     // Create a container for the text content
-    this.textElement = document.createElement('span');
-    this.textElement.style.fontSize = '18px';
+    this.textElement = document.createElement('h2');
+    // this.textElement.style.fontSize = '18px';
     this.container.appendChild(this.textElement);
 
     // Set the initial color and text content
