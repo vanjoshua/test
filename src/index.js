@@ -10,7 +10,7 @@ async function setAvailability(serviceId) {
   let slots = availability.slots;
   let firstSlot = slots[0];
   console.log(firstSlot);
-  setTextContent("Fist slot: " + JSON.stringify(firstSlot));
+  setTextContent("Fist available slot: " + JSON.stringify(firstSlot));
 }
 
 function setColor(color) {
