@@ -79,7 +79,6 @@ class MyCustomElement extends HTMLElement {
       this.setTextContent("Next availability: " + firstSlotDate);
     } catch (error) {
       console.error("Error fetching availability:", error);
-      // Handle the error appropriately, e.g., display an error message to the user
       this.setTextContent("Error fetching availability");
     }
   }
