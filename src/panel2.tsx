@@ -31,94 +31,43 @@ function App() {
   const [colorValue, setColorValue] = useState("\n\n\n");
   const [activeId, setActiveId] = React.useState(0);
 
-  type TabContent = {
-    [key in number]: React.JSX.Element;
-  };
-
-  const tabContent: TabContent = {
-    0: (
-      <>
-        <SectionHeader title="Native color picker" skin="neutral" />
-        <SidePanel.Field>
-          <FormField>
-            <ColorInput value={color} />
-          </FormField>
-        </SidePanel.Field>
-        <SectionHeader title="Editor SDK" skin="neutral" />
-        <SidePanel.Field>
-          <FormField>
-            <Box marginBottom="SP2">
-              <Button
-                onClick={(event) => {
-                  selectColor({ theme: "color_37" }, (c) => {
-                    setColorValue(JSON.stringify(c, null, 2));
-                    if (c.theme !== null) {
-                      const themeVar = `rgb(var(--${c.theme}))`;
-                      console.log(themeVar);
-                      setProp("color", themeVar);
-                    } else setProp("color", c.color);
-                  });
-                }}
-              >
-                Select Color
-              </Button>
-            </Box>
-          </FormField>
-          <FormField>
-            <Text size="small">Returned value:</Text>
-            <Box border="1px dotted" padding="SP1" marginTop="SP2">
-              <Text size="tiny">{colorValue}</Text>
-            </Box>
-          </FormField>
-        </SidePanel.Field>
-      </>
-    ),
-    1: (
-      <SidePanel.Field>
-        <FormField>
-          <Box marginBottom="SP2">
-            <Button
-              onClick={(event) => {
-                selectFont(
-                  {
-                    family: "arial",
-                    style: {},
-                  },
-                  { fontMinSize: 10, fontMaxSize: 30 },
-                  (f) => {
-                    setFontValue(JSON.stringify(f, null, 2));
-                  }
-                );
-              }}
-            >
-              Select Font
-            </Button>
-          </Box>
-        </FormField>
-        <FormField>
-          <Text size="small">Returned value:</Text>
-          <Box border="1px dotted" padding="SP1" marginTop="SP2">
-            <Text size="tiny">{fontValue}</Text>
-          </Box>
-        </FormField>
-      </SidePanel.Field>
-    ),
-  } as const;
-
   return (
     <WixDesignSystemProvider features={{ newColorsBranding: true }}>
       <SidePanel width="300">
         <SidePanel.Content noPadding stretchVertically>
-          <Tabs
-            size="small"
-            activeId={activeId}
-            onClick={(value) => setActiveId(value.id as number)}
-            items={[
-              { id: 0, title: "Color" },
-              { id: 1, title: "Font" },
-            ]}
-          />
-          {tabContent[activeId]}
+          <SectionHeader title="Native color picker" skin="neutral" />
+          <SidePanel.Field>
+            <FormField>
+              <ColorInput value={color} />
+            </FormField>
+          </SidePanel.Field>
+          <SectionHeader title="Editor SDK" skin="neutral" />
+          <SidePanel.Field>
+            <FormField>
+              <Box marginBottom="SP2">
+                <Button
+                  onClick={(event) => {
+                    selectColor({ theme: "color_37" }, (c) => {
+                      setColorValue(JSON.stringify(c, null, 2));
+                      if (c.theme !== null) {
+                        const themeVar = `rgb(var(--${c.theme}))`;
+                        console.log(themeVar);
+                        setProp("color", themeVar);
+                      } else setProp("color", c.color);
+                    });
+                  }}
+                >
+                  Select Color
+                </Button>
+              </Box>
+            </FormField>
+            <FormField>
+              <Text size="small">Returned value:</Text>
+              <Box border="1px dotted" padding="SP1" marginTop="SP2">
+                <Text size="tiny">{colorValue}</Text>
+              </Box>
+            </FormField>
+          </SidePanel.Field>
         </SidePanel.Content>
       </SidePanel>
     </WixDesignSystemProvider>
