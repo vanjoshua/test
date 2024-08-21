@@ -22,15 +22,16 @@ const client = createClient({
   },
 });
 
-let initColor: string;
-
-client.widget.getProp("color").then((c) => {
-  initColor = c;
-});
-
 function App() {
+  let initColor= "white";
+  client.widget.getProp("color").then((c) => {
+    initColor = c;
+  });
+  
   const [color, setColor] = useState(initColor);
   const [colorValue, setColorValue] = useState("\n\n\n");
+
+
 
   return (
     <WixDesignSystemProvider features={{ newColorsBranding: true }}>
