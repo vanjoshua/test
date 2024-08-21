@@ -29,7 +29,7 @@ function App() {
     initColor = c;
   });
   
-  const [color, setColor] = useState(initColor);
+  const [color, setColor] = useState(initColor.toString());
   const [colorValue, setColorValue] = useState("\n\n\n");
 
 
