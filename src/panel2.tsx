@@ -17,12 +17,19 @@ import "@wix/design-system/styles.global.css";
 const client = createClient({
   host: editor.host(),
   modules: {
-    widget, inputs
+    widget,
+    inputs,
   },
 });
 
+let initColor: string;
+
+client.widget.getProp("color").then((c) => {
+  initColor = c;
+});
+
 function App() {
-  const [color, setColor] = useState("#000000");
+  const [color, setColor] = useState(initColor);
   const [colorValue, setColorValue] = useState("\n\n\n");
 
   return (
@@ -32,7 +39,13 @@ function App() {
           <SectionHeader title="Native color picker" skin="neutral" />
           <SidePanel.Field>
             <FormField>
-              <ColorInput value={color} onChange={(e) => {client.widget.setProp("color", 'purple');}}/>
+              <ColorInput
+                value={color}
+                onChange={(c) => {
+                  setColor(c.toString());
+                  client.widget.setProp("color", c.toString());
+                }}
+              />
             </FormField>
           </SidePanel.Field>
           <SectionHeader title="Editor SDK" skin="neutral" />
