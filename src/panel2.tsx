@@ -25,6 +25,7 @@ const client = createClient({
 function App() {
   let initColor= "white";
   client.widget.getProp("color").then((c) => {
+    console.log("Initial color: ", c);
     initColor = c;
   });
   
