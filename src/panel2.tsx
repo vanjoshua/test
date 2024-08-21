@@ -1,4 +1,4 @@
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import React, { useState, useEffect } from "react";
 import { WixProvider, useWixModules } from "@wix/sdk-react";
 import { createClient } from "@wix/sdk";
@@ -32,3 +32,6 @@ function App() {
     </WixDesignSystemProvider>
   );
 }
+
+const entryPoint = document.getElementById("root")!;
+ReactDOM.createRoot(entryPoint).render(<App />);
