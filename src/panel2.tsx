@@ -10,7 +10,6 @@ import {
   Button,
   FormField,
   Text,
-  Tabs,
   SectionHeader,
   Box,
 } from "@wix/design-system";
@@ -47,14 +46,8 @@ function App() {
               <Box marginBottom="SP2">
                 <Button
                   onClick={(event) => {
-                    selectColor({ theme: "color_37" }, (c) => {
-                      setColorValue(JSON.stringify(c, null, 2));
-                      if (c.theme !== null) {
-                        const themeVar = `rgb(var(--${c.theme}))`;
-                        console.log(themeVar);
-                        setProp("color", themeVar);
-                      } else setProp("color", c.color);
-                    });
+                   
+                  
                   }}
                 >
                   Select Color
