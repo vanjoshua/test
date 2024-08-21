@@ -1,7 +1,7 @@
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
 import React, { useState, useEffect } from "react";
 import { WixProvider, useWixModules } from "@wix/sdk-react";
-import { createClient } from '@wix/sdk';
+import { createClient } from "@wix/sdk";
 import { editor, widget, inputs } from "@wix/editor";
 import {
   SidePanel,
@@ -19,7 +19,7 @@ import "@wix/design-system/styles.global.css";
 const client = createClient({
   host: editor.host(),
   modules: {
-      widget,
+    widget,
   },
 });
 
@@ -106,31 +106,25 @@ function Panel() {
   } as const;
 
   return (
-    <SidePanel width="300">
-      <SidePanel.Content noPadding stretchVertically>
-        <Tabs
-          size="small"
-          activeId={activeId}
-          onClick={(value) => setActiveId(value.id as number)}
-          items={[
-            { id: 0, title: "Color" },
-            { id: 1, title: "Font" },
-          ]}
-        />
-        {tabContent[activeId]}
-      </SidePanel.Content>
-    </SidePanel>
+    <WixDesignSystemProvider features={{ newColorsBranding: true }}>
+      <SidePanel width="300">
+        <SidePanel.Content noPadding stretchVertically>
+          <Tabs
+            size="small"
+            activeId={activeId}
+            onClick={(value) => setActiveId(value.id as number)}
+            items={[
+              { id: 0, title: "Color" },
+              { id: 1, title: "Font" },
+            ]}
+          />
+          {tabContent[activeId]}
+        </SidePanel.Content>
+      </SidePanel>
+    </WixDesignSystemProvider>
   );
 }
 
-export default () => (
-  <WixProvider host={editor.host()} auth={editor.auth()}>
-    <WixDesignSystemProvider>
-      <Panel />
-    </WixDesignSystemProvider>
-  </WixProvider>
-);
-
 // @ts-ignore
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<Panel />);
