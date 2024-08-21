@@ -19,6 +19,10 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/
       },
+      {
+        test: /\.css$/, // This rule matches all CSS files
+        use: ['style-loader', 'css-loader'] // Use both style-loader and css-loader
+      },
     ]
   },
 };
