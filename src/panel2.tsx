@@ -32,7 +32,7 @@ function App() {
           <SectionHeader title="Native color picker" skin="neutral" />
           <SidePanel.Field>
             <FormField>
-              <ColorInput value={color} />
+              <ColorInput value={color} onChange={(e) => {client.widget.setProp("color", 'purple');}}/>
             </FormField>
           </SidePanel.Field>
           <SectionHeader title="Editor SDK" skin="neutral" />
@@ -40,7 +40,7 @@ function App() {
             <FormField>
               <Box marginBottom="SP2">
                 <Button
-                  onClick={(event) => {
+                  onClick={() => {
                     client.inputs.selectColor({ theme: "color_37" }, (c) => {
                       setColorValue(JSON.stringify(c, null, 2));
                       if (c.theme !== null) {
