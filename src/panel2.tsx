@@ -1,6 +1,5 @@
 import ReactDOM from "react-dom/client";
 import React, { useState, useEffect } from "react";
-import { WixProvider, useWixModules } from "@wix/sdk-react";
 import { createClient } from "@wix/sdk";
 import { editor, widget, inputs } from "@wix/editor";
 import {
@@ -18,17 +17,13 @@ import "@wix/design-system/styles.global.css";
 const client = createClient({
   host: editor.host(),
   modules: {
-    widget,
+    widget, inputs
   },
 });
 
 function App() {
-  const { selectColor, selectFont } = useWixModules(inputs);
-  const { setProp, getProp } = useWixModules(widget);
   const [color, setColor] = useState("#000000");
-  const [fontValue, setFontValue] = useState("\n\n\n");
   const [colorValue, setColorValue] = useState("\n\n\n");
-  const [activeId, setActiveId] = React.useState(0);
 
   return (
     <WixDesignSystemProvider features={{ newColorsBranding: true }}>
@@ -46,8 +41,14 @@ function App() {
               <Box marginBottom="SP2">
                 <Button
                   onClick={(event) => {
-                   
-                  
+                    client.inputs.selectColor({ theme: "color_37" }, (c) => {
+                      setColorValue(JSON.stringify(c, null, 2));
+                      if (c.theme !== null) {
+                        const themeVar = `rgb(var(--${c.theme}))`;
+                        console.log(themeVar);
+                        client.widget.setProp("color", themeVar);
+                      } else client.widget.setProp("color", c.color);
+                    });
                   }}
                 >
                   Select Color
