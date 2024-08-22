@@ -23,18 +23,17 @@ const client = createClient({
 });
 
 function App() {
-  let initColor= "white";
-  client.widget.getProp("color").then((c) => {
-    console.log("Initial color: ", c);
-    initColor = c;
-  });
-  
-  const [color, setColor] = useState(initColor.toString());
-  const [colorValue, setColorValue] = useState("\n\n\n");
+  const [color, setColor] = useState<string | undefined>();
+  const [colorValue, setColorValue] = useState<string | undefined>();
 
+  useEffect(() => {
+    client.widget.getProp("color").then((c) => {
+      console.log("Initial color: ", c);
+      setColor(c);
+    });
+  },[color]);
 
-
-  return (
+  return color ? (
     <WixDesignSystemProvider features={{ newColorsBranding: true }}>
       <SidePanel width="300">
         <SidePanel.Content noPadding stretchVertically>
@@ -80,7 +79,7 @@ function App() {
         </SidePanel.Content>
       </SidePanel>
     </WixDesignSystemProvider>
-  );
+  ) : null;
 }
 
 const entryPoint = document.getElementById("root")!;
