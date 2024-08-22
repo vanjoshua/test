@@ -31,7 +31,7 @@ function App() {
       console.log("Initial color: ", c);
       setColor(c);
     });
-  },[color]);
+  },[]);
 
   return color ? (
     <WixDesignSystemProvider features={{ newColorsBranding: true }}>
