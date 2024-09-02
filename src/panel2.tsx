@@ -29,7 +29,7 @@ function App() {
   useEffect(() => {
     client.widget.getProp("color").then((c) => {
       console.log("Initial color: ", c);
-      c = c || "";
+      c = c || "white";
       setColor(c);
     });
   },[]);
