@@ -1847,6 +1847,7 @@ class MyCustomElement extends HTMLElement {
   }
 
   accessTokenListener(accessTokenGetter) {
+    console.log("listener called")
     wixClient = (0,_wix_sdk__WEBPACK_IMPORTED_MODULE_0__.createClient)({
       host: _wix_site__WEBPACK_IMPORTED_MODULE_1__.site.host({ applicationId: "7dea53d2-fbd3-463a-990a-22216a7cfb35" }),
       auth: _wix_site__WEBPACK_IMPORTED_MODULE_1__.site.auth(accessTokenGetter),
