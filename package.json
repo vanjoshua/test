@@ -6,6 +6,7 @@
   "author": "joshua-sc <joshua-sc@wix.com>",
   "license": "MIT",
   "dependencies": {
+    "@wix/bookings": "^1.0.429",
     "@wix/design-system": "^1.121.0",
     "@wix/editor": "^1.307.0",
     "@wix/sdk": "^1.12.12",

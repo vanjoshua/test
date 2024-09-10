@@ -1,6 +1,8 @@
 import { createClient } from "@wix/sdk";
 import { site } from "@wix/site";
 import { bookings } from "@wix/site-bookings";
+import { services } from "@wix/bookings";
+
 
 let wixClient;
 
@@ -60,7 +62,7 @@ class MyCustomElement extends HTMLElement {
     wixClient = createClient({
       host: site.host({ applicationId: "7dea53d2-fbd3-463a-990a-22216a7cfb35" }),
       auth: site.auth(accessTokenGetter),
-      modules: { bookings },
+      modules: { bookings, services },
     });
     console.log(`createClient`, wixClient)
     this.setAvailability(this.getAttribute('bookingsserviceid'))
@@ -68,6 +70,9 @@ class MyCustomElement extends HTMLElement {
 
   async setAvailability(serviceId) {
     try {
+      const myService = await wixClient.services.getService(serviceId);
+      console.log("Service object: ", JSON.stringify(myService));
+
       const availability = await wixClient.bookings.getServiceAvailability(serviceId);
       const slots = availability.slots;
       const firstSlot = slots[0];

@@ -1974,7 +1974,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wix_editor_platform_transport__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wix/editor-platform-transport */ "./node_modules/@wix/editor-platform-transport/dist/esm/index.js");
 /* harmony import */ var _wix_editor_application_platform_frame_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/editor-application/platform-frame-api */ "./node_modules/@wix/editor-application/dist/esm/platform-frame-api/index.js");
 /* harmony import */ var _wix_editor_application_platform_worker_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wix/editor-application/platform-worker-api */ "./node_modules/@wix/editor-application/dist/esm/platform-worker-api/index.js");
-/* harmony import */ var _wix_sdk_runtime_host_modules__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wix/sdk-runtime/host-modules */ "./node_modules/@wix/editor/node_modules/@wix/sdk-runtime/build/host-modules.js");
+/* harmony import */ var _wix_sdk_runtime_host_modules__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wix/sdk-runtime/host-modules */ "./node_modules/@wix/sdk-runtime/build/host-modules.js");
 
 
 
@@ -3465,280 +3465,6 @@ function createClient(config) {
 
 /***/ }),
 
-/***/ "./node_modules/@wix/editor/node_modules/@wix/sdk-runtime/build/context-v2.js":
-/*!************************************************************************************!*\
-  !*** ./node_modules/@wix/editor/node_modules/@wix/sdk-runtime/build/context-v2.js ***!
-  \************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   EventDefinition: () => (/* reexport safe */ _wix_sdk_types__WEBPACK_IMPORTED_MODULE_0__.EventDefinition),
-/* harmony export */   ServicePluginDefinition: () => (/* reexport safe */ _wix_sdk_types__WEBPACK_IMPORTED_MODULE_0__.ServicePluginDefinition),
-/* harmony export */   contextualizeEventDefinitionModuleV2: () => (/* binding */ contextualizeEventDefinitionModuleV2),
-/* harmony export */   contextualizeHostModuleV2: () => (/* binding */ contextualizeHostModuleV2),
-/* harmony export */   contextualizeRESTModuleV2: () => (/* binding */ contextualizeRESTModuleV2),
-/* harmony export */   contextualizeSerivcePluginModuleV2: () => (/* binding */ contextualizeSerivcePluginModuleV2)
-/* harmony export */ });
-/* harmony import */ var _wix_sdk_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/sdk-types */ "./node_modules/@wix/sdk-types/build/browser/index.mjs");
-/* harmony import */ var _context_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./context.js */ "./node_modules/@wix/editor/node_modules/@wix/sdk-runtime/build/context.js");
-
-
-
-function contextualizeHostModuleV2(hostModule, props) {
-    return {
-        ...hostModule,
-        ...Object.fromEntries(props.map((prop) => [
-            prop,
-            (...args) => {
-                const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
-                if (!context) {
-                    throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-                }
-                return context
-                    .initWixModules(hostModule)[prop].apply(undefined, args);
-            },
-        ])),
-    };
-}
-function contextualizeRESTModuleV2(restModule, elevated) {
-    return ((...args) => {
-        const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
-        if (!context) {
-            // @ts-expect-error - if there is no context, we want to behave like the original module
-            return restModule.apply(undefined, args);
-        }
-        return (context
-            .initWixModules(restModule, elevated)
-            // @ts-expect-error - we know the args here are meant to be passed to the initalized module
-            .apply(undefined, args));
-    });
-}
-function contextualizeEventDefinitionModuleV2(eventDefinition) {
-    const contextualMethod = ((...args) => {
-        const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
-        if (!context) {
-            // this line should throw, but this would be a breaking change for older SDK versions
-            // this is because in wixClient there's code that calls any function it detects and checks
-            // if it's an ambassador module (see isAmbassadorModule)
-            return () => { };
-        }
-        return context.initWixModules(eventDefinition).apply(undefined, args);
-    });
-    contextualMethod.__type = eventDefinition.__type;
-    contextualMethod.type = eventDefinition.type;
-    contextualMethod.isDomainEvent = eventDefinition.isDomainEvent;
-    contextualMethod.transformations = eventDefinition.transformations;
-    return contextualMethod;
-}
-function contextualizeSerivcePluginModuleV2(servicePlugin) {
-    const contextualMethod = ((...args) => {
-        const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
-        if (!context) {
-            // this line should throw, but this would be a breaking change for older SDK versions
-            // this is because in wixClient there's code that calls any function it detects and checks
-            // if it's an ambassador module (see isAmbassadorModule)
-            return () => { };
-        }
-        return context.initWixModules(servicePlugin).apply(undefined, args);
-    });
-    contextualMethod.__type = servicePlugin.__type;
-    contextualMethod.componentType = servicePlugin.componentType;
-    contextualMethod.methods = servicePlugin.methods;
-    return contextualMethod;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@wix/editor/node_modules/@wix/sdk-runtime/build/context.js":
-/*!*********************************************************************************!*\
-  !*** ./node_modules/@wix/editor/node_modules/@wix/sdk-runtime/build/context.js ***!
-  \*********************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   EventDefinition: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.EventDefinition),
-/* harmony export */   ServicePluginDefinition: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.ServicePluginDefinition),
-/* harmony export */   contextualizeEventDefinitionModule: () => (/* binding */ contextualizeEventDefinitionModule),
-/* harmony export */   contextualizeEventDefinitionModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeEventDefinitionModuleV2),
-/* harmony export */   contextualizeHostModule: () => (/* binding */ contextualizeHostModule),
-/* harmony export */   contextualizeHostModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeHostModuleV2),
-/* harmony export */   contextualizeRESTModule: () => (/* binding */ contextualizeRESTModule),
-/* harmony export */   contextualizeRESTModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeRESTModuleV2),
-/* harmony export */   contextualizeSerivcePluginModule: () => (/* binding */ contextualizeSerivcePluginModule),
-/* harmony export */   contextualizeSerivcePluginModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeSerivcePluginModuleV2),
-/* harmony export */   resolveContext: () => (/* binding */ resolveContext),
-/* harmony export */   runWithoutContext: () => (/* binding */ runWithoutContext)
-/* harmony export */ });
-/* harmony import */ var _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/sdk-context */ "./node_modules/@wix/sdk-context/build/browser/index.mjs");
-/* harmony import */ var _context_v2_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./context-v2.js */ "./node_modules/@wix/editor/node_modules/@wix/sdk-runtime/build/context-v2.js");
-
-function resolveContext() {
-    const oldContext = typeof $wixContext !== 'undefined' && $wixContext.initWixModules
-        ? $wixContext.initWixModules
-        : typeof globalThis.__wix_context__ !== 'undefined' &&
-            globalThis.__wix_context__.initWixModules
-            ? globalThis.__wix_context__.initWixModules
-            : undefined;
-    if (oldContext) {
-        return {
-            // @ts-expect-error
-            initWixModules(modules, elevated) {
-                return runWithoutContext(() => oldContext(modules, elevated));
-            },
-            fetchWithAuth() {
-                throw new Error('fetchWithAuth is not available in this context');
-            },
-            graphql() {
-                throw new Error('graphql is not available in this context');
-            },
-        };
-    }
-    const contextualClient = typeof $wixContext !== 'undefined'
-        ? $wixContext.client
-        : typeof _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client !== 'undefined'
-            ? _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client
-            : typeof globalThis.__wix_context__ !== 'undefined'
-                ? globalThis.__wix_context__.client
-                : undefined;
-    const elevatedClient = typeof $wixContext !== 'undefined'
-        ? $wixContext.elevatedClient
-        : typeof _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient !== 'undefined'
-            ? _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient
-            : typeof globalThis.__wix_context__ !== 'undefined'
-                ? globalThis.__wix_context__.elevatedClient
-                : undefined;
-    if (!contextualClient && !elevatedClient) {
-        return;
-    }
-    return {
-        initWixModules(wixModules, elevated) {
-            if (elevated) {
-                if (!elevatedClient) {
-                    throw new Error('An elevated client is required to use elevated modules. Make sure to initialize the Wix context with an elevated client before using elevated SDK modules');
-                }
-                return runWithoutContext(() => elevatedClient.use(wixModules));
-            }
-            if (!contextualClient) {
-                throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-            }
-            return runWithoutContext(() => contextualClient.use(wixModules));
-        },
-        fetchWithAuth: (urlOrRequest, requestInit) => {
-            if (!contextualClient) {
-                throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-            }
-            return contextualClient.fetchWithAuth(urlOrRequest, requestInit);
-        },
-        async graphql(query, variables, opts) {
-            if (!contextualClient) {
-                throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-            }
-            return contextualClient.graphql(query, variables, opts);
-        },
-    };
-}
-function contextualizeHostModule(hostModule, prop) {
-    return (...args) => {
-        const context = resolveContext();
-        if (!context) {
-            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-        }
-        return context.initWixModules(hostModule)[prop].apply(undefined, args);
-    };
-}
-function contextualizeRESTModule(restModule, expectedArgsLength) {
-    return ((...args) => {
-        const context = resolveContext();
-        if (!context) {
-            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-        }
-        return context
-            .initWixModules(restModule, args[expectedArgsLength]?.suppressAuth ? true : false)
-            .apply(undefined, args);
-    });
-}
-function contextualizeEventDefinitionModule(eventDefinition) {
-    return ((...args) => {
-        const context = resolveContext();
-        if (!context) {
-            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-        }
-        return context.initWixModules(eventDefinition).apply(undefined, args);
-    });
-}
-function contextualizeSerivcePluginModule(servicePlugin) {
-    return ((...args) => {
-        const context = resolveContext();
-        if (!context) {
-            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-        }
-        return context.initWixModules(servicePlugin).apply(undefined, args);
-    });
-}
-
-function runWithoutContext(fn) {
-    const globalContext = globalThis.__wix_context__;
-    const moduleContext = {
-        client: _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client,
-        elevatedClient: _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient,
-    };
-    let closureContext;
-    globalThis.__wix_context__ = undefined;
-    _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client = undefined;
-    _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient = undefined;
-    if (typeof $wixContext !== 'undefined') {
-        closureContext = {
-            client: $wixContext?.client,
-            elevatedClient: $wixContext?.elevatedClient,
-        };
-        delete $wixContext.client;
-        delete $wixContext.elevatedClient;
-    }
-    try {
-        return fn();
-    }
-    finally {
-        globalThis.__wix_context__ = globalContext;
-        _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client = moduleContext.client;
-        _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient = moduleContext.elevatedClient;
-        if (typeof $wixContext !== 'undefined') {
-            $wixContext.client = closureContext.client;
-            $wixContext.elevatedClient = closureContext.elevatedClient;
-        }
-    }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@wix/editor/node_modules/@wix/sdk-runtime/build/host-modules.js":
-/*!**************************************************************************************!*\
-  !*** ./node_modules/@wix/editor/node_modules/@wix/sdk-runtime/build/host-modules.js ***!
-  \**************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   createHostModule: () => (/* binding */ createHostModule)
-/* harmony export */ });
-/* harmony import */ var _context_v2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./context-v2.js */ "./node_modules/@wix/editor/node_modules/@wix/sdk-runtime/build/context-v2.js");
-
-function createHostModule(hostModuleAPI) {
-    return (0,_context_v2_js__WEBPACK_IMPORTED_MODULE_0__.contextualizeHostModuleV2)({
-        __type: 'host',
-        create: (host) => Object.entries(hostModuleAPI).reduce((acc, [key, fn]) => ({
-            ...acc,
-            [key]: fn(host),
-        }), {}),
-    }, Object.keys(hostModuleAPI));
-}
-
-
-/***/ }),
-
 /***/ "./node_modules/@wix/public-editor-platform-errors/dist/esm/index.mjs":
 /*!****************************************************************************!*\
   !*** ./node_modules/@wix/public-editor-platform-errors/dist/esm/index.mjs ***!
@@ -4219,6 +3945,280 @@ __webpack_require__.r(__webpack_exports__);
 // src/index.ts
 var wixContext = {};
 
+
+
+/***/ }),
+
+/***/ "./node_modules/@wix/sdk-runtime/build/context-v2.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@wix/sdk-runtime/build/context-v2.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   EventDefinition: () => (/* reexport safe */ _wix_sdk_types__WEBPACK_IMPORTED_MODULE_0__.EventDefinition),
+/* harmony export */   ServicePluginDefinition: () => (/* reexport safe */ _wix_sdk_types__WEBPACK_IMPORTED_MODULE_0__.ServicePluginDefinition),
+/* harmony export */   contextualizeEventDefinitionModuleV2: () => (/* binding */ contextualizeEventDefinitionModuleV2),
+/* harmony export */   contextualizeHostModuleV2: () => (/* binding */ contextualizeHostModuleV2),
+/* harmony export */   contextualizeRESTModuleV2: () => (/* binding */ contextualizeRESTModuleV2),
+/* harmony export */   contextualizeSerivcePluginModuleV2: () => (/* binding */ contextualizeSerivcePluginModuleV2)
+/* harmony export */ });
+/* harmony import */ var _wix_sdk_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/sdk-types */ "./node_modules/@wix/sdk-types/build/browser/index.mjs");
+/* harmony import */ var _context_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./context.js */ "./node_modules/@wix/sdk-runtime/build/context.js");
+
+
+
+function contextualizeHostModuleV2(hostModule, props) {
+    return {
+        ...hostModule,
+        ...Object.fromEntries(props.map((prop) => [
+            prop,
+            (...args) => {
+                const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
+                if (!context) {
+                    throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
+                }
+                return context
+                    .initWixModules(hostModule)[prop].apply(undefined, args);
+            },
+        ])),
+    };
+}
+function contextualizeRESTModuleV2(restModule, elevated) {
+    return ((...args) => {
+        const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
+        if (!context) {
+            // @ts-expect-error - if there is no context, we want to behave like the original module
+            return restModule.apply(undefined, args);
+        }
+        return (context
+            .initWixModules(restModule, elevated)
+            // @ts-expect-error - we know the args here are meant to be passed to the initalized module
+            .apply(undefined, args));
+    });
+}
+function contextualizeEventDefinitionModuleV2(eventDefinition) {
+    const contextualMethod = ((...args) => {
+        const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
+        if (!context) {
+            // this line should throw, but this would be a breaking change for older SDK versions
+            // this is because in wixClient there's code that calls any function it detects and checks
+            // if it's an ambassador module (see isAmbassadorModule)
+            return () => { };
+        }
+        return context.initWixModules(eventDefinition).apply(undefined, args);
+    });
+    contextualMethod.__type = eventDefinition.__type;
+    contextualMethod.type = eventDefinition.type;
+    contextualMethod.isDomainEvent = eventDefinition.isDomainEvent;
+    contextualMethod.transformations = eventDefinition.transformations;
+    return contextualMethod;
+}
+function contextualizeSerivcePluginModuleV2(servicePlugin) {
+    const contextualMethod = ((...args) => {
+        const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
+        if (!context) {
+            // this line should throw, but this would be a breaking change for older SDK versions
+            // this is because in wixClient there's code that calls any function it detects and checks
+            // if it's an ambassador module (see isAmbassadorModule)
+            return () => { };
+        }
+        return context.initWixModules(servicePlugin).apply(undefined, args);
+    });
+    contextualMethod.__type = servicePlugin.__type;
+    contextualMethod.componentType = servicePlugin.componentType;
+    contextualMethod.methods = servicePlugin.methods;
+    return contextualMethod;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@wix/sdk-runtime/build/context.js":
+/*!********************************************************!*\
+  !*** ./node_modules/@wix/sdk-runtime/build/context.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   EventDefinition: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.EventDefinition),
+/* harmony export */   ServicePluginDefinition: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.ServicePluginDefinition),
+/* harmony export */   contextualizeEventDefinitionModule: () => (/* binding */ contextualizeEventDefinitionModule),
+/* harmony export */   contextualizeEventDefinitionModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeEventDefinitionModuleV2),
+/* harmony export */   contextualizeHostModule: () => (/* binding */ contextualizeHostModule),
+/* harmony export */   contextualizeHostModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeHostModuleV2),
+/* harmony export */   contextualizeRESTModule: () => (/* binding */ contextualizeRESTModule),
+/* harmony export */   contextualizeRESTModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeRESTModuleV2),
+/* harmony export */   contextualizeSerivcePluginModule: () => (/* binding */ contextualizeSerivcePluginModule),
+/* harmony export */   contextualizeSerivcePluginModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeSerivcePluginModuleV2),
+/* harmony export */   resolveContext: () => (/* binding */ resolveContext),
+/* harmony export */   runWithoutContext: () => (/* binding */ runWithoutContext)
+/* harmony export */ });
+/* harmony import */ var _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/sdk-context */ "./node_modules/@wix/sdk-context/build/browser/index.mjs");
+/* harmony import */ var _context_v2_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./context-v2.js */ "./node_modules/@wix/sdk-runtime/build/context-v2.js");
+
+function resolveContext() {
+    const oldContext = typeof $wixContext !== 'undefined' && $wixContext.initWixModules
+        ? $wixContext.initWixModules
+        : typeof globalThis.__wix_context__ !== 'undefined' &&
+            globalThis.__wix_context__.initWixModules
+            ? globalThis.__wix_context__.initWixModules
+            : undefined;
+    if (oldContext) {
+        return {
+            // @ts-expect-error
+            initWixModules(modules, elevated) {
+                return runWithoutContext(() => oldContext(modules, elevated));
+            },
+            fetchWithAuth() {
+                throw new Error('fetchWithAuth is not available in this context');
+            },
+            graphql() {
+                throw new Error('graphql is not available in this context');
+            },
+        };
+    }
+    const contextualClient = typeof $wixContext !== 'undefined'
+        ? $wixContext.client
+        : typeof _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client !== 'undefined'
+            ? _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client
+            : typeof globalThis.__wix_context__ !== 'undefined'
+                ? globalThis.__wix_context__.client
+                : undefined;
+    const elevatedClient = typeof $wixContext !== 'undefined'
+        ? $wixContext.elevatedClient
+        : typeof _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient !== 'undefined'
+            ? _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient
+            : typeof globalThis.__wix_context__ !== 'undefined'
+                ? globalThis.__wix_context__.elevatedClient
+                : undefined;
+    if (!contextualClient && !elevatedClient) {
+        return;
+    }
+    return {
+        initWixModules(wixModules, elevated) {
+            if (elevated) {
+                if (!elevatedClient) {
+                    throw new Error('An elevated client is required to use elevated modules. Make sure to initialize the Wix context with an elevated client before using elevated SDK modules');
+                }
+                return runWithoutContext(() => elevatedClient.use(wixModules));
+            }
+            if (!contextualClient) {
+                throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
+            }
+            return runWithoutContext(() => contextualClient.use(wixModules));
+        },
+        fetchWithAuth: (urlOrRequest, requestInit) => {
+            if (!contextualClient) {
+                throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
+            }
+            return contextualClient.fetchWithAuth(urlOrRequest, requestInit);
+        },
+        async graphql(query, variables, opts) {
+            if (!contextualClient) {
+                throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
+            }
+            return contextualClient.graphql(query, variables, opts);
+        },
+    };
+}
+function contextualizeHostModule(hostModule, prop) {
+    return (...args) => {
+        const context = resolveContext();
+        if (!context) {
+            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
+        }
+        return context.initWixModules(hostModule)[prop].apply(undefined, args);
+    };
+}
+function contextualizeRESTModule(restModule, expectedArgsLength) {
+    return ((...args) => {
+        const context = resolveContext();
+        if (!context) {
+            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
+        }
+        return context
+            .initWixModules(restModule, args[expectedArgsLength]?.suppressAuth ? true : false)
+            .apply(undefined, args);
+    });
+}
+function contextualizeEventDefinitionModule(eventDefinition) {
+    return ((...args) => {
+        const context = resolveContext();
+        if (!context) {
+            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
+        }
+        return context.initWixModules(eventDefinition).apply(undefined, args);
+    });
+}
+function contextualizeSerivcePluginModule(servicePlugin) {
+    return ((...args) => {
+        const context = resolveContext();
+        if (!context) {
+            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
+        }
+        return context.initWixModules(servicePlugin).apply(undefined, args);
+    });
+}
+
+function runWithoutContext(fn) {
+    const globalContext = globalThis.__wix_context__;
+    const moduleContext = {
+        client: _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client,
+        elevatedClient: _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient,
+    };
+    let closureContext;
+    globalThis.__wix_context__ = undefined;
+    _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client = undefined;
+    _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient = undefined;
+    if (typeof $wixContext !== 'undefined') {
+        closureContext = {
+            client: $wixContext?.client,
+            elevatedClient: $wixContext?.elevatedClient,
+        };
+        delete $wixContext.client;
+        delete $wixContext.elevatedClient;
+    }
+    try {
+        return fn();
+    }
+    finally {
+        globalThis.__wix_context__ = globalContext;
+        _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client = moduleContext.client;
+        _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient = moduleContext.elevatedClient;
+        if (typeof $wixContext !== 'undefined') {
+            $wixContext.client = closureContext.client;
+            $wixContext.elevatedClient = closureContext.elevatedClient;
+        }
+    }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@wix/sdk-runtime/build/host-modules.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@wix/sdk-runtime/build/host-modules.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createHostModule: () => (/* binding */ createHostModule)
+/* harmony export */ });
+/* harmony import */ var _context_v2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./context-v2.js */ "./node_modules/@wix/sdk-runtime/build/context-v2.js");
+
+function createHostModule(hostModuleAPI) {
+    return (0,_context_v2_js__WEBPACK_IMPORTED_MODULE_0__.contextualizeHostModuleV2)({
+        __type: 'host',
+        create: (host) => Object.entries(hostModuleAPI).reduce((acc, [key, fn]) => ({
+            ...acc,
+            [key]: fn(host),
+        }), {}),
+    }, Object.keys(hostModuleAPI));
+}
 
 
 /***/ }),
@@ -4741,7 +4741,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _bi_biHeaderGenerator_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./bi/biHeaderGenerator.js */ "./node_modules/@wix/sdk/build/bi/biHeaderGenerator.js");
 /* harmony import */ var _common_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common.js */ "./node_modules/@wix/sdk/build/common.js");
-/* harmony import */ var _wix_sdk_runtime_context__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/sdk-runtime/context */ "./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context.js");
+/* harmony import */ var _wix_sdk_runtime_context__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/sdk-runtime/context */ "./node_modules/@wix/sdk-runtime/build/context.js");
 
 
 
@@ -4939,7 +4939,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _rest_modules_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./rest-modules.js */ "./node_modules/@wix/sdk/build/rest-modules.js");
 /* harmony import */ var _event_handlers_modules_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./event-handlers-modules.js */ "./node_modules/@wix/sdk/build/event-handlers-modules.js");
 /* harmony import */ var _service_plugin_modules_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./service-plugin-modules.js */ "./node_modules/@wix/sdk/build/service-plugin-modules.js");
-/* harmony import */ var _wix_sdk_runtime_context__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wix/sdk-runtime/context */ "./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context.js");
+/* harmony import */ var _wix_sdk_runtime_context__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wix/sdk-runtime/context */ "./node_modules/@wix/sdk-runtime/build/context.js");
 
 
 
@@ -5098,255 +5098,6 @@ function createClient(config) {
         webhooks: eventHandlersClient,
         servicePlugins: servicePluginsClient,
     };
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context-v2.js":
-/*!*********************************************************************************!*\
-  !*** ./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context-v2.js ***!
-  \*********************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   EventDefinition: () => (/* reexport safe */ _wix_sdk_types__WEBPACK_IMPORTED_MODULE_0__.EventDefinition),
-/* harmony export */   ServicePluginDefinition: () => (/* reexport safe */ _wix_sdk_types__WEBPACK_IMPORTED_MODULE_0__.ServicePluginDefinition),
-/* harmony export */   contextualizeEventDefinitionModuleV2: () => (/* binding */ contextualizeEventDefinitionModuleV2),
-/* harmony export */   contextualizeHostModuleV2: () => (/* binding */ contextualizeHostModuleV2),
-/* harmony export */   contextualizeRESTModuleV2: () => (/* binding */ contextualizeRESTModuleV2),
-/* harmony export */   contextualizeSerivcePluginModuleV2: () => (/* binding */ contextualizeSerivcePluginModuleV2)
-/* harmony export */ });
-/* harmony import */ var _wix_sdk_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/sdk-types */ "./node_modules/@wix/sdk-types/build/browser/index.mjs");
-/* harmony import */ var _context_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./context.js */ "./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context.js");
-
-
-
-function contextualizeHostModuleV2(hostModule, props) {
-    return {
-        ...hostModule,
-        ...Object.fromEntries(props.map((prop) => [
-            prop,
-            (...args) => {
-                const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
-                if (!context) {
-                    throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-                }
-                return context
-                    .initWixModules(hostModule)[prop].apply(undefined, args);
-            },
-        ])),
-    };
-}
-function contextualizeRESTModuleV2(restModule, elevated) {
-    return ((...args) => {
-        const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
-        if (!context) {
-            // @ts-expect-error - if there is no context, we want to behave like the original module
-            return restModule.apply(undefined, args);
-        }
-        return (context
-            .initWixModules(restModule, elevated)
-            // @ts-expect-error - we know the args here are meant to be passed to the initalized module
-            .apply(undefined, args));
-    });
-}
-function contextualizeEventDefinitionModuleV2(eventDefinition) {
-    const contextualMethod = ((...args) => {
-        const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
-        if (!context) {
-            // this line should throw, but this would be a breaking change for older SDK versions
-            // this is because in wixClient there's code that calls any function it detects and checks
-            // if it's an ambassador module (see isAmbassadorModule)
-            return () => { };
-        }
-        return context.initWixModules(eventDefinition).apply(undefined, args);
-    });
-    contextualMethod.__type = eventDefinition.__type;
-    contextualMethod.type = eventDefinition.type;
-    contextualMethod.isDomainEvent = eventDefinition.isDomainEvent;
-    contextualMethod.transformations = eventDefinition.transformations;
-    return contextualMethod;
-}
-function contextualizeSerivcePluginModuleV2(servicePlugin) {
-    const contextualMethod = ((...args) => {
-        const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
-        if (!context) {
-            // this line should throw, but this would be a breaking change for older SDK versions
-            // this is because in wixClient there's code that calls any function it detects and checks
-            // if it's an ambassador module (see isAmbassadorModule)
-            return () => { };
-        }
-        return context.initWixModules(servicePlugin).apply(undefined, args);
-    });
-    contextualMethod.__type = servicePlugin.__type;
-    contextualMethod.componentType = servicePlugin.componentType;
-    contextualMethod.methods = servicePlugin.methods;
-    return contextualMethod;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context.js":
-/*!******************************************************************************!*\
-  !*** ./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context.js ***!
-  \******************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   EventDefinition: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.EventDefinition),
-/* harmony export */   ServicePluginDefinition: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.ServicePluginDefinition),
-/* harmony export */   contextualizeEventDefinitionModule: () => (/* binding */ contextualizeEventDefinitionModule),
-/* harmony export */   contextualizeEventDefinitionModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeEventDefinitionModuleV2),
-/* harmony export */   contextualizeHostModule: () => (/* binding */ contextualizeHostModule),
-/* harmony export */   contextualizeHostModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeHostModuleV2),
-/* harmony export */   contextualizeRESTModule: () => (/* binding */ contextualizeRESTModule),
-/* harmony export */   contextualizeRESTModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeRESTModuleV2),
-/* harmony export */   contextualizeSerivcePluginModule: () => (/* binding */ contextualizeSerivcePluginModule),
-/* harmony export */   contextualizeSerivcePluginModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeSerivcePluginModuleV2),
-/* harmony export */   resolveContext: () => (/* binding */ resolveContext),
-/* harmony export */   runWithoutContext: () => (/* binding */ runWithoutContext)
-/* harmony export */ });
-/* harmony import */ var _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/sdk-context */ "./node_modules/@wix/sdk-context/build/browser/index.mjs");
-/* harmony import */ var _context_v2_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./context-v2.js */ "./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context-v2.js");
-
-function resolveContext() {
-    const oldContext = typeof $wixContext !== 'undefined' && $wixContext.initWixModules
-        ? $wixContext.initWixModules
-        : typeof globalThis.__wix_context__ !== 'undefined' &&
-            globalThis.__wix_context__.initWixModules
-            ? globalThis.__wix_context__.initWixModules
-            : undefined;
-    if (oldContext) {
-        return {
-            // @ts-expect-error
-            initWixModules(modules, elevated) {
-                return runWithoutContext(() => oldContext(modules, elevated));
-            },
-            fetchWithAuth() {
-                throw new Error('fetchWithAuth is not available in this context');
-            },
-            graphql() {
-                throw new Error('graphql is not available in this context');
-            },
-        };
-    }
-    const contextualClient = typeof $wixContext !== 'undefined'
-        ? $wixContext.client
-        : typeof _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client !== 'undefined'
-            ? _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client
-            : typeof globalThis.__wix_context__ !== 'undefined'
-                ? globalThis.__wix_context__.client
-                : undefined;
-    const elevatedClient = typeof $wixContext !== 'undefined'
-        ? $wixContext.elevatedClient
-        : typeof _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient !== 'undefined'
-            ? _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient
-            : typeof globalThis.__wix_context__ !== 'undefined'
-                ? globalThis.__wix_context__.elevatedClient
-                : undefined;
-    if (!contextualClient && !elevatedClient) {
-        return;
-    }
-    return {
-        initWixModules(wixModules, elevated) {
-            if (elevated) {
-                if (!elevatedClient) {
-                    throw new Error('An elevated client is required to use elevated modules. Make sure to initialize the Wix context with an elevated client before using elevated SDK modules');
-                }
-                return runWithoutContext(() => elevatedClient.use(wixModules));
-            }
-            if (!contextualClient) {
-                throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-            }
-            return runWithoutContext(() => contextualClient.use(wixModules));
-        },
-        fetchWithAuth: (urlOrRequest, requestInit) => {
-            if (!contextualClient) {
-                throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-            }
-            return contextualClient.fetchWithAuth(urlOrRequest, requestInit);
-        },
-        async graphql(query, variables, opts) {
-            if (!contextualClient) {
-                throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-            }
-            return contextualClient.graphql(query, variables, opts);
-        },
-    };
-}
-function contextualizeHostModule(hostModule, prop) {
-    return (...args) => {
-        const context = resolveContext();
-        if (!context) {
-            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-        }
-        return context.initWixModules(hostModule)[prop].apply(undefined, args);
-    };
-}
-function contextualizeRESTModule(restModule, expectedArgsLength) {
-    return ((...args) => {
-        const context = resolveContext();
-        if (!context) {
-            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-        }
-        return context
-            .initWixModules(restModule, args[expectedArgsLength]?.suppressAuth ? true : false)
-            .apply(undefined, args);
-    });
-}
-function contextualizeEventDefinitionModule(eventDefinition) {
-    return ((...args) => {
-        const context = resolveContext();
-        if (!context) {
-            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-        }
-        return context.initWixModules(eventDefinition).apply(undefined, args);
-    });
-}
-function contextualizeSerivcePluginModule(servicePlugin) {
-    return ((...args) => {
-        const context = resolveContext();
-        if (!context) {
-            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-        }
-        return context.initWixModules(servicePlugin).apply(undefined, args);
-    });
-}
-
-function runWithoutContext(fn) {
-    const globalContext = globalThis.__wix_context__;
-    const moduleContext = {
-        client: _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client,
-        elevatedClient: _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient,
-    };
-    let closureContext;
-    globalThis.__wix_context__ = undefined;
-    _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client = undefined;
-    _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient = undefined;
-    if (typeof $wixContext !== 'undefined') {
-        closureContext = {
-            client: $wixContext?.client,
-            elevatedClient: $wixContext?.elevatedClient,
-        };
-        delete $wixContext.client;
-        delete $wixContext.elevatedClient;
-    }
-    try {
-        return fn();
-    }
-    finally {
-        globalThis.__wix_context__ = globalContext;
-        _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client = moduleContext.client;
-        _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient = moduleContext.elevatedClient;
-        if (typeof $wixContext !== 'undefined') {
-            $wixContext.client = closureContext.client;
-            $wixContext.elevatedClient = closureContext.elevatedClient;
-        }
-    }
 }
 
 
