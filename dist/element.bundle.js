@@ -6666,8 +6666,8 @@ class MyCustomElement extends HTMLElement {
 
   async setAvailability(serviceId) {
     try {
-    //  const myService = await wixClient.services.getService(serviceId);
-    //  console.log("Service object: ", JSON.stringify(myService));
+      const myService = await wixClient.services.getService(serviceId);
+      console.log("Service object: ", JSON.stringify(myService));
 
       const availability = await wixClient.bookings.getServiceAvailability(serviceId);
       const slots = availability.slots;
