@@ -36,8 +36,8 @@ function App() {
 
   return color ? (
     <WixDesignSystemProvider features={{ newColorsBranding: true }}>
-    
- 
+      <SidePanel width="300">
+        <SidePanel.Content noPadding stretchVertically>
           <SectionHeader title="Native color picker" skin="neutral" />
           <SidePanel.Field>
             <FormField>
@@ -77,8 +77,8 @@ function App() {
               </Box>
             </FormField>
           </SidePanel.Field>
- 
-
+        </SidePanel.Content>
+      </SidePanel>
     </WixDesignSystemProvider>
   ) : null;
 }
