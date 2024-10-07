@@ -50,7 +50,7 @@ class MyCustomElement extends HTMLElement {
     this.setColor(this.getAttribute('color'));
     this.setTextContent("...");
 
-    console.log(`createClient`, wixClient)
+    console.log(`createClient`, myWixClient)
     this.setAvailability(this.getAttribute('bookingsserviceid'))
   }
 
@@ -63,7 +63,7 @@ class MyCustomElement extends HTMLElement {
       console.log("Color attribute changed");
       this.setColor(newValue);
     } else if (name === 'bookingsserviceid' && oldValue !== newValue) {
-      if (wixClient) {
+      if (myWixClient) {
         this.setAvailability(newValue)
       } else { console.log("No client") }
     }
@@ -71,10 +71,10 @@ class MyCustomElement extends HTMLElement {
 
   async setAvailability(serviceId) {
     try {
-      const myService = await wixClient.services.getService(serviceId);
+      const myService = await myWixClient.services.getService(serviceId);
       console.log("Service object: ", JSON.stringify(myService));
 
-      const availability = await wixClient.bookings.getServiceAvailability(serviceId);
+      const availability = await myWixClient.bookings.getServiceAvailability(serviceId);
       const slots = availability.slots;
       const firstSlot = slots[0];
       console.log(firstSlot);
