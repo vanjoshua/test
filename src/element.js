@@ -69,7 +69,7 @@ class MyCustomElement extends HTMLElement {
   }
 
   async setAvailability(serviceId) {
-    console.log('Client: ', myWixClient);
+    console.log("Client: ", myWixClient);
     try {
       const myService = await myWixClient.services.getService(serviceId);
       console.log("Service object: ", JSON.stringify(myService));

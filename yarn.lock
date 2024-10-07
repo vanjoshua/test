@@ -9,6 +9,13 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
+"@babel/runtime@^7.25.6":
+  version "7.25.7"
+  resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@babel/runtime/-/runtime-7.25.7.tgz#7ffb53c37a8f247c8c4d335e89cdf16a2e0d0fb6"
+  integrity sha512-FjoyLe754PMiYsFaN5C94ttGiOmBNYTf6pLr4xXHAT5uctHb092PBszndLDR5XA/jghQvn4n7JMHl7dmTgbm9w==
+  dependencies:
+    regenerator-runtime "^0.14.0"
+
 "@discoveryjs/json-ext@^0.5.0":
   version "0.5.7"
   resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz"
@@ -861,6 +868,14 @@
     "@babel/runtime" "^7.25.0"
     tslib "^2.6.3"
 
+"@wix/image-kit@^1.87.0":
+  version "1.88.0"
+  resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/image-kit/-/image-kit-1.88.0.tgz#d440bdd33f4ae5fb5ace282e622ed3a2cf32772a"
+  integrity sha512-TCEmC+oP7fEgV43Y8E5J0XSBFzAA6ujzpnnbVc98uTGDs5BLpmkKzP17o/N4hjXTiucOT7rL6udwCEO8rH1CeQ==
+  dependencies:
+    "@babel/runtime" "^7.25.6"
+    tslib "^2.7.0"
+
 "@wix/metro-public-utils@1.0.31":
   version "1.0.31"
   resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/metro-public-utils/-/metro-public-utils-1.0.31.tgz"
@@ -1091,6 +1106,14 @@
     "@wix/sdk-context" "^0.0.1"
     "@wix/sdk-types" "^1.9.3"
 
+"@wix/sdk-runtime@0.3.20":
+  version "0.3.20"
+  resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/sdk-runtime/-/sdk-runtime-0.3.20.tgz#c1ea83f54e73104adec5f2a9f2a3302c58991972"
+  integrity sha512-ny54E0iB6aITRffBEivIEad4/W/C0xal//zCg1Pg7QAp3ZghtqP451BNHiqywE8NXqiwqAKA/Vm/3J3cZmAibg==
+  dependencies:
+    "@wix/sdk-context" "^0.0.1"
+    "@wix/sdk-types" "^1.12.1"
+
 "@wix/sdk-runtime@^0.2.10":
   version "0.2.12"
   resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/sdk-runtime/-/sdk-runtime-0.2.12.tgz"
@@ -1098,7 +1121,7 @@
   dependencies:
     "@wix/sdk-types" "^1.7.0"
 
-"@wix/sdk-types@^1.10.0":
+"@wix/sdk-types@^1.10.0", "@wix/sdk-types@^1.12.1":
   version "1.12.3"
   resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/sdk-types/-/sdk-types-1.12.3.tgz#b765d11f9ee51d27966d114b278b198470f7d608"
   integrity sha512-QF46GbMLSAXwq8bvqf1jG70WXm6/IQ9VGRRwRR2RTXEyWXndiYrGCBR2Ks40JDD3cRcsVhYN+KRxcoS5Bgyy/A==
@@ -1129,7 +1152,7 @@
   optionalDependencies:
     graphql "^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0"
 
-"@wix/sdk@^1.12.11", "@wix/sdk@^1.12.12":
+"@wix/sdk@^1.12.11":
   version "1.12.12"
   resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/sdk/-/sdk-1.12.12.tgz"
   integrity sha512-3ImEPBFQv1+lpHs1SwykMBEWVRhHlfx5ivxIkdV9FlLWspBJUYJn9ZqigZUiSn5e5QOziNwA6Bh6W+u6zoRdqQ==
@@ -1144,6 +1167,24 @@
     crypto-js "^4.2.0"
     jose "^5.2.1"
     pkce-challenge "^3.1.0"
+    querystring "^0.2.1"
+    type-fest "^4.9.0"
+  optionalDependencies:
+    graphql "^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0"
+
+"@wix/sdk@^1.13.0":
+  version "1.13.0"
+  resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/sdk/-/sdk-1.13.0.tgz#61cea3eadf06fa75d633976c90c848118d30b517"
+  integrity sha512-PbD6vLVAZoOSwe4ymn3k71Gv7BxgPNV6HhVpS2+Fi6CWzDvR/tEmgWBuu2gqCIH8hhGqNi2qAVc8yqdq7qqugg==
+  dependencies:
+    "@babel/runtime" "^7.23.2"
+    "@wix/identity" "^1.0.78"
+    "@wix/image-kit" "^1.87.0"
+    "@wix/redirects" "^1.0.41"
+    "@wix/sdk-context" "^0.0.1"
+    "@wix/sdk-runtime" "0.3.20"
+    "@wix/sdk-types" "^1.12.1"
+    jose "^5.2.1"
     querystring "^0.2.1"
     type-fest "^4.9.0"
   optionalDependencies:
@@ -4076,6 +4117,11 @@ tslib@^2.0.0, tslib@^2.0.3, tslib@^2.1.0, tslib@^2.4.0, tslib@^2.6.2, tslib@^2.6
   version "2.6.3"
   resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/tslib/-/tslib-2.6.3.tgz"
   integrity sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==
+
+tslib@^2.7.0:
+  version "2.7.0"
+  resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/tslib/-/tslib-2.7.0.tgz#d9b40c5c40ab59e8738f297df3087bf1a2690c01"
+  integrity sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==
 
 type-detect@4.0.8:
   version "4.0.8"
