@@ -72,8 +72,8 @@ class MyCustomElement extends HTMLElement {
     console.log("Client: ", myWixClient);
     try {
       console.log("Client in try: ", myWixClient);
-      const myService = await myWixClient.services.getService(serviceId);
-      console.log("Service object: ", JSON.stringify(myService));
+      //const myService = await myWixClient.services.getService(serviceId);
+     // console.log("Service object: ", JSON.stringify(myService));
 
       const availability = await myWixClient.bookings.getServiceAvailability(serviceId);
       const slots = availability.slots;
