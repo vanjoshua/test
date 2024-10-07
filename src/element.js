@@ -7,7 +7,7 @@ const myWixClient = createClient({
   auth: site.auth(),
   host: site.host({ applicationId: "<your_app_id>" }),
   modules: {
-    products,
+    bookings, services
   },
 });
 
