@@ -13,6 +13,7 @@
     "@wix/sdk-react": "^0.5.7",
     "@wix/site": "^1.19.0",
     "@wix/site-bookings": "^1.10.0",
+    "@wix/stores": "^1.0.240",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "typescript": "^5.5.4"

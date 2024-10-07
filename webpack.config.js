@@ -5,6 +5,7 @@ module.exports = {
   devtool: false,
   entry: {
     element: './src/element.js',
+    element2: './src/element2.js',
     panel: './src/panel.js',
     panel2: './src/panel2.tsx',
   },
