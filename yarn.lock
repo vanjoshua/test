@@ -1098,6 +1098,11 @@
   dependencies:
     "@wix/sdk-types" "^1.7.0"
 
+"@wix/sdk-types@^1.10.0":
+  version "1.12.3"
+  resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/sdk-types/-/sdk-types-1.12.3.tgz#b765d11f9ee51d27966d114b278b198470f7d608"
+  integrity sha512-QF46GbMLSAXwq8bvqf1jG70WXm6/IQ9VGRRwRR2RTXEyWXndiYrGCBR2Ks40JDD3cRcsVhYN+KRxcoS5Bgyy/A==
+
 "@wix/sdk-types@^1.5.11", "@wix/sdk-types@^1.7.0", "@wix/sdk-types@^1.9.2", "@wix/sdk-types@^1.9.3":
   version "1.9.3"
   resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/sdk-types/-/sdk-types-1.9.3.tgz"
@@ -1152,12 +1157,13 @@
     "@babel/runtime" "^7.0.0"
     "@wix/sdk-runtime" "^0.3.11"
 
-"@wix/site@^1.13.0":
-  version "1.13.0"
-  resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/site/-/site-1.13.0.tgz"
-  integrity sha512-r331ZcRvHuoa4qy6FIjb/jmaf1Cld6F7pZzRQWLs+wpHJ9GoXPEwNd7tmPXEhOYktfM3SXH7lLYid+f4R4LfiA==
+"@wix/site@^1.19.0":
+  version "1.19.0"
+  resolved "https://npm.dev.wixpress.com/api/npm/npm-repos/@wix/site/-/site-1.19.0.tgz#10bdc15c3b5df735567abd50efc1c8594c53566f"
+  integrity sha512-1hCh0zT5XfhJ5143XCA548JOMNJ7nia7J0bfwig5uX+Sn+3bebnaYoPSN7zYQUi0RVfuAeCAPnT/CrYUZUG+Vg==
   dependencies:
     "@babel/runtime" "^7.0.0"
+    "@wix/sdk-types" "^1.10.0"
 
 "@wix/unidriver-core@^1.1.8":
   version "1.1.8"

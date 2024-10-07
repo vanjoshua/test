@@ -3411,6 +3411,9 @@ const createWebsiteChannel = _ref => {
         method,
         args
       } = _ref2;
+      if (!clientSdk) {
+        throw new Error('Wix Site SDK only works in a Wix site environment. Learn more: https://dev.wix.com/docs/sdk/host-modules/site/introduction');
+      }
       return clientSdk.invoke({
         namespace,
         method,
@@ -3451,9 +3454,6 @@ const createHost = function (config) {
   } = config || {};
   if (!applicationId) {
     throw new Error('"createHost" was called without a required field "applicationId"');
-  }
-  if (!clientSdk) {
-    throw new Error('Wix Site SDK only works in a Wix site environment. Learn more: https://dev.wix.com/docs/sdk/host-modules/site/introduction');
   }
   return {
     // environment: {},
@@ -3559,7 +3559,19 @@ const createWebsiteModule = _ref => {
       // We don't have any for now, so we just return an empty object.
       return {};
     },
-    host: createHost,
+    host: options => {
+      var _window, _window2;
+      const host = createHost(options);
+      const apiBaseUrl = getApiBaseUrl();
+      return {
+        ...host,
+        apiBaseUrl,
+        essentials: {
+          language: (_window = window) == null || (_window = _window.commonConfig) == null ? void 0 : _window.language,
+          locale: (_window2 = window) == null || (_window2 = _window2.commonConfig) == null ? void 0 : _window2.locale
+        }
+      };
+    },
     auth: getAccessTokenFn => {
       const wixEmbedsAPI = typeof window !== 'undefined' ? window.wixEmbedsAPI : undefined;
       if (!getAccessTokenFn) {
@@ -3589,16 +3601,30 @@ const createWebsiteModule = _ref => {
             }
           };
         },
-        createInjector: () => {
+        getAccessTokenInjector: () => {
           injectorCreated = true;
-          return getAccessTokenFn => {
-            resolveAccessTokenFn(getAccessTokenFn);
+          return _getAccessTokenFn => {
+            resolveAccessTokenFn(_getAccessTokenFn);
           };
         }
       };
     }
   };
 };
+function getApiBaseUrl() {
+  const wixEmbedsAPI = typeof window !== 'undefined' ? window.wixEmbedsAPI : undefined;
+  const apiBaseUrl = wixEmbedsAPI == null || wixEmbedsAPI.getExternalBaseUrl == null ? void 0 : wixEmbedsAPI.getExternalBaseUrl();
+  if (!apiBaseUrl) {
+    return;
+  }
+
+  // clean the protocol from the URL
+  const parsedUrlObject = new URL(apiBaseUrl);
+  if (parsedUrlObject != null && parsedUrlObject.pathname && parsedUrlObject.pathname !== '/') {
+    return "" + parsedUrlObject.hostname + parsedUrlObject.pathname;
+  }
+  return parsedUrlObject.hostname;
+}
 //# sourceMappingURL=websiteHostModule.js.map
 
 /***/ }),
