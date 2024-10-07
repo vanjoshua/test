@@ -6672,7 +6672,6 @@ class MyCustomElement extends HTMLElement {
     this.setColor(this.getAttribute('color'));
     this.setTextContent("...");
 
-    console.log(`createClient`, myWixClient)
     this.setAvailability(this.getAttribute('bookingsserviceid'))
   }
 
@@ -6692,6 +6691,7 @@ class MyCustomElement extends HTMLElement {
   }
 
   async setAvailability(serviceId) {
+    console.log(`Client: `, myWixClient);
     try {
       const myService = await myWixClient.services.getService(serviceId);
       console.log("Service object: ", JSON.stringify(myService));
