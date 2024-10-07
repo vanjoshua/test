@@ -56,7 +56,7 @@ function App() {
               <Box marginBottom="SP2">
                 <Button
                   onClick={() => {
-                    client.inputs.selectColor({ theme: "color_37" }, (c) => {
+                    client.inputs.selectColor({ theme: "--wst-color-fill-base-2" }, (c) => {
                       setColorValue(JSON.stringify(c, null, 2));
                       if (c.theme !== null) {
                         const themeVar = `rgb(var(--${c.theme}))`;

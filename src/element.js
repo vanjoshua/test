@@ -3,10 +3,20 @@ import { site } from "@wix/site";
 import { bookings } from "@wix/site-bookings";
 import { services } from "@wix/bookings";
 
-
-let wixClient;
+const myWixClient = createClient({
+  auth: site.auth(),
+  host: site.host({ applicationId: "<your_app_id>" }),
+  modules: {
+    products,
+  },
+});
 
 class MyCustomElement extends HTMLElement {
+  constructor() {
+    super();
+    this.accessTokenListener = myWixClient.auth.getAccessTokenInjector();
+  }
+
   setColor(color) {
     this.container.style.backgroundColor = color || 'white';
   }
@@ -40,6 +50,8 @@ class MyCustomElement extends HTMLElement {
     this.setColor(this.getAttribute('color'));
     this.setTextContent("...");
 
+    console.log(`createClient`, wixClient)
+    this.setAvailability(this.getAttribute('bookingsserviceid'))
   }
 
   static get observedAttributes() {
@@ -55,17 +67,6 @@ class MyCustomElement extends HTMLElement {
         this.setAvailability(newValue)
       } else { console.log("No client") }
     }
-  }
-
-  accessTokenListener(accessTokenGetter) {
-    console.log("listener called")
-    wixClient = createClient({
-      host: site.host({ applicationId: "7dea53d2-fbd3-463a-990a-22216a7cfb35" }),
-      auth: site.auth(accessTokenGetter),
-      modules: { bookings, services },
-    });
-    console.log(`createClient`, wixClient)
-    this.setAvailability(this.getAttribute('bookingsserviceid'))
   }
 
   async setAvailability(serviceId) {
