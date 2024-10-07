@@ -6627,7 +6627,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const myWixClient = (0,_wix_sdk__WEBPACK_IMPORTED_MODULE_0__.createClient)({
   auth: _wix_site__WEBPACK_IMPORTED_MODULE_1__.site.auth(),
-  host: _wix_site__WEBPACK_IMPORTED_MODULE_1__.site.host({ applicationId: "<your_app_id>" }),
+  host: _wix_site__WEBPACK_IMPORTED_MODULE_1__.site.host({ applicationId: "7dea53d2-fbd3-463a-990a-22216a7cfb35" }),
   modules: {
     bookings: _wix_site_bookings__WEBPACK_IMPORTED_MODULE_2__.bookings, services: _wix_bookings__WEBPACK_IMPORTED_MODULE_3__
   },

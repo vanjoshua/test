@@ -5,7 +5,7 @@ import { services } from "@wix/bookings";
 
 const myWixClient = createClient({
   auth: site.auth(),
-  host: site.host({ applicationId: "<your_app_id>" }),
+  host: site.host({ applicationId: "7dea53d2-fbd3-463a-990a-22216a7cfb35" }),
   modules: {
     bookings, services
   },
