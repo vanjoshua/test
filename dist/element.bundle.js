@@ -10,69 +10,206 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Action: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.Action),
-/* harmony export */   AggregationType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.AggregationType),
-/* harmony export */   ApprovalStatus: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.ApprovalStatus),
-/* harmony export */   BenefitType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.BenefitType),
-/* harmony export */   CalendarType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.CalendarType),
-/* harmony export */   CategoryNotificationEvent: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.CategoryNotificationEvent),
-/* harmony export */   CategoryStatus: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.CategoryStatus),
-/* harmony export */   CloneErrors: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.CloneErrors),
-/* harmony export */   ConferenceType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.ConferenceType),
-/* harmony export */   CrudType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.CrudType),
-/* harmony export */   DateHistogramAggregationInterval: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.DateHistogramAggregationInterval),
-/* harmony export */   Day: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.Day),
-/* harmony export */   DayOfWeek: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.DayOfWeek),
-/* harmony export */   Event: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.Event),
-/* harmony export */   InvalidSlugError: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.InvalidSlugError),
-/* harmony export */   LocationStatus: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.LocationStatus),
-/* harmony export */   LocationType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.LocationType),
-/* harmony export */   LocationTypeEnumLocationType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.LocationTypeEnumLocationType),
-/* harmony export */   LocationsLocationType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.LocationsLocationType),
-/* harmony export */   MissingValues: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.MissingValues),
-/* harmony export */   Mode: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.Mode),
-/* harmony export */   NestedAggregationType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.NestedAggregationType),
-/* harmony export */   PlacementType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.PlacementType),
-/* harmony export */   RateType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.RateType),
-/* harmony export */   RecurringIntervalType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.RecurringIntervalType),
-/* harmony export */   RequestedFields: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.RequestedFields),
-/* harmony export */   ResolutionMethod: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.ResolutionMethod),
-/* harmony export */   ResourceNotificationEvent: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.ResourceNotificationEvent),
-/* harmony export */   ResourceStatus: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.ResourceStatus),
-/* harmony export */   ScalarType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.ScalarType),
-/* harmony export */   ScheduleStatus: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.ScheduleStatus),
-/* harmony export */   ServiceType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.ServiceType),
-/* harmony export */   SessionType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.SessionType),
-/* harmony export */   SortDirection: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.SortDirection),
-/* harmony export */   SortOrder: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.SortOrder),
-/* harmony export */   SortType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.SortType),
-/* harmony export */   Status: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.Status),
-/* harmony export */   Transparency: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.Transparency),
-/* harmony export */   WebhookIdentityType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.WebhookIdentityType),
-/* harmony export */   __metadata: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.__metadata),
-/* harmony export */   bulkDeleteServices: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.bulkDeleteServices),
-/* harmony export */   bulkUpdateServices: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.bulkUpdateServices),
-/* harmony export */   cloneService: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.cloneService),
-/* harmony export */   countServices: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.countServices),
-/* harmony export */   createService: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.createService),
-/* harmony export */   deleteService: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.deleteService),
-/* harmony export */   disablePricingPlansForService: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.disablePricingPlansForService),
-/* harmony export */   enablePricingPlansForService: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.enablePricingPlansForService),
-/* harmony export */   getService: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.getService),
-/* harmony export */   onServiceCreated: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.onServiceCreated),
-/* harmony export */   onServiceDeleted: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.onServiceDeleted),
-/* harmony export */   onServiceUpdated: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.onServiceUpdated),
-/* harmony export */   queryPolicies: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.queryPolicies),
-/* harmony export */   queryServices: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.queryServices),
-/* harmony export */   searchServices: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.searchServices),
-/* harmony export */   setCustomSlug: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.setCustomSlug),
-/* harmony export */   setServiceLocations: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.setServiceLocations),
-/* harmony export */   updateService: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.updateService),
-/* harmony export */   validateSlug: () => (/* reexport safe */ _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__.validateSlug)
+/* harmony export */   Action: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.Action),
+/* harmony export */   AggregationType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.AggregationType),
+/* harmony export */   ApprovalStatus: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.ApprovalStatus),
+/* harmony export */   BenefitType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.BenefitType),
+/* harmony export */   CalendarType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.CalendarType),
+/* harmony export */   CategoryNotificationEvent: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.CategoryNotificationEvent),
+/* harmony export */   CategoryStatus: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.CategoryStatus),
+/* harmony export */   CloneErrors: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.CloneErrors),
+/* harmony export */   ConferenceType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.ConferenceType),
+/* harmony export */   CrudType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.CrudType),
+/* harmony export */   DateHistogramAggregationInterval: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.DateHistogramAggregationInterval),
+/* harmony export */   Day: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.Day),
+/* harmony export */   DayOfWeek: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.DayOfWeek),
+/* harmony export */   Event: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.Event),
+/* harmony export */   InvalidSlugError: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.InvalidSlugError),
+/* harmony export */   LocationStatus: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.LocationStatus),
+/* harmony export */   LocationType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.LocationType),
+/* harmony export */   LocationTypeEnumLocationType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.LocationTypeEnumLocationType),
+/* harmony export */   LocationsLocationType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.LocationsLocationType),
+/* harmony export */   MissingValues: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.MissingValues),
+/* harmony export */   Mode: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.Mode),
+/* harmony export */   NestedAggregationType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.NestedAggregationType),
+/* harmony export */   PlacementType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.PlacementType),
+/* harmony export */   RateType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.RateType),
+/* harmony export */   RecurringIntervalType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.RecurringIntervalType),
+/* harmony export */   RequestedFields: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.RequestedFields),
+/* harmony export */   ResolutionMethod: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.ResolutionMethod),
+/* harmony export */   ResourceNotificationEvent: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.ResourceNotificationEvent),
+/* harmony export */   ResourceStatus: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.ResourceStatus),
+/* harmony export */   ScalarType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.ScalarType),
+/* harmony export */   ScheduleStatus: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.ScheduleStatus),
+/* harmony export */   ServiceType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.ServiceType),
+/* harmony export */   SessionType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.SessionType),
+/* harmony export */   SortDirection: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.SortDirection),
+/* harmony export */   SortOrder: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.SortOrder),
+/* harmony export */   SortType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.SortType),
+/* harmony export */   Status: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.Status),
+/* harmony export */   Transparency: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.Transparency),
+/* harmony export */   WebhookIdentityType: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.WebhookIdentityType),
+/* harmony export */   bulkDeleteServices: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.bulkDeleteServices),
+/* harmony export */   bulkDeleteServicesByFilter: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.bulkDeleteServicesByFilter),
+/* harmony export */   bulkUpdateServices: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.bulkUpdateServices),
+/* harmony export */   bulkUpdateServicesByFilter: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.bulkUpdateServicesByFilter),
+/* harmony export */   cloneService: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.cloneService),
+/* harmony export */   countServices: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.countServices),
+/* harmony export */   createService: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.createService),
+/* harmony export */   deleteService: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.deleteService),
+/* harmony export */   disablePricingPlansForService: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.disablePricingPlansForService),
+/* harmony export */   enablePricingPlansForService: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.enablePricingPlansForService),
+/* harmony export */   getService: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.getService),
+/* harmony export */   onServiceCreated: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.onServiceCreated),
+/* harmony export */   onServiceDefaultBookingPolicySet: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.onServiceDefaultBookingPolicySet),
+/* harmony export */   onServiceDeleted: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.onServiceDeleted),
+/* harmony export */   onServiceUpdated: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.onServiceUpdated),
+/* harmony export */   publicOnServiceCreated: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.publicOnServiceCreated),
+/* harmony export */   publicOnServiceDefaultBookingPolicySet: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.publicOnServiceDefaultBookingPolicySet),
+/* harmony export */   publicOnServiceDeleted: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.publicOnServiceDeleted),
+/* harmony export */   publicOnServiceUpdated: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.publicOnServiceUpdated),
+/* harmony export */   queryCategories: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.queryCategories),
+/* harmony export */   queryLocations: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.queryLocations),
+/* harmony export */   queryPolicies: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.queryPolicies),
+/* harmony export */   queryServices: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.queryServices),
+/* harmony export */   searchServices: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.searchServices),
+/* harmony export */   setCustomSlug: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.setCustomSlug),
+/* harmony export */   setServiceLocations: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.setServiceLocations),
+/* harmony export */   updateService: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.updateService),
+/* harmony export */   validateSlug: () => (/* reexport safe */ _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__.validateSlug)
 /* harmony export */ });
-/* harmony import */ var _src_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/bookings-services-v2-service-services.public */ "./node_modules/@wix/bookings_services/build/es/src/bookings-services-v2-service-services.public.js");
+/* harmony import */ var _src_bookings_services_v2_service_services_context__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/bookings-services-v2-service-services.context */ "./node_modules/@wix/bookings_services/build/es/src/bookings-services-v2-service-services.context.js");
 
 //# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@wix/bookings_services/build/es/src/bookings-services-v2-service-services.context.js":
+/*!***********************************************************************************************************!*\
+  !*** ./node_modules/@wix/bookings_services/build/es/src/bookings-services-v2-service-services.context.js ***!
+  \***********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Action: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.Action),
+/* harmony export */   AggregationType: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.AggregationType),
+/* harmony export */   ApprovalStatus: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.ApprovalStatus),
+/* harmony export */   BenefitType: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.BenefitType),
+/* harmony export */   CalendarType: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.CalendarType),
+/* harmony export */   CategoryNotificationEvent: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.CategoryNotificationEvent),
+/* harmony export */   CategoryStatus: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.CategoryStatus),
+/* harmony export */   CloneErrors: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.CloneErrors),
+/* harmony export */   ConferenceType: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.ConferenceType),
+/* harmony export */   CrudType: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.CrudType),
+/* harmony export */   DateHistogramAggregationInterval: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.DateHistogramAggregationInterval),
+/* harmony export */   Day: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.Day),
+/* harmony export */   DayOfWeek: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.DayOfWeek),
+/* harmony export */   Event: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.Event),
+/* harmony export */   InvalidSlugError: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.InvalidSlugError),
+/* harmony export */   LocationStatus: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.LocationStatus),
+/* harmony export */   LocationType: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.LocationType),
+/* harmony export */   LocationTypeEnumLocationType: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.LocationTypeEnumLocationType),
+/* harmony export */   LocationsLocationType: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.LocationsLocationType),
+/* harmony export */   MissingValues: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.MissingValues),
+/* harmony export */   Mode: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.Mode),
+/* harmony export */   NestedAggregationType: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.NestedAggregationType),
+/* harmony export */   PlacementType: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.PlacementType),
+/* harmony export */   RateType: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.RateType),
+/* harmony export */   RecurringIntervalType: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.RecurringIntervalType),
+/* harmony export */   RequestedFields: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.RequestedFields),
+/* harmony export */   ResolutionMethod: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.ResolutionMethod),
+/* harmony export */   ResourceNotificationEvent: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.ResourceNotificationEvent),
+/* harmony export */   ResourceStatus: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.ResourceStatus),
+/* harmony export */   ScalarType: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.ScalarType),
+/* harmony export */   ScheduleStatus: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.ScheduleStatus),
+/* harmony export */   ServiceType: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.ServiceType),
+/* harmony export */   SessionType: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.SessionType),
+/* harmony export */   SortDirection: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.SortDirection),
+/* harmony export */   SortOrder: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.SortOrder),
+/* harmony export */   SortType: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.SortType),
+/* harmony export */   Status: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.Status),
+/* harmony export */   Transparency: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.Transparency),
+/* harmony export */   WebhookIdentityType: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__.WebhookIdentityType),
+/* harmony export */   bulkDeleteServices: () => (/* binding */ bulkDeleteServices),
+/* harmony export */   bulkDeleteServicesByFilter: () => (/* binding */ bulkDeleteServicesByFilter),
+/* harmony export */   bulkUpdateServices: () => (/* binding */ bulkUpdateServices),
+/* harmony export */   bulkUpdateServicesByFilter: () => (/* binding */ bulkUpdateServicesByFilter),
+/* harmony export */   cloneService: () => (/* binding */ cloneService),
+/* harmony export */   countServices: () => (/* binding */ countServices),
+/* harmony export */   createService: () => (/* binding */ createService),
+/* harmony export */   deleteService: () => (/* binding */ deleteService),
+/* harmony export */   disablePricingPlansForService: () => (/* binding */ disablePricingPlansForService),
+/* harmony export */   enablePricingPlansForService: () => (/* binding */ enablePricingPlansForService),
+/* harmony export */   getService: () => (/* binding */ getService),
+/* harmony export */   onServiceCreated: () => (/* binding */ onServiceCreated),
+/* harmony export */   onServiceDefaultBookingPolicySet: () => (/* binding */ onServiceDefaultBookingPolicySet),
+/* harmony export */   onServiceDeleted: () => (/* binding */ onServiceDeleted),
+/* harmony export */   onServiceUpdated: () => (/* binding */ onServiceUpdated),
+/* harmony export */   publicOnServiceCreated: () => (/* reexport safe */ _bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.onServiceCreated),
+/* harmony export */   publicOnServiceDefaultBookingPolicySet: () => (/* reexport safe */ _bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.onServiceDefaultBookingPolicySet),
+/* harmony export */   publicOnServiceDeleted: () => (/* reexport safe */ _bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.onServiceDeleted),
+/* harmony export */   publicOnServiceUpdated: () => (/* reexport safe */ _bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.onServiceUpdated),
+/* harmony export */   queryCategories: () => (/* binding */ queryCategories),
+/* harmony export */   queryLocations: () => (/* binding */ queryLocations),
+/* harmony export */   queryPolicies: () => (/* binding */ queryPolicies),
+/* harmony export */   queryServices: () => (/* binding */ queryServices),
+/* harmony export */   searchServices: () => (/* binding */ searchServices),
+/* harmony export */   setCustomSlug: () => (/* binding */ setCustomSlug),
+/* harmony export */   setServiceLocations: () => (/* binding */ setServiceLocations),
+/* harmony export */   updateService: () => (/* binding */ updateService),
+/* harmony export */   validateSlug: () => (/* binding */ validateSlug)
+/* harmony export */ });
+/* harmony import */ var _bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bookings-services-v2-service-services.public */ "./node_modules/@wix/bookings_services/build/es/src/bookings-services-v2-service-services.public.js");
+/* harmony import */ var _wix_sdk_runtime_rest_modules__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/sdk-runtime/rest-modules */ "./node_modules/@wix/sdk-runtime/build/rest-modules.js");
+/* harmony import */ var _wix_sdk_runtime_event_definition_modules__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wix/sdk-runtime/event-definition-modules */ "./node_modules/@wix/sdk-runtime/build/event-definition-modules.js");
+/* harmony import */ var _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./bookings-services-v2-service-services.universal */ "./node_modules/@wix/bookings_services/build/es/src/bookings-services-v2-service-services.universal.js");
+
+
+
+
+
+
+
+const createService = (0,_wix_sdk_runtime_rest_modules__WEBPACK_IMPORTED_MODULE_0__.createRESTModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.createService);
+const getService = (0,_wix_sdk_runtime_rest_modules__WEBPACK_IMPORTED_MODULE_0__.createRESTModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.getService);
+const updateService = (0,_wix_sdk_runtime_rest_modules__WEBPACK_IMPORTED_MODULE_0__.createRESTModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.updateService);
+const bulkUpdateServices = (0,_wix_sdk_runtime_rest_modules__WEBPACK_IMPORTED_MODULE_0__.createRESTModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.bulkUpdateServices);
+const bulkUpdateServicesByFilter = (0,_wix_sdk_runtime_rest_modules__WEBPACK_IMPORTED_MODULE_0__.createRESTModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.bulkUpdateServicesByFilter);
+const deleteService = (0,_wix_sdk_runtime_rest_modules__WEBPACK_IMPORTED_MODULE_0__.createRESTModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.deleteService);
+const bulkDeleteServices = (0,_wix_sdk_runtime_rest_modules__WEBPACK_IMPORTED_MODULE_0__.createRESTModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.bulkDeleteServices);
+const bulkDeleteServicesByFilter = (0,_wix_sdk_runtime_rest_modules__WEBPACK_IMPORTED_MODULE_0__.createRESTModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.bulkDeleteServicesByFilter);
+const queryServices = (0,_wix_sdk_runtime_rest_modules__WEBPACK_IMPORTED_MODULE_0__.createRESTModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.queryServices);
+const searchServices = (0,_wix_sdk_runtime_rest_modules__WEBPACK_IMPORTED_MODULE_0__.createRESTModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.searchServices);
+const queryPolicies = (0,_wix_sdk_runtime_rest_modules__WEBPACK_IMPORTED_MODULE_0__.createRESTModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.queryPolicies);
+const countServices = (0,_wix_sdk_runtime_rest_modules__WEBPACK_IMPORTED_MODULE_0__.createRESTModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.countServices);
+const queryLocations = (0,_wix_sdk_runtime_rest_modules__WEBPACK_IMPORTED_MODULE_0__.createRESTModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.queryLocations);
+const queryCategories = (0,_wix_sdk_runtime_rest_modules__WEBPACK_IMPORTED_MODULE_0__.createRESTModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.queryCategories);
+const setServiceLocations = (0,_wix_sdk_runtime_rest_modules__WEBPACK_IMPORTED_MODULE_0__.createRESTModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.setServiceLocations);
+const enablePricingPlansForService = (0,_wix_sdk_runtime_rest_modules__WEBPACK_IMPORTED_MODULE_0__.createRESTModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.enablePricingPlansForService);
+const disablePricingPlansForService = (0,_wix_sdk_runtime_rest_modules__WEBPACK_IMPORTED_MODULE_0__.createRESTModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.disablePricingPlansForService);
+const setCustomSlug = (0,_wix_sdk_runtime_rest_modules__WEBPACK_IMPORTED_MODULE_0__.createRESTModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.setCustomSlug);
+const validateSlug = (0,_wix_sdk_runtime_rest_modules__WEBPACK_IMPORTED_MODULE_0__.createRESTModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.validateSlug);
+const cloneService = (0,_wix_sdk_runtime_rest_modules__WEBPACK_IMPORTED_MODULE_0__.createRESTModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.cloneService);
+
+/** */
+const onServiceCreated = (0,_wix_sdk_runtime_event_definition_modules__WEBPACK_IMPORTED_MODULE_2__.createEventModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.onServiceCreated);
+
+/** */
+const onServiceUpdated = (0,_wix_sdk_runtime_event_definition_modules__WEBPACK_IMPORTED_MODULE_2__.createEventModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.onServiceUpdated);
+
+/** */
+const onServiceDeleted = (0,_wix_sdk_runtime_event_definition_modules__WEBPACK_IMPORTED_MODULE_2__.createEventModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.onServiceDeleted);
+
+/**
+ * Triggered when the site's default policy changes. Then,
+ * [Booking Policy Updated](https://dev.wix.com/docs/rest/business-solutions/bookings/services/booking-policy/booking-policy-updated)
+ * is also triggered both for the new and the previous default policy.
+ */
+const onServiceDefaultBookingPolicySet = (0,_wix_sdk_runtime_event_definition_modules__WEBPACK_IMPORTED_MODULE_2__.createEventModule)(_bookings_services_v2_service_services_public__WEBPACK_IMPORTED_MODULE_1__.onServiceDefaultBookingPolicySet);
+
+//# sourceMappingURL=bookings-services-v2-service-services.context.js.map
 
 /***/ }),
 
@@ -86,7 +223,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   bulkDeleteServices: () => (/* binding */ bulkDeleteServices),
+/* harmony export */   bulkDeleteServicesByFilter: () => (/* binding */ bulkDeleteServicesByFilter),
 /* harmony export */   bulkUpdateServices: () => (/* binding */ bulkUpdateServices),
+/* harmony export */   bulkUpdateServicesByFilter: () => (/* binding */ bulkUpdateServicesByFilter),
 /* harmony export */   cloneService: () => (/* binding */ cloneService),
 /* harmony export */   countServices: () => (/* binding */ countServices),
 /* harmony export */   createService: () => (/* binding */ createService),
@@ -94,6 +233,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   disablePricingPlansForService: () => (/* binding */ disablePricingPlansForService),
 /* harmony export */   enablePricingPlansForService: () => (/* binding */ enablePricingPlansForService),
 /* harmony export */   getService: () => (/* binding */ getService),
+/* harmony export */   queryCategories: () => (/* binding */ queryCategories),
+/* harmony export */   queryLocations: () => (/* binding */ queryLocations),
 /* harmony export */   queryPolicies: () => (/* binding */ queryPolicies),
 /* harmony export */   queryServices: () => (/* binding */ queryServices),
 /* harmony export */   searchServices: () => (/* binding */ searchServices),
@@ -189,6 +330,12 @@ function resolveWixBookingsServicesV2ServicesServiceUrl(opts) {
                 destPath: '/v2/services',
             },
         ],
+        'wix-bo.com': [
+            {
+                srcPath: '/_api/bookings/v2/services',
+                destPath: '/v2/services',
+            },
+        ],
         'editor.wixapps.net': [
             {
                 srcPath: '/_api/bookings/v2/services',
@@ -221,6 +368,9 @@ function createService(payload) {
                     { path: 'service.schedule.firstSessionStart' },
                     { path: 'service.schedule.lastSessionEnd' },
                     { path: 'service.staffMembers.mainMedia.image.urlExpirationDate' },
+                    {
+                        path: 'service.staffMemberDetails.staffMembers.mainMedia.image.urlExpirationDate',
+                    },
                     { path: 'service.supportedSlugs.createdDate' },
                     { path: 'service.mainSlug.createdDate' },
                 ],
@@ -262,6 +412,9 @@ function createService(payload) {
                         { path: 'service.schedule.lastSessionEnd' },
                         {
                             path: 'service.staffMembers.mainMedia.image.urlExpirationDate',
+                        },
+                        {
+                            path: 'service.staffMemberDetails.staffMembers.mainMedia.image.urlExpirationDate',
                         },
                         { path: 'service.supportedSlugs.createdDate' },
                         { path: 'service.mainSlug.createdDate' },
@@ -313,6 +466,9 @@ function getService(payload) {
                         {
                             path: 'service.staffMembers.mainMedia.image.urlExpirationDate',
                         },
+                        {
+                            path: 'service.staffMemberDetails.staffMembers.mainMedia.image.urlExpirationDate',
+                        },
                         { path: 'service.supportedSlugs.createdDate' },
                         { path: 'service.mainSlug.createdDate' },
                     ],
@@ -337,12 +493,14 @@ function getService(payload) {
 /**
  * Updates a service.
  *
- * [Partial updates](https://dev.wix.com/api/rest/wix-bookings/bookings/patch-endpoints-and-field-masks-in-update-requests) are supported.
+ * [Partial
+ * updates](https://dev.wix.com/api/rest/wix-bookings/bookings/patch-endpoints-and-field-masks-in-update-requests)
+ * are supported.
  *
- * Each time the service is updated, `revision` increments by 1. You must include the
- * number of the existing revision when
- * updating the service. This ensures you're working with the
- * latest service information and prevents unintended overwrites.
+ * Each time the service is updated, `revision` increments by 1. You must
+ * include the number of the existing revision when updating the service.
+ * This ensures you're working with the latest service information and
+ * prevents unintended overwrites.
  */
 function updateService(payload) {
     function __updateService({ host }) {
@@ -364,6 +522,9 @@ function updateService(payload) {
                     { path: 'service.schedule.firstSessionStart' },
                     { path: 'service.schedule.lastSessionEnd' },
                     { path: 'service.staffMembers.mainMedia.image.urlExpirationDate' },
+                    {
+                        path: 'service.staffMemberDetails.staffMembers.mainMedia.image.urlExpirationDate',
+                    },
                     { path: 'service.supportedSlugs.createdDate' },
                     { path: 'service.mainSlug.createdDate' },
                 ],
@@ -406,6 +567,9 @@ function updateService(payload) {
                         {
                             path: 'service.staffMembers.mainMedia.image.urlExpirationDate',
                         },
+                        {
+                            path: 'service.staffMemberDetails.staffMembers.mainMedia.image.urlExpirationDate',
+                        },
                         { path: 'service.supportedSlugs.createdDate' },
                         { path: 'service.mainSlug.createdDate' },
                     ],
@@ -430,12 +594,14 @@ function updateService(payload) {
 /**
  * Updates multiple services.
  *
- * [Partial updates](https://dev.wix.com/api/rest/wix-bookings/bookings/patch-endpoints-and-field-masks-in-update-requests) are supported.
+ * [Partial
+ * updates](https://dev.wix.com/api/rest/wix-bookings/bookings/patch-endpoints-and-field-masks-in-update-requests)
+ * are supported.
  *
- * Each time a service is updated, `revision` increments by 1. You must include the
- * number of the existing revision for each service to update.
- * This ensures you're working with the latest service information and prevents
- * unintended overwrites.
+ * Each time a service is updated, `revision` increments by 1. You must
+ * include the number of the existing revision for each service to update.
+ * This ensures you're working with the latest service information and
+ * prevents unintended overwrites.
  */
 function bulkUpdateServices(payload) {
     function __bulkUpdateServices({ host }) {
@@ -458,6 +624,9 @@ function bulkUpdateServices(payload) {
                     { path: 'services.service.schedule.lastSessionEnd' },
                     {
                         path: 'services.service.staffMembers.mainMedia.image.urlExpirationDate',
+                    },
+                    {
+                        path: 'services.service.staffMemberDetails.staffMembers.mainMedia.image.urlExpirationDate',
                     },
                     { path: 'services.service.supportedSlugs.createdDate' },
                     { path: 'services.service.mainSlug.createdDate' },
@@ -513,6 +682,9 @@ function bulkUpdateServices(payload) {
                         {
                             path: 'results.item.staffMembers.mainMedia.image.urlExpirationDate',
                         },
+                        {
+                            path: 'results.item.staffMemberDetails.staffMembers.mainMedia.image.urlExpirationDate',
+                        },
                         { path: 'results.item.supportedSlugs.createdDate' },
                         { path: 'results.item.mainSlug.createdDate' },
                     ],
@@ -545,6 +717,69 @@ function bulkUpdateServices(payload) {
         return metadata;
     }
     return __bulkUpdateServices;
+}
+/**
+ * Updates multiple services by filter.
+ *
+ * [Partial
+ * updates](https://dev.wix.com/api/rest/wix-bookings/bookings/patch-endpoints-and-field-masks-in-update-requests)
+ * are supported.
+ *
+ * Each time a service is updated, `revision` increments by 1.
+ */
+function bulkUpdateServicesByFilter(payload) {
+    function __bulkUpdateServicesByFilter({ host }) {
+        const serializedData = (0,_wix_sdk_runtime_transformations_transform_paths__WEBPACK_IMPORTED_MODULE_1__.transformPaths)(payload, [
+            {
+                transformFn: _wix_sdk_runtime_transformations_field_mask__WEBPACK_IMPORTED_MODULE_4__.transformSDKFieldMaskToRESTFieldMask,
+                paths: [{ path: 'mask' }],
+            },
+            {
+                transformFn: _wix_sdk_runtime_transformations_timestamp__WEBPACK_IMPORTED_MODULE_2__.transformSDKTimestampToRESTTimestamp,
+                paths: [
+                    { path: 'service.createdDate' },
+                    { path: 'service.updatedDate' },
+                    { path: 'service.media.items.image.urlExpirationDate' },
+                    { path: 'service.media.mainMedia.image.urlExpirationDate' },
+                    { path: 'service.media.coverMedia.image.urlExpirationDate' },
+                    { path: 'service.bookingPolicy.createdDate' },
+                    { path: 'service.bookingPolicy.updatedDate' },
+                    { path: 'service.schedule.firstSessionStart' },
+                    { path: 'service.schedule.lastSessionEnd' },
+                    { path: 'service.staffMembers.mainMedia.image.urlExpirationDate' },
+                    {
+                        path: 'service.staffMemberDetails.staffMembers.mainMedia.image.urlExpirationDate',
+                    },
+                    { path: 'service.supportedSlugs.createdDate' },
+                    { path: 'service.mainSlug.createdDate' },
+                ],
+            },
+            {
+                transformFn: _wix_sdk_runtime_transformations_float__WEBPACK_IMPORTED_MODULE_3__.transformSDKFloatToRESTFloat,
+                paths: [
+                    { path: 'service.locations.business.address.geocode.latitude' },
+                    { path: 'service.locations.business.address.geocode.longitude' },
+                    { path: 'service.locations.custom.address.geocode.latitude' },
+                    { path: 'service.locations.custom.address.geocode.longitude' },
+                    { path: 'service.locations.calculatedAddress.geocode.latitude' },
+                    { path: 'service.locations.calculatedAddress.geocode.longitude' },
+                ],
+            },
+        ]);
+        const metadata = {
+            entityFqdn: 'wix.bookings.services.v2.service',
+            method: 'POST',
+            methodFqn: 'wix.bookings.services.v2.ServicesService.BulkUpdateServicesByFilter',
+            url: resolveWixBookingsServicesV2ServicesServiceUrl({
+                protoPath: '/v2/bulk/services/update-by-filter',
+                data: serializedData,
+                host,
+            }),
+            data: serializedData,
+        };
+        return metadata;
+    }
+    return __bulkUpdateServicesByFilter;
 }
 /** Deletes a service. */
 function deleteService(payload) {
@@ -593,6 +828,9 @@ function bulkDeleteServices(payload) {
                         {
                             path: 'results.item.staffMembers.mainMedia.image.urlExpirationDate',
                         },
+                        {
+                            path: 'results.item.staffMemberDetails.staffMembers.mainMedia.image.urlExpirationDate',
+                        },
                         { path: 'results.item.supportedSlugs.createdDate' },
                         { path: 'results.item.mainSlug.createdDate' },
                     ],
@@ -625,6 +863,24 @@ function bulkDeleteServices(payload) {
         return metadata;
     }
     return __bulkDeleteServices;
+}
+/** Deletes multiple services by filter. */
+function bulkDeleteServicesByFilter(payload) {
+    function __bulkDeleteServicesByFilter({ host }) {
+        const metadata = {
+            entityFqdn: 'wix.bookings.services.v2.service',
+            method: 'POST',
+            methodFqn: 'wix.bookings.services.v2.ServicesService.BulkDeleteServicesByFilter',
+            url: resolveWixBookingsServicesV2ServicesServiceUrl({
+                protoPath: '/v2/bulk/services/delete-by-filter',
+                data: payload,
+                host,
+            }),
+            data: payload,
+        };
+        return metadata;
+    }
+    return __bulkDeleteServicesByFilter;
 }
 /**
  * Retrieves a list of up to 100 services, given the provided paging, filtering, and sorting.
@@ -665,6 +921,9 @@ function queryServices(payload) {
                         {
                             path: 'services.staffMembers.mainMedia.image.urlExpirationDate',
                         },
+                        {
+                            path: 'services.staffMemberDetails.staffMembers.mainMedia.image.urlExpirationDate',
+                        },
                         { path: 'services.supportedSlugs.createdDate' },
                         { path: 'services.mainSlug.createdDate' },
                     ],
@@ -688,7 +947,10 @@ function queryServices(payload) {
     }
     return __queryServices;
 }
-/** Retrieves a list of up to 100 services, given the provided query string, and paging. */
+/**
+ * Retrieves a list of up to 100 services, given the provided query string,
+ * and paging.
+ */
 function searchServices(payload) {
     function __searchServices({ host }) {
         const serializedData = (0,_wix_sdk_runtime_transformations_transform_paths__WEBPACK_IMPORTED_MODULE_1__.transformPaths)(payload, [
@@ -731,6 +993,9 @@ function searchServices(payload) {
                         { path: 'services.schedule.lastSessionEnd' },
                         {
                             path: 'services.staffMembers.mainMedia.image.urlExpirationDate',
+                        },
+                        {
+                            path: 'services.staffMemberDetails.staffMembers.mainMedia.image.urlExpirationDate',
                         },
                         { path: 'services.supportedSlugs.createdDate' },
                         { path: 'services.mainSlug.createdDate' },
@@ -777,11 +1042,14 @@ function searchServices(payload) {
     return __searchServices;
 }
 /**
- * Retrieves a list of up to 100 policies, given the provided paging, filtering, and sorting.
+ * Retrieves a list of up to 100 policies, given the provided paging,
+ * filtering, and sorting.
  *
  *
- * Define queries using [WQL - Wix Query Language](https://dev.wix.com/api/rest/getting-started/api-query-language).
- * For field support for filters and sorting, see [Supported Filters and Sorting](https://dev.wix.com/api/rest/wix-bookings/services-v2/supported-filters-and-sorting).
+ * Define queries using [WQL - Wix Query
+ * Language](https://dev.wix.com/api/rest/getting-started/api-query-language).
+ * For field support for filters and sorting, see [Supported Filters and
+ * Sorting](https://dev.wix.com/api/rest/wix-bookings/services-v2/supported-filters-and-sorting).
  *
  * To retrieve all policies use an empty query:
  *
@@ -797,7 +1065,9 @@ function searchServices(payload) {
  *
  * >**Notes:**
  * > + Use UTC format when filtering with dates.
- * > + Only 1 use of each filter in the same query is supported. If a filter is defined more than once in a query, only the first occurrence is processed.
+ * > + Only 1 use of each filter in the same query is supported. If a filter
+ * is defined more than once in a query, only the first occurrence is
+ * processed.
  */
 function queryPolicies(payload) {
     function __queryPolicies({ host }) {
@@ -834,6 +1104,9 @@ function queryPolicies(payload) {
                         { path: 'bookingPolicies.services.schedule.lastSessionEnd' },
                         {
                             path: 'bookingPolicies.services.staffMembers.mainMedia.image.urlExpirationDate',
+                        },
+                        {
+                            path: 'bookingPolicies.services.staffMemberDetails.staffMembers.mainMedia.image.urlExpirationDate',
                         },
                         { path: 'bookingPolicies.services.supportedSlugs.createdDate' },
                         { path: 'bookingPolicies.services.mainSlug.createdDate' },
@@ -886,10 +1159,73 @@ function countServices(payload) {
     }
     return __countServices;
 }
+/** Query locations that exist on services. */
+function queryLocations(payload) {
+    function __queryLocations({ host }) {
+        const metadata = {
+            entityFqdn: 'wix.bookings.services.v2.service',
+            method: 'POST',
+            methodFqn: 'wix.bookings.services.v2.ServicesService.QueryLocations',
+            url: resolveWixBookingsServicesV2ServicesServiceUrl({
+                protoPath: '/v2/services/locations/query',
+                data: payload,
+                host,
+            }),
+            data: payload,
+            transformResponse: (payload) => (0,_wix_sdk_runtime_transformations_transform_paths__WEBPACK_IMPORTED_MODULE_1__.transformPaths)(payload, [
+                {
+                    transformFn: _wix_sdk_runtime_transformations_float__WEBPACK_IMPORTED_MODULE_3__.transformRESTFloatToSDKFloat,
+                    paths: [
+                        {
+                            path: 'businessLocations.locations.business.address.geocode.latitude',
+                        },
+                        {
+                            path: 'businessLocations.locations.business.address.geocode.longitude',
+                        },
+                        {
+                            path: 'businessLocations.locations.custom.address.geocode.latitude',
+                        },
+                        {
+                            path: 'businessLocations.locations.custom.address.geocode.longitude',
+                        },
+                        {
+                            path: 'businessLocations.locations.calculatedAddress.geocode.latitude',
+                        },
+                        {
+                            path: 'businessLocations.locations.calculatedAddress.geocode.longitude',
+                        },
+                    ],
+                },
+            ]),
+        };
+        return metadata;
+    }
+    return __queryLocations;
+}
+/** Query categories that exist on services. */
+function queryCategories(payload) {
+    function __queryCategories({ host }) {
+        const metadata = {
+            entityFqdn: 'wix.bookings.services.v2.service',
+            method: 'POST',
+            methodFqn: 'wix.bookings.services.v2.ServicesService.QueryCategories',
+            url: resolveWixBookingsServicesV2ServicesServiceUrl({
+                protoPath: '/v2/services/categories/query',
+                data: payload,
+                host,
+            }),
+            data: payload,
+        };
+        return metadata;
+    }
+    return __queryCategories;
+}
 /**
  * Change the locations this service is offered at.
- * Changing locations may have impact on existing sessions and their participants.
- * When removing locations from a service, this endpoint requires stating what to do with existing sessions occurring at the removed locations.
+ * Changing locations may have impact on existing sessions and their
+ * participants. When removing locations from a service, this endpoint
+ * requires stating what to do with existing sessions occurring at the removed
+ * locations.
  */
 function setServiceLocations(payload) {
     function __setServiceLocations({ host }) {
@@ -950,6 +1286,9 @@ function setServiceLocations(payload) {
                         {
                             path: 'service.staffMembers.mainMedia.image.urlExpirationDate',
                         },
+                        {
+                            path: 'service.staffMemberDetails.staffMembers.mainMedia.image.urlExpirationDate',
+                        },
                         { path: 'service.supportedSlugs.createdDate' },
                         { path: 'service.mainSlug.createdDate' },
                     ],
@@ -972,8 +1311,10 @@ function setServiceLocations(payload) {
     return __setServiceLocations;
 }
 /**
- * Enables specific [pricing plans](https://dev.wix.com/api/rest/wix-pricing-plans/pricing-plans/plans/plan-object) as payment methods for a service.
- * This API enables customers to pay for the service using one of the specified pricing plans.
+ * Enables specific [pricing
+ * plans](https://dev.wix.com/api/rest/wix-pricing-plans/pricing-plans/plans/plan-object)
+ * as payment methods for a service. This API enables customers to pay for the
+ * service using one of the specified pricing plans.
  */
 function enablePricingPlansForService(payload) {
     function __enablePricingPlansForService({ host }) {
@@ -1003,6 +1344,9 @@ function enablePricingPlansForService(payload) {
                         {
                             path: 'service.staffMembers.mainMedia.image.urlExpirationDate',
                         },
+                        {
+                            path: 'service.staffMemberDetails.staffMembers.mainMedia.image.urlExpirationDate',
+                        },
                         { path: 'service.supportedSlugs.createdDate' },
                         { path: 'service.mainSlug.createdDate' },
                     ],
@@ -1024,7 +1368,13 @@ function enablePricingPlansForService(payload) {
     }
     return __enablePricingPlansForService;
 }
-/** Disables specific [pricing plans](https://dev.wix.com/api/rest/wix-pricing-plans/pricing-plans/plans/plan-object) as payment methods for a service. Customers can't pay for the service using a removed pricing plan. Existing payments with a removed plan aren't affected. */
+/**
+ * Disables specific [pricing
+ * plans](https://dev.wix.com/api/rest/wix-pricing-plans/pricing-plans/plans/plan-object)
+ * as payment methods for a service. Customers can't pay for the service using
+ * a removed pricing plan. Existing payments with a removed plan aren't
+ * affected.
+ */
 function disablePricingPlansForService(payload) {
     function __disablePricingPlansForService({ host }) {
         const metadata = {
@@ -1053,6 +1403,9 @@ function disablePricingPlansForService(payload) {
                         {
                             path: 'service.staffMembers.mainMedia.image.urlExpirationDate',
                         },
+                        {
+                            path: 'service.staffMemberDetails.staffMembers.mainMedia.image.urlExpirationDate',
+                        },
                         { path: 'service.supportedSlugs.createdDate' },
                         { path: 'service.mainSlug.createdDate' },
                     ],
@@ -1076,7 +1429,8 @@ function disablePricingPlansForService(payload) {
 }
 /**
  * Sets a custom (user-defined) slug for the various service pages.
- * The call may fail if there's another service with the same slug, either by past name or by a custom slug.
+ * The call may fail if there's another service with the same slug, either by
+ * past name or by a custom slug.
  */
 function setCustomSlug(payload) {
     function __setCustomSlug({ host }) {
@@ -1107,6 +1461,9 @@ function setCustomSlug(payload) {
                         {
                             path: 'service.staffMembers.mainMedia.image.urlExpirationDate',
                         },
+                        {
+                            path: 'service.staffMemberDetails.staffMembers.mainMedia.image.urlExpirationDate',
+                        },
                         { path: 'service.supportedSlugs.createdDate' },
                         { path: 'service.mainSlug.createdDate' },
                     ],
@@ -1129,8 +1486,9 @@ function setCustomSlug(payload) {
     return __setCustomSlug;
 }
 /**
- * Validate a custom (user-defined) slug, making sure no other service uses the same slug.
- * The call may fail if there's another service with the same slug, either by past name or by a custom set slug.
+ * Validate a custom (user-defined) slug, making sure no other service uses
+ * the same slug. The call may fail if there's another service with the same
+ * slug, either by past name or by a custom set slug.
  */
 function validateSlug(payload) {
     function __validateSlug({ host }) {
@@ -1177,6 +1535,9 @@ function cloneService(payload) {
                         { path: 'service.schedule.lastSessionEnd' },
                         {
                             path: 'service.staffMembers.mainMedia.image.urlExpirationDate',
+                        },
+                        {
+                            path: 'service.staffMemberDetails.staffMembers.mainMedia.image.urlExpirationDate',
                         },
                         { path: 'service.supportedSlugs.createdDate' },
                         { path: 'service.mainSlug.createdDate' },
@@ -1253,7 +1614,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   WebhookIdentityType: () => (/* reexport safe */ _bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_0__.WebhookIdentityType),
 /* harmony export */   __metadata: () => (/* binding */ __metadata),
 /* harmony export */   bulkDeleteServices: () => (/* binding */ bulkDeleteServices),
+/* harmony export */   bulkDeleteServicesByFilter: () => (/* binding */ bulkDeleteServicesByFilter),
 /* harmony export */   bulkUpdateServices: () => (/* binding */ bulkUpdateServices),
+/* harmony export */   bulkUpdateServicesByFilter: () => (/* binding */ bulkUpdateServicesByFilter),
 /* harmony export */   cloneService: () => (/* binding */ cloneService),
 /* harmony export */   countServices: () => (/* binding */ countServices),
 /* harmony export */   createService: () => (/* binding */ createService),
@@ -1262,8 +1625,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   enablePricingPlansForService: () => (/* binding */ enablePricingPlansForService),
 /* harmony export */   getService: () => (/* binding */ getService),
 /* harmony export */   onServiceCreated: () => (/* binding */ onServiceCreated),
+/* harmony export */   onServiceDefaultBookingPolicySet: () => (/* binding */ onServiceDefaultBookingPolicySet),
 /* harmony export */   onServiceDeleted: () => (/* binding */ onServiceDeleted),
 /* harmony export */   onServiceUpdated: () => (/* binding */ onServiceUpdated),
+/* harmony export */   queryCategories: () => (/* binding */ queryCategories),
+/* harmony export */   queryLocations: () => (/* binding */ queryLocations),
 /* harmony export */   queryPolicies: () => (/* binding */ queryPolicies),
 /* harmony export */   queryServices: () => (/* binding */ queryServices),
 /* harmony export */   searchServices: () => (/* binding */ searchServices),
@@ -1309,6 +1675,11 @@ function bulkUpdateServices(httpClient) {
     // @ts-ignore
     { httpClient });
 }
+function bulkUpdateServicesByFilter(httpClient) {
+    return (filter, options) => (0,_bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_0__.bulkUpdateServicesByFilter)(filter, options, 
+    // @ts-ignore
+    { httpClient });
+}
 function deleteService(httpClient) {
     return (serviceId, options) => (0,_bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_0__.deleteService)(serviceId, options, 
     // @ts-ignore
@@ -1316,6 +1687,11 @@ function deleteService(httpClient) {
 }
 function bulkDeleteServices(httpClient) {
     return (ids, options) => (0,_bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_0__.bulkDeleteServices)(ids, options, 
+    // @ts-ignore
+    { httpClient });
+}
+function bulkDeleteServicesByFilter(httpClient) {
+    return (filter, options) => (0,_bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_0__.bulkDeleteServicesByFilter)(filter, options, 
     // @ts-ignore
     { httpClient });
 }
@@ -1336,6 +1712,16 @@ function queryPolicies(httpClient) {
 }
 function countServices(httpClient) {
     return (options) => (0,_bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_0__.countServices)(options, 
+    // @ts-ignore
+    { httpClient });
+}
+function queryLocations(httpClient) {
+    return (options) => (0,_bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_0__.queryLocations)(options, 
+    // @ts-ignore
+    { httpClient });
+}
+function queryCategories(httpClient) {
+    return (options) => (0,_bookings_services_v2_service_services_universal__WEBPACK_IMPORTED_MODULE_0__.queryCategories)(options, 
     // @ts-ignore
     { httpClient });
 }
@@ -1391,6 +1777,7 @@ const onServiceCreated = (0,_wix_sdk_types__WEBPACK_IMPORTED_MODULE_1__.EventDef
             { path: 'entity.media.mainMedia.image' },
             { path: 'entity.media.coverMedia.image' },
             { path: 'entity.staffMembers.mainMedia.image' },
+            { path: 'entity.staffMemberDetails.staffMembers.mainMedia.image' },
         ],
     },
     {
@@ -1432,6 +1819,7 @@ const onServiceUpdated = (0,_wix_sdk_types__WEBPACK_IMPORTED_MODULE_1__.EventDef
             { path: 'entity.media.mainMedia.image' },
             { path: 'entity.media.coverMedia.image' },
             { path: 'entity.staffMembers.mainMedia.image' },
+            { path: 'entity.staffMemberDetails.staffMembers.mainMedia.image' },
         ],
     },
     {
@@ -1473,6 +1861,7 @@ const onServiceDeleted = (0,_wix_sdk_types__WEBPACK_IMPORTED_MODULE_1__.EventDef
             { path: 'entity.media.mainMedia.image' },
             { path: 'entity.media.coverMedia.image' },
             { path: 'entity.staffMembers.mainMedia.image' },
+            { path: 'entity.staffMemberDetails.staffMembers.mainMedia.image' },
         ],
     },
     {
@@ -1489,6 +1878,18 @@ const onServiceDeleted = (0,_wix_sdk_types__WEBPACK_IMPORTED_MODULE_1__.EventDef
             { path: 'entity.urls.servicePage' },
             { path: 'entity.urls.bookingPage' },
             { path: 'entity.urls.calendarPage' },
+        ],
+    },
+])))();
+const onServiceDefaultBookingPolicySet = (0,_wix_sdk_types__WEBPACK_IMPORTED_MODULE_1__.EventDefinition)('wix.bookings.services.v2.service_default_booking_policy_set', true, (event) => (0,_wix_sdk_runtime_rename_all_nested_keys__WEBPACK_IMPORTED_MODULE_2__.renameKeysFromRESTResponseToSDKResponse)((0,_wix_sdk_runtime_transformations_transform_paths__WEBPACK_IMPORTED_MODULE_3__.transformPaths)(event, [
+    {
+        transformFn: _wix_sdk_runtime_transformations_timestamp__WEBPACK_IMPORTED_MODULE_4__.transformRESTTimestampToSDKTimestamp,
+        paths: [
+            { path: 'data.currentDefaultBookingPolicy.createdDate' },
+            { path: 'data.currentDefaultBookingPolicy.updatedDate' },
+            { path: 'data.previousDefaultBookingPolicy.createdDate' },
+            { path: 'data.previousDefaultBookingPolicy.updatedDate' },
+            { path: 'metadata.eventTime' },
         ],
     },
 ])))();
@@ -1546,7 +1947,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   Transparency: () => (/* binding */ Transparency),
 /* harmony export */   WebhookIdentityType: () => (/* binding */ WebhookIdentityType),
 /* harmony export */   bulkDeleteServices: () => (/* binding */ bulkDeleteServices),
+/* harmony export */   bulkDeleteServicesByFilter: () => (/* binding */ bulkDeleteServicesByFilter),
 /* harmony export */   bulkUpdateServices: () => (/* binding */ bulkUpdateServices),
+/* harmony export */   bulkUpdateServicesByFilter: () => (/* binding */ bulkUpdateServicesByFilter),
 /* harmony export */   cloneService: () => (/* binding */ cloneService),
 /* harmony export */   countServices: () => (/* binding */ countServices),
 /* harmony export */   createService: () => (/* binding */ createService),
@@ -1554,6 +1957,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   disablePricingPlansForService: () => (/* binding */ disablePricingPlansForService),
 /* harmony export */   enablePricingPlansForService: () => (/* binding */ enablePricingPlansForService),
 /* harmony export */   getService: () => (/* binding */ getService),
+/* harmony export */   queryCategories: () => (/* binding */ queryCategories),
+/* harmony export */   queryLocations: () => (/* binding */ queryLocations),
 /* harmony export */   queryPolicies: () => (/* binding */ queryPolicies),
 /* harmony export */   queryServices: () => (/* binding */ queryServices),
 /* harmony export */   searchServices: () => (/* binding */ searchServices),
@@ -1627,7 +2032,7 @@ var RequestedFields;
     RequestedFields["UNKNOWN_REQUESTED_FIELD"] = "UNKNOWN_REQUESTED_FIELD";
     /** When passed, `service.staff_members` is returned */
     RequestedFields["STAFF_MEMBER_DETAILS"] = "STAFF_MEMBER_DETAILS";
-    /** When passed, `service.service_resources.resource_type.name` is returned */
+    /** When passed, `service.service_resources.resource_type.name` is */
     RequestedFields["RESOURCE_TYPE_DETAILS"] = "RESOURCE_TYPE_DETAILS";
 })(RequestedFields || (RequestedFields = {}));
 var SortOrder;
@@ -1670,12 +2075,19 @@ var NestedAggregationType;
 var DateHistogramAggregationInterval;
 (function (DateHistogramAggregationInterval) {
     DateHistogramAggregationInterval["UNKNOWN_INTERVAL"] = "UNKNOWN_INTERVAL";
+    /** Yearly interval */
     DateHistogramAggregationInterval["YEAR"] = "YEAR";
+    /** Monthly interval */
     DateHistogramAggregationInterval["MONTH"] = "MONTH";
+    /** Weekly interval */
     DateHistogramAggregationInterval["WEEK"] = "WEEK";
+    /** Daily interval */
     DateHistogramAggregationInterval["DAY"] = "DAY";
+    /** Hourly interval */
     DateHistogramAggregationInterval["HOUR"] = "HOUR";
+    /** Minute interval */
     DateHistogramAggregationInterval["MINUTE"] = "MINUTE";
+    /** Second interval */
     DateHistogramAggregationInterval["SECOND"] = "SECOND";
 })(DateHistogramAggregationInterval || (DateHistogramAggregationInterval = {}));
 var AggregationType;
@@ -1694,6 +2106,45 @@ var Mode;
     /** All */
     Mode["AND"] = "AND";
 })(Mode || (Mode = {}));
+var Action;
+(function (Action) {
+    Action["UNKNOWN_ACTION_TYPE"] = "UNKNOWN_ACTION_TYPE";
+    /**
+     * Keep future sessions at their current location. This is the default.
+     * Note: The location will be set directly on the session. i.e, if the location is currently inherited from the schedule, the inheritance will be overridden.
+     */
+    Action["KEEP_AT_CURRENT_LOCATION"] = "KEEP_AT_CURRENT_LOCATION";
+    /**
+     * Move future sessions to a new location.
+     * The new location must be specified in the availability locations to set ('SetAvailabilityLocationsRequest.locations').
+     */
+    Action["MOVE_TO_LOCATION"] = "MOVE_TO_LOCATION";
+    /**
+     * Delete future sessions.
+     * Currently not supported.
+     */
+    Action["DELETE"] = "DELETE";
+})(Action || (Action = {}));
+var InvalidSlugError;
+(function (InvalidSlugError) {
+    InvalidSlugError["UNKNOWN_SLUG_ERROR"] = "UNKNOWN_SLUG_ERROR";
+    /** The provided slug name contains illegal characters. */
+    InvalidSlugError["SLUG_CONTAINS_ILLEGAL_CHARACTERS"] = "SLUG_CONTAINS_ILLEGAL_CHARACTERS";
+    /** The provided slug name already exists for another service. */
+    InvalidSlugError["SLUG_ALREADY_EXISTS"] = "SLUG_ALREADY_EXISTS";
+})(InvalidSlugError || (InvalidSlugError = {}));
+var CloneErrors;
+(function (CloneErrors) {
+    CloneErrors["UNKNOWN_CLONE_ERROR"] = "UNKNOWN_CLONE_ERROR";
+    /** Failed to clone sessions of active service's schedule */
+    CloneErrors["SESSIONS"] = "SESSIONS";
+    /** Failed to clone service's options and variants even though source service have them */
+    CloneErrors["OPTIONS_AND_VARIANTS"] = "OPTIONS_AND_VARIANTS";
+    /** Failed to clone service's form */
+    CloneErrors["FORM"] = "FORM";
+    /** Failed to clone pricing plans connected to the source service */
+    CloneErrors["PRICING_PLANS"] = "PRICING_PLANS";
+})(CloneErrors || (CloneErrors = {}));
 var CategoryStatus;
 (function (CategoryStatus) {
     /** The category is created. */
@@ -1900,51 +2351,13 @@ var ResolutionMethod;
     ResolutionMethod["SUBDOMAIN"] = "SUBDOMAIN";
     ResolutionMethod["SUBDIRECTORY"] = "SUBDIRECTORY";
 })(ResolutionMethod || (ResolutionMethod = {}));
-var Action;
-(function (Action) {
-    Action["UNKNOWN_ACTION_TYPE"] = "UNKNOWN_ACTION_TYPE";
-    /**
-     * Keep future sessions at their current location. This is the default.
-     * Note: The location will be set directly on the session. i.e, if the location is currently inherited from the schedule, the inheritance will be overridden.
-     */
-    Action["KEEP_AT_CURRENT_LOCATION"] = "KEEP_AT_CURRENT_LOCATION";
-    /**
-     * Move future sessions to a new location.
-     * The new location must be specified in the availability locations to set ('SetAvailabilityLocationsRequest.locations').
-     */
-    Action["MOVE_TO_LOCATION"] = "MOVE_TO_LOCATION";
-    /**
-     * Delete future sessions.
-     * Currently not supported.
-     */
-    Action["DELETE"] = "DELETE";
-})(Action || (Action = {}));
-var InvalidSlugError;
-(function (InvalidSlugError) {
-    InvalidSlugError["UNKNOWN_SLUG_ERROR"] = "UNKNOWN_SLUG_ERROR";
-    /** The provided slug name contains illegal characters. */
-    InvalidSlugError["SLUG_CONTAINS_ILLEGAL_CHARACTERS"] = "SLUG_CONTAINS_ILLEGAL_CHARACTERS";
-    /** The provided slug name already exists for another service. */
-    InvalidSlugError["SLUG_ALREADY_EXISTS"] = "SLUG_ALREADY_EXISTS";
-})(InvalidSlugError || (InvalidSlugError = {}));
-var CloneErrors;
-(function (CloneErrors) {
-    CloneErrors["UNKNOWN_CLONE_ERROR"] = "UNKNOWN_CLONE_ERROR";
-    /** Failed to clone sessions of active service's schedule */
-    CloneErrors["SESSIONS"] = "SESSIONS";
-    /** Failed to clone service's options and variants even though source service have them */
-    CloneErrors["OPTIONS_AND_VARIANTS"] = "OPTIONS_AND_VARIANTS";
-    /** Failed to clone service's form */
-    CloneErrors["FORM"] = "FORM";
-    /** Failed to clone pricing plans connected to the source service */
-    CloneErrors["PRICING_PLANS"] = "PRICING_PLANS";
-})(CloneErrors || (CloneErrors = {}));
 /**
  * Creates a new service.
  * @param service - Service to be created.
  * @public
  * @documentationMaturity preview
  * @requiredField service
+ * @permissionId BOOKINGS.SERVICES_CREATE
  * @permissionScope Manage Bookings
  * @permissionScopeId SCOPE.DC-BOOKINGS.MANAGE-BOOKINGS
  * @permissionScope Manage Bookings - all permissions
@@ -1963,6 +2376,7 @@ async function createService(service) {
                 { path: 'service.media.mainMedia.image' },
                 { path: 'service.media.coverMedia.image' },
                 { path: 'service.staffMembers.mainMedia.image' },
+                { path: 'service.staffMemberDetails.staffMembers.mainMedia.image' },
             ],
         },
         {
@@ -1995,6 +2409,7 @@ async function createService(service) {
                     { path: 'service.media.mainMedia.image' },
                     { path: 'service.media.coverMedia.image' },
                     { path: 'service.staffMembers.mainMedia.image' },
+                    { path: 'service.staffMemberDetails.staffMembers.mainMedia.image' },
                 ],
             },
             {
@@ -2027,10 +2442,10 @@ async function createService(service) {
 }
 /**
  * Retrieves a service.
- * @param serviceId - ID of the service to retrieve.
  * @public
  * @documentationMaturity preview
  * @requiredField serviceId
+ * @permissionId BOOKINGS.SERVICES_READ
  * @permissionScope Read Bookings - Public Data
  * @permissionScopeId SCOPE.DC-BOOKINGS.READ-BOOKINGS-PUBLIC
  * @permissionScope Manage Bookings Services and Settings
@@ -2044,7 +2459,6 @@ async function createService(service) {
  * @permissionScope Manage Bookings - all permissions
  * @permissionScopeId SCOPE.DC-BOOKINGS-MEGA.MANAGE-BOOKINGS
  * @applicableIdentity APP
- * @applicableIdentity MEMBER
  * @applicableIdentity VISITOR
  * @returns The retrieved service.
  */
@@ -2067,6 +2481,7 @@ async function getService(serviceId) {
                     { path: 'service.media.mainMedia.image' },
                     { path: 'service.media.coverMedia.image' },
                     { path: 'service.staffMembers.mainMedia.image' },
+                    { path: 'service.staffMemberDetails.staffMembers.mainMedia.image' },
                 ],
             },
             {
@@ -2100,18 +2515,21 @@ async function getService(serviceId) {
 /**
  * Updates a service.
  *
- * [Partial updates](https://dev.wix.com/api/rest/wix-bookings/bookings/patch-endpoints-and-field-masks-in-update-requests) are supported.
+ * [Partial
+ * updates](https://dev.wix.com/api/rest/wix-bookings/bookings/patch-endpoints-and-field-masks-in-update-requests)
+ * are supported.
  *
- * Each time the service is updated, `revision` increments by 1. You must include the
- * number of the existing revision when
- * updating the service. This ensures you're working with the
- * latest service information and prevents unintended overwrites.
+ * Each time the service is updated, `revision` increments by 1. You must
+ * include the number of the existing revision when updating the service.
+ * This ensures you're working with the latest service information and
+ * prevents unintended overwrites.
  * @param _id - Service ID.
  * @public
  * @documentationMaturity preview
  * @requiredField _id
  * @requiredField service
  * @requiredField service.revision
+ * @permissionId BOOKINGS.SERVICES_UPDATE
  * @permissionScope Manage Bookings
  * @permissionScopeId SCOPE.DC-BOOKINGS.MANAGE-BOOKINGS
  * @permissionScope Manage Bookings - all permissions
@@ -2130,6 +2548,7 @@ async function updateService(_id, service) {
                 { path: 'service.media.mainMedia.image' },
                 { path: 'service.media.coverMedia.image' },
                 { path: 'service.staffMembers.mainMedia.image' },
+                { path: 'service.staffMemberDetails.staffMembers.mainMedia.image' },
             ],
         },
         {
@@ -2162,6 +2581,7 @@ async function updateService(_id, service) {
                     { path: 'service.media.mainMedia.image' },
                     { path: 'service.media.coverMedia.image' },
                     { path: 'service.staffMembers.mainMedia.image' },
+                    { path: 'service.staffMemberDetails.staffMembers.mainMedia.image' },
                 ],
             },
             {
@@ -2195,17 +2615,20 @@ async function updateService(_id, service) {
 /**
  * Updates multiple services.
  *
- * [Partial updates](https://dev.wix.com/api/rest/wix-bookings/bookings/patch-endpoints-and-field-masks-in-update-requests) are supported.
+ * [Partial
+ * updates](https://dev.wix.com/api/rest/wix-bookings/bookings/patch-endpoints-and-field-masks-in-update-requests)
+ * are supported.
  *
- * Each time a service is updated, `revision` increments by 1. You must include the
- * number of the existing revision for each service to update.
- * This ensures you're working with the latest service information and prevents
- * unintended overwrites.
+ * Each time a service is updated, `revision` increments by 1. You must
+ * include the number of the existing revision for each service to update.
+ * This ensures you're working with the latest service information and
+ * prevents unintended overwrites.
  * @public
  * @documentationMaturity preview
  * @requiredField options.services.service
  * @requiredField options.services.service._id
  * @requiredField options.services.service.revision
+ * @permissionId BOOKINGS.SERVICES_UPDATE
  * @permissionScope Manage Bookings
  * @permissionScopeId SCOPE.DC-BOOKINGS.MANAGE-BOOKINGS
  * @permissionScope Manage Bookings - all permissions
@@ -2226,6 +2649,9 @@ async function bulkUpdateServices(options) {
                 { path: 'services.service.media.mainMedia.image' },
                 { path: 'services.service.media.coverMedia.image' },
                 { path: 'services.service.staffMembers.mainMedia.image' },
+                {
+                    path: 'services.service.staffMemberDetails.staffMembers.mainMedia.image',
+                },
             ],
         },
         {
@@ -2258,6 +2684,9 @@ async function bulkUpdateServices(options) {
                     { path: 'results.item.media.mainMedia.image' },
                     { path: 'results.item.media.coverMedia.image' },
                     { path: 'results.item.staffMembers.mainMedia.image' },
+                    {
+                        path: 'results.item.staffMemberDetails.staffMembers.mainMedia.image',
+                    },
                 ],
             },
             {
@@ -2292,12 +2721,84 @@ async function bulkUpdateServices(options) {
     }
 }
 /**
+ * Updates multiple services by filter.
+ *
+ * [Partial
+ * updates](https://dev.wix.com/api/rest/wix-bookings/bookings/patch-endpoints-and-field-masks-in-update-requests)
+ * are supported.
+ *
+ * Each time a service is updated, `revision` increments by 1.
+ * @param filter - Filter to identify the services that need to be updated.
+ * @public
+ * @documentationMaturity preview
+ * @requiredField filter
+ * @requiredField options
+ * @requiredField options.service
+ * @permissionId BOOKINGS.SERVICES_UPDATE
+ * @permissionScope Manage Bookings
+ * @permissionScopeId SCOPE.DC-BOOKINGS.MANAGE-BOOKINGS
+ * @permissionScope Manage Bookings - all permissions
+ * @permissionScopeId SCOPE.DC-BOOKINGS-MEGA.MANAGE-BOOKINGS
+ * @applicableIdentity APP
+ */
+async function bulkUpdateServicesByFilter(filter, options) {
+    // @ts-ignore
+    const { httpClient, sideEffects } = arguments[2];
+    const payload = (0,_wix_sdk_runtime_transformations_transform_paths__WEBPACK_IMPORTED_MODULE_0__.transformPaths)((0,_wix_sdk_runtime_rename_all_nested_keys__WEBPACK_IMPORTED_MODULE_1__.renameKeysFromSDKRequestToRESTRequest)({
+        filter: filter,
+        service: options?.service,
+    }), [
+        {
+            transformFn: _wix_sdk_runtime_transformations_image__WEBPACK_IMPORTED_MODULE_2__.transformSDKImageToRESTImage,
+            paths: [
+                { path: 'service.media.items.image' },
+                { path: 'service.media.mainMedia.image' },
+                { path: 'service.media.coverMedia.image' },
+                { path: 'service.staffMembers.mainMedia.image' },
+                { path: 'service.staffMemberDetails.staffMembers.mainMedia.image' },
+            ],
+        },
+        {
+            transformFn: _wix_sdk_runtime_transformations_address__WEBPACK_IMPORTED_MODULE_3__.transformSDKAddressToRESTAddress,
+            paths: [
+                { path: 'service.locations.calculatedAddress' },
+                { path: 'service.locations.business.address' },
+                { path: 'service.locations.custom.address' },
+            ],
+        },
+        {
+            transformFn: _wix_sdk_runtime_transformations_page_url_v2__WEBPACK_IMPORTED_MODULE_4__.transformSDKPageURLV2ToRESTPageURLV2,
+            paths: [
+                { path: 'service.urls.servicePage' },
+                { path: 'service.urls.bookingPage' },
+                { path: 'service.urls.calendarPage' },
+            ],
+        },
+    ]);
+    const reqOpts = _bookings_services_v2_service_services_http__WEBPACK_IMPORTED_MODULE_5__.bulkUpdateServicesByFilter(payload);
+    sideEffects?.onSiteCall?.();
+    try {
+        const result = await httpClient.request(reqOpts);
+        sideEffects?.onSuccess?.(result);
+        return (0,_wix_sdk_runtime_rename_all_nested_keys__WEBPACK_IMPORTED_MODULE_1__.renameKeysFromRESTResponseToSDKResponse)(result.data);
+    }
+    catch (err) {
+        const transformedError = (0,_wix_sdk_runtime_transform_error__WEBPACK_IMPORTED_MODULE_6__.transformError)(err, {
+            spreadPathsToArguments: {},
+            explicitPathsToArguments: { filter: '$[0]', service: '$[1].service' },
+            singleArgumentUnchanged: false,
+        }, ['filter', 'options']);
+        sideEffects?.onError?.(err);
+        throw transformedError;
+    }
+}
+/**
  * Deletes a service.
- * @param serviceId - ID of the service to delete.
  * @public
  * @documentationMaturity preview
  * @requiredField serviceId
  * @param options - Allows you to configure how to handle the deleted service's future sessions and how to notify the sessions participants.
+ * @permissionId BOOKINGS.SERVICES_DELETE
  * @permissionScope Manage Bookings
  * @permissionScopeId SCOPE.DC-BOOKINGS.MANAGE-BOOKINGS
  * @permissionScope Manage Bookings - all permissions
@@ -2338,6 +2839,7 @@ async function deleteService(serviceId, options) {
  * @public
  * @documentationMaturity preview
  * @requiredField ids
+ * @permissionId BOOKINGS.SERVICES_DELETE
  * @permissionScope Manage Bookings
  * @permissionScopeId SCOPE.DC-BOOKINGS.MANAGE-BOOKINGS
  * @permissionScope Manage Bookings - all permissions
@@ -2365,6 +2867,9 @@ async function bulkDeleteServices(ids, options) {
                     { path: 'results.item.media.mainMedia.image' },
                     { path: 'results.item.media.coverMedia.image' },
                     { path: 'results.item.staffMembers.mainMedia.image' },
+                    {
+                        path: 'results.item.staffMemberDetails.staffMembers.mainMedia.image',
+                    },
                 ],
             },
             {
@@ -2400,6 +2905,48 @@ async function bulkDeleteServices(ids, options) {
     }
 }
 /**
+ * Deletes multiple services by filter.
+ * @param filter - Filter to identify the services that need to be deleted.
+ * @public
+ * @documentationMaturity preview
+ * @requiredField filter
+ * @permissionId BOOKINGS.SERVICES_DELETE
+ * @permissionScope Manage Bookings
+ * @permissionScopeId SCOPE.DC-BOOKINGS.MANAGE-BOOKINGS
+ * @permissionScope Manage Bookings - all permissions
+ * @permissionScopeId SCOPE.DC-BOOKINGS-MEGA.MANAGE-BOOKINGS
+ * @applicableIdentity APP
+ */
+async function bulkDeleteServicesByFilter(filter, options) {
+    // @ts-ignore
+    const { httpClient, sideEffects } = arguments[2];
+    const payload = (0,_wix_sdk_runtime_rename_all_nested_keys__WEBPACK_IMPORTED_MODULE_1__.renameKeysFromSDKRequestToRESTRequest)({
+        filter: filter,
+        preserveFutureSessionsWithParticipants: options?.preserveFutureSessionsWithParticipants,
+        participantNotification: options?.participantNotification,
+    });
+    const reqOpts = _bookings_services_v2_service_services_http__WEBPACK_IMPORTED_MODULE_5__.bulkDeleteServicesByFilter(payload);
+    sideEffects?.onSiteCall?.();
+    try {
+        const result = await httpClient.request(reqOpts);
+        sideEffects?.onSuccess?.(result);
+        return (0,_wix_sdk_runtime_rename_all_nested_keys__WEBPACK_IMPORTED_MODULE_1__.renameKeysFromRESTResponseToSDKResponse)(result.data);
+    }
+    catch (err) {
+        const transformedError = (0,_wix_sdk_runtime_transform_error__WEBPACK_IMPORTED_MODULE_6__.transformError)(err, {
+            spreadPathsToArguments: {},
+            explicitPathsToArguments: {
+                filter: '$[0]',
+                preserveFutureSessionsWithParticipants: '$[1].preserveFutureSessionsWithParticipants',
+                participantNotification: '$[1].participantNotification',
+            },
+            singleArgumentUnchanged: false,
+        }, ['filter', 'options']);
+        sideEffects?.onError?.(err);
+        throw transformedError;
+    }
+}
+/**
  * Retrieves a list of up to 100 services, given the provided paging, filtering, and sorting.
  * `queryServices()` runs with these defaults, which you can override:
  * + `paging.limit` is `100`.
@@ -2423,8 +2970,8 @@ async function bulkDeleteServices(ids, options) {
  * @permissionScopeId SCOPE.DC-BOOKINGS-MEGA.READ-BOOKINGS
  * @permissionScope Manage Bookings - all permissions
  * @permissionScopeId SCOPE.DC-BOOKINGS-MEGA.MANAGE-BOOKINGS
+ * @permissionId BOOKINGS.SERVICES_READ
  * @applicableIdentity APP
- * @applicableIdentity MEMBER
  * @applicableIdentity VISITOR
  */
 function queryServices(options) {
@@ -2463,6 +3010,9 @@ function queryServices(options) {
                         { path: 'services.media.mainMedia.image' },
                         { path: 'services.media.coverMedia.image' },
                         { path: 'services.staffMembers.mainMedia.image' },
+                        {
+                            path: 'services.staffMemberDetails.staffMembers.mainMedia.image',
+                        },
                     ],
                 },
                 {
@@ -2500,11 +3050,13 @@ function queryServices(options) {
     });
 }
 /**
- * Retrieves a list of up to 100 services, given the provided query string, and paging.
+ * Retrieves a list of up to 100 services, given the provided query string,
+ * and paging.
  * @param search - WQL, search or aggregation expression.
  * @public
  * @documentationMaturity preview
  * @requiredField search
+ * @permissionId BOOKINGS.SERVICES_READ
  * @permissionScope Read Bookings - Public Data
  * @permissionScopeId SCOPE.DC-BOOKINGS.READ-BOOKINGS-PUBLIC
  * @permissionScope Manage Bookings Services and Settings
@@ -2518,7 +3070,6 @@ function queryServices(options) {
  * @permissionScope Manage Bookings - all permissions
  * @permissionScopeId SCOPE.DC-BOOKINGS-MEGA.MANAGE-BOOKINGS
  * @applicableIdentity APP
- * @applicableIdentity MEMBER
  * @applicableIdentity VISITOR
  */
 async function searchServices(search) {
@@ -2538,6 +3089,9 @@ async function searchServices(search) {
                     { path: 'services.media.mainMedia.image' },
                     { path: 'services.media.coverMedia.image' },
                     { path: 'services.staffMembers.mainMedia.image' },
+                    {
+                        path: 'services.staffMemberDetails.staffMembers.mainMedia.image',
+                    },
                 ],
             },
             {
@@ -2569,11 +3123,14 @@ async function searchServices(search) {
     }
 }
 /**
- * Retrieves a list of up to 100 policies, given the provided paging, filtering, and sorting.
+ * Retrieves a list of up to 100 policies, given the provided paging,
+ * filtering, and sorting.
  *
  *
- * Define queries using [WQL - Wix Query Language](https://dev.wix.com/api/rest/getting-started/api-query-language).
- * For field support for filters and sorting, see [Supported Filters and Sorting](https://dev.wix.com/api/rest/wix-bookings/services-v2/supported-filters-and-sorting).
+ * Define queries using [WQL - Wix Query
+ * Language](https://dev.wix.com/api/rest/getting-started/api-query-language).
+ * For field support for filters and sorting, see [Supported Filters and
+ * Sorting](https://dev.wix.com/api/rest/wix-bookings/services-v2/supported-filters-and-sorting).
  *
  * To retrieve all policies use an empty query:
  *
@@ -2589,11 +3146,15 @@ async function searchServices(search) {
  *
  * >**Notes:**
  * > + Use UTC format when filtering with dates.
- * > + Only 1 use of each filter in the same query is supported. If a filter is defined more than once in a query, only the first occurrence is processed.
+ * > + Only 1 use of each filter in the same query is supported. If a filter
+ * is defined more than once in a query, only the first occurrence is
+ * processed.
  * @param query - WQL expression.
  * @public
  * @documentationMaturity preview
  * @requiredField query
+ * @permissionId BOOKINGS.BOOKING_POLICY_READ
+ * @permissionId BOOKINGS.SERVICES_READ
  * @permissionScope Read Bookings - Public Data
  * @permissionScopeId SCOPE.DC-BOOKINGS.READ-BOOKINGS-PUBLIC
  * @permissionScope Manage Bookings Services and Settings
@@ -2619,7 +3180,6 @@ async function searchServices(search) {
  * @permissionScope Manage Bookings - all permissions
  * @permissionScopeId SCOPE.DC-BOOKINGS-MEGA.MANAGE-BOOKINGS
  * @applicableIdentity APP
- * @applicableIdentity MEMBER
  * @applicableIdentity VISITOR
  */
 async function queryPolicies(query) {
@@ -2639,6 +3199,9 @@ async function queryPolicies(query) {
                     { path: 'bookingPolicies.services.media.mainMedia.image' },
                     { path: 'bookingPolicies.services.media.coverMedia.image' },
                     { path: 'bookingPolicies.services.staffMembers.mainMedia.image' },
+                    {
+                        path: 'bookingPolicies.services.staffMemberDetails.staffMembers.mainMedia.image',
+                    },
                 ],
             },
             {
@@ -2673,6 +3236,7 @@ async function queryPolicies(query) {
  * Retrieves the number of services that match the provided filters.
  * @public
  * @documentationMaturity preview
+ * @permissionId BOOKINGS.SERVICES_COUNT
  * @permissionScope Manage Bookings
  * @permissionScopeId SCOPE.DC-BOOKINGS.MANAGE-BOOKINGS
  * @permissionScope Manage Bookings - all permissions
@@ -2703,15 +3267,113 @@ async function countServices(options) {
     }
 }
 /**
+ * Query locations that exist on services.
+ * @public
+ * @documentationMaturity preview
+ * @permissionId BOOKINGS.SERVICES_READ
+ * @permissionScope Read Bookings - Public Data
+ * @permissionScopeId SCOPE.DC-BOOKINGS.READ-BOOKINGS-PUBLIC
+ * @permissionScope Manage Bookings Services and Settings
+ * @permissionScopeId SCOPE.BOOKINGS.CONFIGURATION
+ * @permissionScope Manage Bookings
+ * @permissionScopeId SCOPE.DC-BOOKINGS.MANAGE-BOOKINGS
+ * @permissionScope Read Bookings - Including Participants
+ * @permissionScopeId SCOPE.DC-BOOKINGS.READ-BOOKINGS-SENSITIVE
+ * @permissionScope Read Bookings - all read permissions
+ * @permissionScopeId SCOPE.DC-BOOKINGS-MEGA.READ-BOOKINGS
+ * @permissionScope Manage Bookings - all permissions
+ * @permissionScopeId SCOPE.DC-BOOKINGS-MEGA.MANAGE-BOOKINGS
+ * @applicableIdentity APP
+ * @applicableIdentity VISITOR
+ */
+async function queryLocations(options) {
+    // @ts-ignore
+    const { httpClient, sideEffects } = arguments[1];
+    const payload = (0,_wix_sdk_runtime_rename_all_nested_keys__WEBPACK_IMPORTED_MODULE_1__.renameKeysFromSDKRequestToRESTRequest)({
+        filter: options?.filter,
+    });
+    const reqOpts = _bookings_services_v2_service_services_http__WEBPACK_IMPORTED_MODULE_5__.queryLocations(payload);
+    sideEffects?.onSiteCall?.();
+    try {
+        const result = await httpClient.request(reqOpts);
+        sideEffects?.onSuccess?.(result);
+        return (0,_wix_sdk_runtime_rename_all_nested_keys__WEBPACK_IMPORTED_MODULE_1__.renameKeysFromRESTResponseToSDKResponse)((0,_wix_sdk_runtime_transformations_transform_paths__WEBPACK_IMPORTED_MODULE_0__.transformPaths)(result.data, [
+            {
+                transformFn: _wix_sdk_runtime_transformations_address__WEBPACK_IMPORTED_MODULE_3__.transformRESTAddressToSDKAddress,
+                paths: [
+                    { path: 'businessLocations.locations.calculatedAddress' },
+                    { path: 'businessLocations.locations.business.address' },
+                    { path: 'businessLocations.locations.custom.address' },
+                ],
+            },
+        ]));
+    }
+    catch (err) {
+        const transformedError = (0,_wix_sdk_runtime_transform_error__WEBPACK_IMPORTED_MODULE_6__.transformError)(err, {
+            spreadPathsToArguments: {},
+            explicitPathsToArguments: { filter: '$[0].filter' },
+            singleArgumentUnchanged: false,
+        }, ['options']);
+        sideEffects?.onError?.(err);
+        throw transformedError;
+    }
+}
+/**
+ * Query categories that exist on services.
+ * @public
+ * @documentationMaturity preview
+ * @permissionId BOOKINGS.SERVICES_READ
+ * @permissionScope Read Bookings - Public Data
+ * @permissionScopeId SCOPE.DC-BOOKINGS.READ-BOOKINGS-PUBLIC
+ * @permissionScope Manage Bookings Services and Settings
+ * @permissionScopeId SCOPE.BOOKINGS.CONFIGURATION
+ * @permissionScope Manage Bookings
+ * @permissionScopeId SCOPE.DC-BOOKINGS.MANAGE-BOOKINGS
+ * @permissionScope Read Bookings - Including Participants
+ * @permissionScopeId SCOPE.DC-BOOKINGS.READ-BOOKINGS-SENSITIVE
+ * @permissionScope Read Bookings - all read permissions
+ * @permissionScopeId SCOPE.DC-BOOKINGS-MEGA.READ-BOOKINGS
+ * @permissionScope Manage Bookings - all permissions
+ * @permissionScopeId SCOPE.DC-BOOKINGS-MEGA.MANAGE-BOOKINGS
+ * @applicableIdentity APP
+ * @applicableIdentity VISITOR
+ */
+async function queryCategories(options) {
+    // @ts-ignore
+    const { httpClient, sideEffects } = arguments[1];
+    const payload = (0,_wix_sdk_runtime_rename_all_nested_keys__WEBPACK_IMPORTED_MODULE_1__.renameKeysFromSDKRequestToRESTRequest)({
+        filter: options?.filter,
+    });
+    const reqOpts = _bookings_services_v2_service_services_http__WEBPACK_IMPORTED_MODULE_5__.queryCategories(payload);
+    sideEffects?.onSiteCall?.();
+    try {
+        const result = await httpClient.request(reqOpts);
+        sideEffects?.onSuccess?.(result);
+        return (0,_wix_sdk_runtime_rename_all_nested_keys__WEBPACK_IMPORTED_MODULE_1__.renameKeysFromRESTResponseToSDKResponse)(result.data);
+    }
+    catch (err) {
+        const transformedError = (0,_wix_sdk_runtime_transform_error__WEBPACK_IMPORTED_MODULE_6__.transformError)(err, {
+            spreadPathsToArguments: {},
+            explicitPathsToArguments: { filter: '$[0].filter' },
+            singleArgumentUnchanged: false,
+        }, ['options']);
+        sideEffects?.onError?.(err);
+        throw transformedError;
+    }
+}
+/**
  * Change the locations this service is offered at.
- * Changing locations may have impact on existing sessions and their participants.
- * When removing locations from a service, this endpoint requires stating what to do with existing sessions occurring at the removed locations.
+ * Changing locations may have impact on existing sessions and their
+ * participants. When removing locations from a service, this endpoint
+ * requires stating what to do with existing sessions occurring at the removed
+ * locations.
  * @param serviceId - ID of the service.
  * @param locations - The locations you specify replace the existing service locations.
  * @public
  * @documentationMaturity preview
  * @requiredField locations
  * @requiredField serviceId
+ * @permissionId BOOKINGS.SERVICES_LOCATIONS_SET
  * @permissionScope Manage Bookings
  * @permissionScopeId SCOPE.DC-BOOKINGS.MANAGE-BOOKINGS
  * @permissionScope Manage Bookings - all permissions
@@ -2758,6 +3420,7 @@ async function setServiceLocations(serviceId, locations, options) {
                     { path: 'service.media.mainMedia.image' },
                     { path: 'service.media.coverMedia.image' },
                     { path: 'service.staffMembers.mainMedia.image' },
+                    { path: 'service.staffMemberDetails.staffMembers.mainMedia.image' },
                 ],
             },
             {
@@ -2794,14 +3457,15 @@ async function setServiceLocations(serviceId, locations, options) {
     }
 }
 /**
- * Enables specific [pricing plans](https://dev.wix.com/api/rest/wix-pricing-plans/pricing-plans/plans/plan-object) as payment methods for a service.
- * This API enables customers to pay for the service using one of the specified pricing plans.
- * @param serviceId - ID of the service to add the pricing plans to.
- * @param pricingPlanIds - IDs of the pricing plans to connect to the service.
+ * Enables specific [pricing
+ * plans](https://dev.wix.com/api/rest/wix-pricing-plans/pricing-plans/plans/plan-object)
+ * as payment methods for a service. This API enables customers to pay for the
+ * service using one of the specified pricing plans.
  * @public
  * @documentationMaturity preview
  * @requiredField pricingPlanIds
  * @requiredField serviceId
+ * @permissionId BOOKINGS.SERVICES_PRICING_PLANS_ADD
  * @permissionScope Manage Bookings
  * @permissionScopeId SCOPE.DC-BOOKINGS.MANAGE-BOOKINGS
  * @permissionScope Manage Bookings - all permissions
@@ -2828,6 +3492,7 @@ async function enablePricingPlansForService(serviceId, pricingPlanIds) {
                     { path: 'service.media.mainMedia.image' },
                     { path: 'service.media.coverMedia.image' },
                     { path: 'service.staffMembers.mainMedia.image' },
+                    { path: 'service.staffMemberDetails.staffMembers.mainMedia.image' },
                 ],
             },
             {
@@ -2859,11 +3524,15 @@ async function enablePricingPlansForService(serviceId, pricingPlanIds) {
     }
 }
 /**
- * Disables specific [pricing plans](https://dev.wix.com/api/rest/wix-pricing-plans/pricing-plans/plans/plan-object) as payment methods for a service. Customers can't pay for the service using a removed pricing plan. Existing payments with a removed plan aren't affected.
- * @param serviceId - ID of the service to disconnect the pricing plans from.
+ * Disables specific [pricing
+ * plans](https://dev.wix.com/api/rest/wix-pricing-plans/pricing-plans/plans/plan-object)
+ * as payment methods for a service. Customers can't pay for the service using
+ * a removed pricing plan. Existing payments with a removed plan aren't
+ * affected.
  * @public
  * @documentationMaturity preview
  * @requiredField serviceId
+ * @permissionId BOOKINGS.SERVICES_PRICING_PLANS_REMOVE
  * @permissionScope Manage Bookings
  * @permissionScopeId SCOPE.DC-BOOKINGS.MANAGE-BOOKINGS
  * @permissionScope Manage Bookings - all permissions
@@ -2890,6 +3559,7 @@ async function disablePricingPlansForService(serviceId, options) {
                     { path: 'service.media.mainMedia.image' },
                     { path: 'service.media.coverMedia.image' },
                     { path: 'service.staffMembers.mainMedia.image' },
+                    { path: 'service.staffMemberDetails.staffMembers.mainMedia.image' },
                 ],
             },
             {
@@ -2925,13 +3595,13 @@ async function disablePricingPlansForService(serviceId, options) {
 }
 /**
  * Sets a custom (user-defined) slug for the various service pages.
- * The call may fail if there's another service with the same slug, either by past name or by a custom slug.
- * @param serviceId - ID of the service to assign the custom slug to.
- * @param slugName - The custom name to set as the active slug for the service.
+ * The call may fail if there's another service with the same slug, either by
+ * past name or by a custom slug.
  * @public
  * @documentationMaturity preview
  * @requiredField serviceId
  * @requiredField slugName
+ * @permissionId BOOKINGS.SERVICES_CUSTOM_SLUGS_SET
  * @permissionScope Manage Bookings
  * @permissionScopeId SCOPE.DC-BOOKINGS.MANAGE-BOOKINGS
  * @permissionScope Manage Bookings - all permissions
@@ -2958,6 +3628,7 @@ async function setCustomSlug(serviceId, slugName) {
                     { path: 'service.media.mainMedia.image' },
                     { path: 'service.media.coverMedia.image' },
                     { path: 'service.staffMembers.mainMedia.image' },
+                    { path: 'service.staffMemberDetails.staffMembers.mainMedia.image' },
                 ],
             },
             {
@@ -2989,14 +3660,15 @@ async function setCustomSlug(serviceId, slugName) {
     }
 }
 /**
- * Validate a custom (user-defined) slug, making sure no other service uses the same slug.
- * The call may fail if there's another service with the same slug, either by past name or by a custom set slug.
- * @param serviceId - ID of the service to validate the slug name for.
+ * Validate a custom (user-defined) slug, making sure no other service uses
+ * the same slug. The call may fail if there's another service with the same
+ * slug, either by past name or by a custom set slug.
  * @public
  * @documentationMaturity preview
  * @requiredField options
  * @requiredField options.slugName
  * @requiredField serviceId
+ * @permissionId BOOKINGS.SERVICES_CUSTOM_SLUGS_SET
  * @permissionScope Manage Bookings
  * @permissionScopeId SCOPE.DC-BOOKINGS.MANAGE-BOOKINGS
  * @permissionScope Manage Bookings - all permissions
@@ -3032,10 +3704,10 @@ async function validateSlug(serviceId, options) {
 }
 /**
  * Clones a service.
- * @param sourceServiceId - ID of a source service
  * @public
  * @documentationMaturity preview
  * @requiredField sourceServiceId
+ * @permissionId BOOKINGS.SERVICE_CLONE
  * @permissionScope Manage Bookings Services and Settings
  * @permissionScopeId SCOPE.BOOKINGS.CONFIGURATION
  * @applicableIdentity APP
@@ -3063,6 +3735,7 @@ async function cloneService(sourceServiceId, options) {
                     { path: 'service.media.mainMedia.image' },
                     { path: 'service.media.coverMedia.image' },
                     { path: 'service.staffMembers.mainMedia.image' },
+                    { path: 'service.staffMemberDetails.staffMembers.mainMedia.image' },
                 ],
             },
             {
@@ -3960,6 +4633,277 @@ const DEFAULT_LIMIT = 50;
 
 /***/ }),
 
+/***/ "./node_modules/@wix/sdk-runtime/build/context-v2.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@wix/sdk-runtime/build/context-v2.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   EventDefinition: () => (/* reexport safe */ _wix_sdk_types__WEBPACK_IMPORTED_MODULE_0__.EventDefinition),
+/* harmony export */   ServicePluginDefinition: () => (/* reexport safe */ _wix_sdk_types__WEBPACK_IMPORTED_MODULE_0__.ServicePluginDefinition),
+/* harmony export */   contextualizeEventDefinitionModuleV2: () => (/* binding */ contextualizeEventDefinitionModuleV2),
+/* harmony export */   contextualizeHostModuleV2: () => (/* binding */ contextualizeHostModuleV2),
+/* harmony export */   contextualizeRESTModuleV2: () => (/* binding */ contextualizeRESTModuleV2),
+/* harmony export */   contextualizeSerivcePluginModuleV2: () => (/* binding */ contextualizeSerivcePluginModuleV2)
+/* harmony export */ });
+/* harmony import */ var _wix_sdk_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/sdk-types */ "./node_modules/@wix/sdk-types/build/browser/index.mjs");
+/* harmony import */ var _context_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./context.js */ "./node_modules/@wix/sdk-runtime/build/context.js");
+
+
+
+function contextualizeHostModuleV2(hostModule, props) {
+    return {
+        ...hostModule,
+        ...Object.fromEntries(props.map((prop) => [
+            prop,
+            (...args) => {
+                const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
+                if (!context) {
+                    throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
+                }
+                return context
+                    .initWixModules(hostModule)[prop].apply(undefined, args);
+            },
+        ])),
+    };
+}
+function contextualizeRESTModuleV2(restModule, elevated) {
+    return ((...args) => {
+        const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
+        if (!context) {
+            // @ts-expect-error - if there is no context, we want to behave like the original module
+            return restModule.apply(undefined, args);
+        }
+        return (context
+            .initWixModules(restModule, elevated)
+            // @ts-expect-error - we know the args here are meant to be passed to the initalized module
+            .apply(undefined, args));
+    });
+}
+function contextualizeEventDefinitionModuleV2(eventDefinition) {
+    const contextualMethod = ((...args) => {
+        const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
+        if (!context) {
+            // this line should throw, but this would be a breaking change for older SDK versions
+            // this is because in wixClient there's code that calls any function it detects and checks
+            // if it's an ambassador module (see isAmbassadorModule)
+            return () => { };
+        }
+        return context.initWixModules(eventDefinition).apply(undefined, args);
+    });
+    contextualMethod.__type = eventDefinition.__type;
+    contextualMethod.type = eventDefinition.type;
+    contextualMethod.isDomainEvent = eventDefinition.isDomainEvent;
+    contextualMethod.transformations = eventDefinition.transformations;
+    return contextualMethod;
+}
+function contextualizeSerivcePluginModuleV2(servicePlugin) {
+    const contextualMethod = ((...args) => {
+        const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
+        if (!context) {
+            // this line should throw, but this would be a breaking change for older SDK versions
+            // this is because in wixClient there's code that calls any function it detects and checks
+            // if it's an ambassador module (see isAmbassadorModule)
+            return () => { };
+        }
+        return context.initWixModules(servicePlugin).apply(undefined, args);
+    });
+    contextualMethod.__type = servicePlugin.__type;
+    contextualMethod.componentType = servicePlugin.componentType;
+    contextualMethod.methods = servicePlugin.methods;
+    return contextualMethod;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@wix/sdk-runtime/build/context.js":
+/*!********************************************************!*\
+  !*** ./node_modules/@wix/sdk-runtime/build/context.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   EventDefinition: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.EventDefinition),
+/* harmony export */   ServicePluginDefinition: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.ServicePluginDefinition),
+/* harmony export */   contextualizeEventDefinitionModule: () => (/* binding */ contextualizeEventDefinitionModule),
+/* harmony export */   contextualizeEventDefinitionModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeEventDefinitionModuleV2),
+/* harmony export */   contextualizeHostModule: () => (/* binding */ contextualizeHostModule),
+/* harmony export */   contextualizeHostModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeHostModuleV2),
+/* harmony export */   contextualizeRESTModule: () => (/* binding */ contextualizeRESTModule),
+/* harmony export */   contextualizeRESTModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeRESTModuleV2),
+/* harmony export */   contextualizeSerivcePluginModule: () => (/* binding */ contextualizeSerivcePluginModule),
+/* harmony export */   contextualizeSerivcePluginModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeSerivcePluginModuleV2),
+/* harmony export */   resolveContext: () => (/* binding */ resolveContext),
+/* harmony export */   runWithoutContext: () => (/* binding */ runWithoutContext)
+/* harmony export */ });
+/* harmony import */ var _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/sdk-context */ "./node_modules/@wix/sdk-context/build/browser/index.mjs");
+/* harmony import */ var _context_v2_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./context-v2.js */ "./node_modules/@wix/sdk-runtime/build/context-v2.js");
+
+function resolveContext() {
+    const oldContext = typeof $wixContext !== 'undefined' && $wixContext.initWixModules
+        ? $wixContext.initWixModules
+        : typeof globalThis.__wix_context__ !== 'undefined' &&
+            globalThis.__wix_context__.initWixModules
+            ? globalThis.__wix_context__.initWixModules
+            : undefined;
+    if (oldContext) {
+        return {
+            // @ts-expect-error
+            initWixModules(modules, elevated) {
+                return runWithoutContext(() => oldContext(modules, elevated));
+            },
+            fetchWithAuth() {
+                throw new Error('fetchWithAuth is not available in this context');
+            },
+            graphql() {
+                throw new Error('graphql is not available in this context');
+            },
+        };
+    }
+    const contextualClient = typeof $wixContext !== 'undefined'
+        ? $wixContext.client
+        : typeof _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client !== 'undefined'
+            ? _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client
+            : typeof globalThis.__wix_context__ !== 'undefined'
+                ? globalThis.__wix_context__.client
+                : undefined;
+    const elevatedClient = typeof $wixContext !== 'undefined'
+        ? $wixContext.elevatedClient
+        : typeof _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient !== 'undefined'
+            ? _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient
+            : typeof globalThis.__wix_context__ !== 'undefined'
+                ? globalThis.__wix_context__.elevatedClient
+                : undefined;
+    if (!contextualClient && !elevatedClient) {
+        return;
+    }
+    return {
+        initWixModules(wixModules, elevated) {
+            if (elevated) {
+                if (!elevatedClient) {
+                    throw new Error('An elevated client is required to use elevated modules. Make sure to initialize the Wix context with an elevated client before using elevated SDK modules');
+                }
+                return runWithoutContext(() => elevatedClient.use(wixModules));
+            }
+            if (!contextualClient) {
+                throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
+            }
+            return runWithoutContext(() => contextualClient.use(wixModules));
+        },
+        fetchWithAuth: (urlOrRequest, requestInit) => {
+            if (!contextualClient) {
+                throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
+            }
+            return contextualClient.fetchWithAuth(urlOrRequest, requestInit);
+        },
+        async graphql(query, variables, opts) {
+            if (!contextualClient) {
+                throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
+            }
+            return contextualClient.graphql(query, variables, opts);
+        },
+    };
+}
+function contextualizeHostModule(hostModule, prop) {
+    return (...args) => {
+        const context = resolveContext();
+        if (!context) {
+            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
+        }
+        return context.initWixModules(hostModule)[prop].apply(undefined, args);
+    };
+}
+function contextualizeRESTModule(restModule, expectedArgsLength) {
+    return ((...args) => {
+        const context = resolveContext();
+        if (!context) {
+            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
+        }
+        return context
+            .initWixModules(restModule, args[expectedArgsLength]?.suppressAuth ? true : false)
+            .apply(undefined, args);
+    });
+}
+function contextualizeEventDefinitionModule(eventDefinition) {
+    return ((...args) => {
+        const context = resolveContext();
+        if (!context) {
+            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
+        }
+        return context.initWixModules(eventDefinition).apply(undefined, args);
+    });
+}
+function contextualizeSerivcePluginModule(servicePlugin) {
+    return ((...args) => {
+        const context = resolveContext();
+        if (!context) {
+            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
+        }
+        return context.initWixModules(servicePlugin).apply(undefined, args);
+    });
+}
+
+function runWithoutContext(fn) {
+    const globalContext = globalThis.__wix_context__;
+    const moduleContext = {
+        client: _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client,
+        elevatedClient: _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient,
+    };
+    let closureContext;
+    globalThis.__wix_context__ = undefined;
+    _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client = undefined;
+    _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient = undefined;
+    if (typeof $wixContext !== 'undefined') {
+        closureContext = {
+            client: $wixContext?.client,
+            elevatedClient: $wixContext?.elevatedClient,
+        };
+        delete $wixContext.client;
+        delete $wixContext.elevatedClient;
+    }
+    try {
+        return fn();
+    }
+    finally {
+        globalThis.__wix_context__ = globalContext;
+        _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client = moduleContext.client;
+        _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient = moduleContext.elevatedClient;
+        if (typeof $wixContext !== 'undefined') {
+            $wixContext.client = closureContext.client;
+            $wixContext.elevatedClient = closureContext.elevatedClient;
+        }
+    }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@wix/sdk-runtime/build/event-definition-modules.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@wix/sdk-runtime/build/event-definition-modules.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createEventModule: () => (/* binding */ createEventModule)
+/* harmony export */ });
+/* harmony import */ var _context_v2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./context-v2.js */ "./node_modules/@wix/sdk-runtime/build/context-v2.js");
+
+function createEventModule(eventDefinition) {
+    return (0,_context_v2_js__WEBPACK_IMPORTED_MODULE_0__.contextualizeEventDefinitionModuleV2)(eventDefinition);
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/@wix/sdk-runtime/build/query-builder.js":
 /*!**************************************************************!*\
   !*** ./node_modules/@wix/sdk-runtime/build/query-builder.js ***!
@@ -4029,7 +4973,7 @@ function queryBuilder(opts) {
                             return createQueryBuilder({
                                 ...query,
                                 cursorPaging: {
-                                    cursor: pagingMetadata?.cursors?.next ?? '',
+                                    cursor: pagingMetadata?.cursors?.next ?? undefined,
                                     limit: paging.limit,
                                 },
                             }).find();
@@ -4038,13 +4982,13 @@ function queryBuilder(opts) {
                             return createQueryBuilder({
                                 ...query,
                                 cursorPaging: {
-                                    cursor: pagingMetadata?.cursors?.prev ?? '',
+                                    cursor: pagingMetadata?.cursors?.prev ?? undefined,
                                     limit: paging.limit,
                                 },
                             }).find();
                         },
-                        prevCursor: pagingMetadata?.cursors?.prev ?? '',
-                        nextCursor: pagingMetadata?.cursors?.next ?? '',
+                        prevCursor: pagingMetadata?.cursors?.prev ?? undefined,
+                        nextCursor: pagingMetadata?.cursors?.next ?? undefined,
                     });
                 }
                 catch (err) {
@@ -4270,7 +5214,7 @@ function queryBuilder(opts) {
                             limit,
                             cursor: 'cursor' in cursorQuery.cursorPaging
                                 ? cursorQuery.cursorPaging.cursor
-                                : '',
+                                : undefined,
                         },
                     });
                 }
@@ -4557,6 +5501,26 @@ function renameKeysFromSDKRequestToRESTRequest(payload, ignorePaths = []) {
 }
 function renameKeysFromRESTResponseToSDKResponse(payload, ignorePaths = []) {
     return renameAllNestedKeys(payload, _constants_js__WEBPACK_IMPORTED_MODULE_0__.RESTResponseToSDKResponseRenameMap, ignorePaths);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@wix/sdk-runtime/build/rest-modules.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@wix/sdk-runtime/build/rest-modules.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createRESTModule: () => (/* binding */ createRESTModule)
+/* harmony export */ });
+/* harmony import */ var _context_v2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./context-v2.js */ "./node_modules/@wix/sdk-runtime/build/context-v2.js");
+
+function createRESTModule(descriptor, elevated = false) {
+    return (0,_context_v2_js__WEBPACK_IMPORTED_MODULE_0__.contextualizeRESTModuleV2)(descriptor, elevated);
 }
 
 
@@ -5273,7 +6237,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   eventHandlersModules: () => (/* binding */ eventHandlersModules),
 /* harmony export */   isEventHandlerModule: () => (/* binding */ isEventHandlerModule)
 /* harmony export */ });
-/* harmony import */ var _wix_sdk_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wix/sdk-types */ "./node_modules/@wix/sdk/node_modules/@wix/sdk-types/build/browser/index.mjs");
+/* harmony import */ var _wix_sdk_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wix/sdk-types */ "./node_modules/@wix/sdk-types/build/browser/index.mjs");
 /* harmony import */ var _nanoevents_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./nanoevents.js */ "./node_modules/@wix/sdk/build/nanoevents.js");
 
 
@@ -5596,7 +6560,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _bi_biHeaderGenerator_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./bi/biHeaderGenerator.js */ "./node_modules/@wix/sdk/build/bi/biHeaderGenerator.js");
 /* harmony import */ var _common_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common.js */ "./node_modules/@wix/sdk/build/common.js");
-/* harmony import */ var _wix_sdk_runtime_context__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/sdk-runtime/context */ "./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context.js");
+/* harmony import */ var _wix_sdk_runtime_context__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/sdk-runtime/context */ "./node_modules/@wix/sdk-runtime/build/context.js");
 
 
 
@@ -5788,7 +6752,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   createClient: () => (/* binding */ createClient)
 /* harmony export */ });
 /* harmony import */ var _wix_sdk_context__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wix/sdk-context */ "./node_modules/@wix/sdk-context/build/browser/index.mjs");
-/* harmony import */ var _wix_sdk_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wix/sdk-types */ "./node_modules/@wix/sdk/node_modules/@wix/sdk-types/build/browser/index.mjs");
+/* harmony import */ var _wix_sdk_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wix/sdk-types */ "./node_modules/@wix/sdk-types/build/browser/index.mjs");
 /* harmony import */ var _ambassador_modules_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ambassador-modules.js */ "./node_modules/@wix/sdk/build/ambassador-modules.js");
 /* harmony import */ var _common_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./common.js */ "./node_modules/@wix/sdk/build/common.js");
 /* harmony import */ var _fetch_error_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./fetch-error.js */ "./node_modules/@wix/sdk/build/fetch-error.js");
@@ -5797,7 +6761,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _rest_modules_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./rest-modules.js */ "./node_modules/@wix/sdk/build/rest-modules.js");
 /* harmony import */ var _event_handlers_modules_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./event-handlers-modules.js */ "./node_modules/@wix/sdk/build/event-handlers-modules.js");
 /* harmony import */ var _service_plugin_modules_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./service-plugin-modules.js */ "./node_modules/@wix/sdk/build/service-plugin-modules.js");
-/* harmony import */ var _wix_sdk_runtime_context__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wix/sdk-runtime/context */ "./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context.js");
+/* harmony import */ var _wix_sdk_runtime_context__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wix/sdk-runtime/context */ "./node_modules/@wix/sdk-runtime/build/context.js");
 
 
 
@@ -5964,294 +6928,6 @@ function createClient(config) {
         servicePlugins: servicePluginsClient,
     };
 }
-
-
-/***/ }),
-
-/***/ "./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context-v2.js":
-/*!*********************************************************************************!*\
-  !*** ./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context-v2.js ***!
-  \*********************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   EventDefinition: () => (/* reexport safe */ _wix_sdk_types__WEBPACK_IMPORTED_MODULE_0__.EventDefinition),
-/* harmony export */   ServicePluginDefinition: () => (/* reexport safe */ _wix_sdk_types__WEBPACK_IMPORTED_MODULE_0__.ServicePluginDefinition),
-/* harmony export */   contextualizeEventDefinitionModuleV2: () => (/* binding */ contextualizeEventDefinitionModuleV2),
-/* harmony export */   contextualizeHostModuleV2: () => (/* binding */ contextualizeHostModuleV2),
-/* harmony export */   contextualizeRESTModuleV2: () => (/* binding */ contextualizeRESTModuleV2),
-/* harmony export */   contextualizeSerivcePluginModuleV2: () => (/* binding */ contextualizeSerivcePluginModuleV2)
-/* harmony export */ });
-/* harmony import */ var _wix_sdk_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/sdk-types */ "./node_modules/@wix/sdk/node_modules/@wix/sdk-types/build/browser/index.mjs");
-/* harmony import */ var _context_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./context.js */ "./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context.js");
-
-
-
-function contextualizeHostModuleV2(hostModule, props) {
-    return {
-        ...hostModule,
-        ...Object.fromEntries(props.map((prop) => [
-            prop,
-            (...args) => {
-                const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
-                if (!context) {
-                    throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-                }
-                return context
-                    .initWixModules(hostModule)[prop].apply(undefined, args);
-            },
-        ])),
-    };
-}
-function contextualizeRESTModuleV2(restModule, elevated) {
-    return ((...args) => {
-        const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
-        if (!context) {
-            // @ts-expect-error - if there is no context, we want to behave like the original module
-            return restModule.apply(undefined, args);
-        }
-        return (context
-            .initWixModules(restModule, elevated)
-            // @ts-expect-error - we know the args here are meant to be passed to the initalized module
-            .apply(undefined, args));
-    });
-}
-function contextualizeEventDefinitionModuleV2(eventDefinition) {
-    const contextualMethod = ((...args) => {
-        const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
-        if (!context) {
-            // this line should throw, but this would be a breaking change for older SDK versions
-            // this is because in wixClient there's code that calls any function it detects and checks
-            // if it's an ambassador module (see isAmbassadorModule)
-            return () => { };
-        }
-        return context.initWixModules(eventDefinition).apply(undefined, args);
-    });
-    contextualMethod.__type = eventDefinition.__type;
-    contextualMethod.type = eventDefinition.type;
-    contextualMethod.isDomainEvent = eventDefinition.isDomainEvent;
-    contextualMethod.transformations = eventDefinition.transformations;
-    return contextualMethod;
-}
-function contextualizeSerivcePluginModuleV2(servicePlugin) {
-    const contextualMethod = ((...args) => {
-        const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
-        if (!context) {
-            // this line should throw, but this would be a breaking change for older SDK versions
-            // this is because in wixClient there's code that calls any function it detects and checks
-            // if it's an ambassador module (see isAmbassadorModule)
-            return () => { };
-        }
-        return context.initWixModules(servicePlugin).apply(undefined, args);
-    });
-    contextualMethod.__type = servicePlugin.__type;
-    contextualMethod.componentType = servicePlugin.componentType;
-    contextualMethod.methods = servicePlugin.methods;
-    return contextualMethod;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context.js":
-/*!******************************************************************************!*\
-  !*** ./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context.js ***!
-  \******************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   EventDefinition: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.EventDefinition),
-/* harmony export */   ServicePluginDefinition: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.ServicePluginDefinition),
-/* harmony export */   contextualizeEventDefinitionModule: () => (/* binding */ contextualizeEventDefinitionModule),
-/* harmony export */   contextualizeEventDefinitionModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeEventDefinitionModuleV2),
-/* harmony export */   contextualizeHostModule: () => (/* binding */ contextualizeHostModule),
-/* harmony export */   contextualizeHostModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeHostModuleV2),
-/* harmony export */   contextualizeRESTModule: () => (/* binding */ contextualizeRESTModule),
-/* harmony export */   contextualizeRESTModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeRESTModuleV2),
-/* harmony export */   contextualizeSerivcePluginModule: () => (/* binding */ contextualizeSerivcePluginModule),
-/* harmony export */   contextualizeSerivcePluginModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeSerivcePluginModuleV2),
-/* harmony export */   resolveContext: () => (/* binding */ resolveContext),
-/* harmony export */   runWithoutContext: () => (/* binding */ runWithoutContext)
-/* harmony export */ });
-/* harmony import */ var _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/sdk-context */ "./node_modules/@wix/sdk-context/build/browser/index.mjs");
-/* harmony import */ var _context_v2_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./context-v2.js */ "./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context-v2.js");
-
-function resolveContext() {
-    const oldContext = typeof $wixContext !== 'undefined' && $wixContext.initWixModules
-        ? $wixContext.initWixModules
-        : typeof globalThis.__wix_context__ !== 'undefined' &&
-            globalThis.__wix_context__.initWixModules
-            ? globalThis.__wix_context__.initWixModules
-            : undefined;
-    if (oldContext) {
-        return {
-            // @ts-expect-error
-            initWixModules(modules, elevated) {
-                return runWithoutContext(() => oldContext(modules, elevated));
-            },
-            fetchWithAuth() {
-                throw new Error('fetchWithAuth is not available in this context');
-            },
-            graphql() {
-                throw new Error('graphql is not available in this context');
-            },
-        };
-    }
-    const contextualClient = typeof $wixContext !== 'undefined'
-        ? $wixContext.client
-        : typeof _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client !== 'undefined'
-            ? _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client
-            : typeof globalThis.__wix_context__ !== 'undefined'
-                ? globalThis.__wix_context__.client
-                : undefined;
-    const elevatedClient = typeof $wixContext !== 'undefined'
-        ? $wixContext.elevatedClient
-        : typeof _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient !== 'undefined'
-            ? _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient
-            : typeof globalThis.__wix_context__ !== 'undefined'
-                ? globalThis.__wix_context__.elevatedClient
-                : undefined;
-    if (!contextualClient && !elevatedClient) {
-        return;
-    }
-    return {
-        initWixModules(wixModules, elevated) {
-            if (elevated) {
-                if (!elevatedClient) {
-                    throw new Error('An elevated client is required to use elevated modules. Make sure to initialize the Wix context with an elevated client before using elevated SDK modules');
-                }
-                return runWithoutContext(() => elevatedClient.use(wixModules));
-            }
-            if (!contextualClient) {
-                throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-            }
-            return runWithoutContext(() => contextualClient.use(wixModules));
-        },
-        fetchWithAuth: (urlOrRequest, requestInit) => {
-            if (!contextualClient) {
-                throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-            }
-            return contextualClient.fetchWithAuth(urlOrRequest, requestInit);
-        },
-        async graphql(query, variables, opts) {
-            if (!contextualClient) {
-                throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-            }
-            return contextualClient.graphql(query, variables, opts);
-        },
-    };
-}
-function contextualizeHostModule(hostModule, prop) {
-    return (...args) => {
-        const context = resolveContext();
-        if (!context) {
-            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-        }
-        return context.initWixModules(hostModule)[prop].apply(undefined, args);
-    };
-}
-function contextualizeRESTModule(restModule, expectedArgsLength) {
-    return ((...args) => {
-        const context = resolveContext();
-        if (!context) {
-            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-        }
-        return context
-            .initWixModules(restModule, args[expectedArgsLength]?.suppressAuth ? true : false)
-            .apply(undefined, args);
-    });
-}
-function contextualizeEventDefinitionModule(eventDefinition) {
-    return ((...args) => {
-        const context = resolveContext();
-        if (!context) {
-            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-        }
-        return context.initWixModules(eventDefinition).apply(undefined, args);
-    });
-}
-function contextualizeSerivcePluginModule(servicePlugin) {
-    return ((...args) => {
-        const context = resolveContext();
-        if (!context) {
-            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-        }
-        return context.initWixModules(servicePlugin).apply(undefined, args);
-    });
-}
-
-function runWithoutContext(fn) {
-    const globalContext = globalThis.__wix_context__;
-    const moduleContext = {
-        client: _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client,
-        elevatedClient: _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient,
-    };
-    let closureContext;
-    globalThis.__wix_context__ = undefined;
-    _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client = undefined;
-    _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient = undefined;
-    if (typeof $wixContext !== 'undefined') {
-        closureContext = {
-            client: $wixContext?.client,
-            elevatedClient: $wixContext?.elevatedClient,
-        };
-        delete $wixContext.client;
-        delete $wixContext.elevatedClient;
-    }
-    try {
-        return fn();
-    }
-    finally {
-        globalThis.__wix_context__ = globalContext;
-        _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client = moduleContext.client;
-        _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient = moduleContext.elevatedClient;
-        if (typeof $wixContext !== 'undefined') {
-            $wixContext.client = closureContext.client;
-            $wixContext.elevatedClient = closureContext.elevatedClient;
-        }
-    }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@wix/sdk/node_modules/@wix/sdk-types/build/browser/index.mjs":
-/*!***********************************************************************************!*\
-  !*** ./node_modules/@wix/sdk/node_modules/@wix/sdk-types/build/browser/index.mjs ***!
-  \***********************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   EventDefinition: () => (/* binding */ EventDefinition),
-/* harmony export */   SERVICE_PLUGIN_ERROR_TYPE: () => (/* binding */ SERVICE_PLUGIN_ERROR_TYPE),
-/* harmony export */   ServicePluginDefinition: () => (/* binding */ ServicePluginDefinition)
-/* harmony export */ });
-// src/event-handlers-modules.ts
-function EventDefinition(type, isDomainEvent = false, transformations = (x) => x) {
-  return () => ({
-    __type: "event-definition",
-    type,
-    isDomainEvent,
-    transformations
-  });
-}
-
-// src/service-plugins.ts
-function ServicePluginDefinition(componentType, methods) {
-  return {
-    __type: "service-plugin-definition",
-    componentType,
-    methods
-  };
-}
-var SERVICE_PLUGIN_ERROR_TYPE = "wix_spi_error";
-
 
 
 /***/ }),

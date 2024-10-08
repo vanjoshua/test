@@ -13,9 +13,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   PlatformFrameAPI: () => (/* binding */ PlatformFrameAPI)
 /* harmony export */ });
 /* harmony import */ var _wix_public_editor_platform_events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/public-editor-platform-events */ "./node_modules/@wix/public-editor-platform-events/dist/esm/index.mjs");
-/* harmony import */ var _wix_sdk__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wix/sdk */ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/wixClient.js");
 /* harmony import */ var _wix_public_editor_platform_errors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wix/public-editor-platform-errors */ "./node_modules/@wix/public-editor-platform-errors/dist/esm/index.mjs");
-
 
 
 
@@ -335,59 +333,6 @@ class ApplicationContext {
     return this.environment.getApplicationAPIs()[appDefinitionId];
   }
 }
-const createSDKHost = (props) => {
-  const environmentContext = new EnvironmentContext({
-    environment: props.environment,
-    privateApi: props.privateAPI,
-    events: props.events ?? new _wix_public_editor_platform_events__WEBPACK_IMPORTED_MODULE_0__.PlatformAppEventEmitter(),
-    applicationAPIs: props.applicationPrivateAPI ? {
-      [props.appDefinitionId]: props.applicationPrivateAPI
-    } : {}
-  });
-  const applicationContext = new ApplicationContext(
-    {
-      appDefinitionId: props.appDefinitionId,
-      appDefinitionName: ""
-    },
-    environmentContext
-  );
-  return {
-    environment: {},
-    channel: {
-      observeState: async () => {
-        return {
-          disconnect() {
-          }
-        };
-      }
-    },
-    environmentContext,
-    applicationContext
-  };
-};
-const auth = (appDefinitionId, privateAPI) => {
-  return {
-    getAuthHeaders: async () => {
-      if (!appDefinitionId) {
-        throw createEditorPlatformApplicationContextError(
-          EditorPlatformApplicationContextErrorCode.ClientAuthError
-        );
-      }
-      const authInstance = await privateAPI.info.getAppInstance(appDefinitionId);
-      if (authInstance === void 0) {
-        throw createEditorPlatformApplicationContextError(
-          EditorPlatformApplicationContextErrorCode.ClientAuthError,
-          "empty auth instance"
-        ).withAppDefinitionId(appDefinitionId);
-      }
-      return {
-        headers: {
-          Authorization: authInstance
-        }
-      };
-    }
-  };
-};
 
 const DESIGN_SYSTEM_STYLES_MAP = {
   classic: "https://www.unpkg.com/@wix/design-system/dist/statics/tokens-default.global.css",
@@ -433,17 +378,6 @@ class PlatformFrameAPI extends AbstractEnvironmentAPI {
       appDefinitionId,
       appDefinitionName: ""
     });
-    const client = (0,_wix_sdk__WEBPACK_IMPORTED_MODULE_2__.createClient)({
-      auth: auth(appDefinitionId, privateAPI),
-      host: createSDKHost({
-        appDefinitionId,
-        privateAPI: this.#privateAPI,
-        environment: PlatformEnvironment.Frame,
-        events: this.#events,
-        applicationPrivateAPI: this.#applicationPrivateAPI
-      })
-    });
-    client.enableContext("global");
   }
   notify(event) {
     this.#eventsBridge.notify(event);
@@ -473,8 +407,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wix_public_editor_platform_errors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wix/public-editor-platform-errors */ "./node_modules/@wix/public-editor-platform-errors/dist/esm/index.mjs");
 /* harmony import */ var _wix_public_editor_platform_interfaces__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/public-editor-platform-interfaces */ "./node_modules/@wix/public-editor-platform-interfaces/dist/index.js");
 /* harmony import */ var _wix_public_editor_platform_interfaces__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wix_public_editor_platform_interfaces__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wix_sdk__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wix/sdk */ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/wixClient.js");
-
 
 
 
@@ -783,59 +715,6 @@ class ApplicationContext {
     return this.environment.getApplicationAPIs()[appDefinitionId];
   }
 }
-const createSDKHost = (props) => {
-  const environmentContext = new EnvironmentContext({
-    environment: props.environment,
-    privateApi: props.privateAPI,
-    events: props.events ?? new _wix_public_editor_platform_events__WEBPACK_IMPORTED_MODULE_1__.PlatformAppEventEmitter(),
-    applicationAPIs: props.applicationPrivateAPI ? {
-      [props.appDefinitionId]: props.applicationPrivateAPI
-    } : {}
-  });
-  const applicationContext = new ApplicationContext(
-    {
-      appDefinitionId: props.appDefinitionId,
-      appDefinitionName: ""
-    },
-    environmentContext
-  );
-  return {
-    environment: {},
-    channel: {
-      observeState: async () => {
-        return {
-          disconnect() {
-          }
-        };
-      }
-    },
-    environmentContext,
-    applicationContext
-  };
-};
-const auth = (appDefinitionId, privateAPI) => {
-  return {
-    getAuthHeaders: async () => {
-      if (!appDefinitionId) {
-        throw createEditorPlatformApplicationContextError(
-          EditorPlatformApplicationContextErrorCode.ClientAuthError
-        );
-      }
-      const authInstance = await privateAPI.info.getAppInstance(appDefinitionId);
-      if (authInstance === void 0) {
-        throw createEditorPlatformApplicationContextError(
-          EditorPlatformApplicationContextErrorCode.ClientAuthError,
-          "empty auth instance"
-        ).withAppDefinitionId(appDefinitionId);
-      }
-      return {
-        headers: {
-          Authorization: authInstance
-        }
-      };
-    }
-  };
-};
 
 var EditorPlatformApplicationErrorCode = /* @__PURE__ */ ((EditorPlatformApplicationErrorCode2) => {
   EditorPlatformApplicationErrorCode2["ApplicationRuntimeError"] = "ApplicationRuntimeError";
@@ -875,9 +754,8 @@ class EditorPlatformApplicationError extends _wix_public_editor_platform_errors_
 const createEditorPlatformApplicationError = (0,_wix_public_editor_platform_errors__WEBPACK_IMPORTED_MODULE_2__.createErrorBuilder)(EditorPlatformApplicationError);
 
 const APPLICATION_REGISTRY_KEY = "__APPLICATION_REGISTRY_KEY";
-async function executeApplication(events, client, spec, bundle) {
+async function executeApplication(events, spec, bundle) {
   const executable = new Function(
-    "$wixContext",
     APPLICATION_CONTEXT_KEY,
     APPLICATION_REGISTRY_KEY,
     bundle
@@ -901,7 +779,6 @@ async function executeApplication(events, client, spec, bundle) {
   try {
     const context = { ...spec };
     executable.call(
-      { client },
       new ApplicationContext(context, await EnvironmentContext.getInstance()),
       applicationRegistryCallback
     );
@@ -1027,28 +904,14 @@ class PlatformApplicationContainer {
     return this.#events.withEvent(
       this.#events.factories.createApplicationExecuteEvent(app, app.url),
       async () => {
-        const client = this.#createWixClient(app.appDefinitionId);
         const { instance } = await executeApplication(
           this.#events,
-          client,
           app,
           bundle
         );
         return instance;
       }
     );
-  }
-  #createWixClient(appDefinitionId) {
-    return (0,_wix_sdk__WEBPACK_IMPORTED_MODULE_3__.createClient)({
-      auth: auth(appDefinitionId, this.#privateAPI),
-      host: createSDKHost({
-        appDefinitionId,
-        privateAPI: this.#privateAPI,
-        environment: PlatformEnvironment.Worker,
-        events: this.#events,
-        applicationPrivateAPI: {}
-      })
-    });
   }
 }
 
@@ -1807,6 +1670,7 @@ class BothDirectionalHandshake extends AbstractHandshake {
   };
   #unsubscribe;
   #isConnected = false;
+  #correlationId = null;
   run(port) {
     return new Promise((resolve) => {
       if (port) {
@@ -1817,12 +1681,15 @@ class BothDirectionalHandshake extends AbstractHandshake {
     });
   }
   #startAsHost(port, resolve) {
+    if (this.#isConnected) {
+      return;
+    }
     if (!port) {
       throw new Error(
         internalErrorMessage("port should exists on host handshake")
       );
     }
-    const memberId = "Host" /* Host */;
+    const memberId = `${"Host" /* Host */}-${performance.now()}`;
     this.communicationAPI.postMessage(
       JSON.stringify({
         memberId,
@@ -1831,6 +1698,9 @@ class BothDirectionalHandshake extends AbstractHandshake {
       []
     );
     this.#subscribe(memberId, (message) => {
+      if (this.#isConnected) {
+        return;
+      }
       switch (message.type) {
         /**
          * on Greeting event from consumer response with Greeting from host
@@ -1851,13 +1721,11 @@ class BothDirectionalHandshake extends AbstractHandshake {
          * response with the port
          */
         case "RequestPort" /* RequestPort */: {
-          if (this.#isConnected) {
-            return;
-          }
           this.#isConnected = true;
           this.communicationAPI.postMessage(
             JSON.stringify({
               memberId,
+              targetMemberId: message.memberId,
               type: "Port" /* Port */
             }),
             [port]
@@ -1870,7 +1738,10 @@ class BothDirectionalHandshake extends AbstractHandshake {
     });
   }
   #startAsConsumer(resolve) {
-    const memberId = "Consumer" /* Consumer */;
+    if (this.#isConnected) {
+      return;
+    }
+    const memberId = `${"Consumer" /* Consumer */}-${performance.now()}`;
     this.communicationAPI.postMessage(
       JSON.stringify({
         memberId,
@@ -1879,6 +1750,9 @@ class BothDirectionalHandshake extends AbstractHandshake {
       []
     );
     this.#subscribe(memberId, (message, port) => {
+      if (this.#isConnected) {
+        return;
+      }
       switch (message.type) {
         /**
          * on Greeting from host
@@ -1899,6 +1773,9 @@ class BothDirectionalHandshake extends AbstractHandshake {
          * consumer should receive the port
          */
         case "Port" /* Port */: {
+          if (message.targetMemberId !== memberId) {
+            return;
+          }
           this.#isConnected = true;
           this.#unsubscribe?.();
           resolve(port);
@@ -2292,13 +2169,17 @@ const auth = () => {
   };
 };
 
-const isWorker = typeof importScripts === "function";
-if (isWorker) {
-  const channel = new _wix_editor_platform_transport__WEBPACK_IMPORTED_MODULE_4__.WorkerConsumerChannel();
-  channel.expose(new _wix_editor_application_platform_worker_api__WEBPACK_IMPORTED_MODULE_1__.PlatformWorkerAPI());
-} else {
-  const channel = new _wix_editor_platform_transport__WEBPACK_IMPORTED_MODULE_4__.IFrameConsumerChannel();
-  channel.expose(new _wix_editor_application_platform_frame_api__WEBPACK_IMPORTED_MODULE_0__.PlatformFrameAPI());
+const INIT_KEY = "_EP_TRANSPORT_INIT_KEY";
+if (!globalThis[INIT_KEY]) {
+  const isWorker = typeof importScripts === "function";
+  if (isWorker) {
+    const channel = new _wix_editor_platform_transport__WEBPACK_IMPORTED_MODULE_4__.WorkerConsumerChannel();
+    channel.expose(new _wix_editor_application_platform_worker_api__WEBPACK_IMPORTED_MODULE_1__.PlatformWorkerAPI());
+  } else {
+    const channel = new _wix_editor_platform_transport__WEBPACK_IMPORTED_MODULE_4__.IFrameConsumerChannel();
+    channel.expose(new _wix_editor_application_platform_frame_api__WEBPACK_IMPORTED_MODULE_0__.PlatformFrameAPI());
+  }
+  globalThis[INIT_KEY] = true;
 }
 
 class PlatformSDKShape {
@@ -2313,14 +2194,22 @@ class PlatformSDKShape {
           key,
           (host) => {
             if (host?.environmentContext && host?.applicationContext) {
-              return value({
-                environmentContext: host.environmentContext,
-                applicationContext: host.applicationContext
-              });
+              return async (...args) => {
+                const [environmentContext, applicationContext] = await Promise.all([
+                  host.environmentContext,
+                  host.applicationContext
+                ]);
+                return value({
+                  environmentContext,
+                  applicationContext
+                })(...args);
+              };
             }
             return async (...args) => {
-              const environmentContext = await EnvironmentContext.getInstance();
-              const applicationContext = await ApplicationContext.getInstance();
+              const [environmentContext, applicationContext] = await Promise.all([
+                EnvironmentContext.getInstance(),
+                ApplicationContext.getInstance()
+              ]);
               return value({
                 environmentContext,
                 applicationContext
@@ -2563,6 +2452,7 @@ const inputsShape = new PlatformSDKShape("inputs", {
 var index = inputsShape.build();
 
 const editorPlatformFrameHost = () => {
+  const queryParams = new URLSearchParams(window.location.search);
   return {
     environment: {},
     channel: {
@@ -2570,7 +2460,10 @@ const editorPlatformFrameHost = () => {
         return { disconnect() {
         } };
       }
-    }
+    },
+    environmentContext: EnvironmentContext.getInstance(),
+    applicationContext: ApplicationContext.getInstance(),
+    essentials: queryParams.has("essentials") ? JSON.parse(queryParams.get("essentials")) : {}
   };
 };
 
@@ -2582,7 +2475,9 @@ const editorPlatformWorkerHost = () => {
         return { disconnect() {
         } };
       }
-    }
+    },
+    environmentContext: EnvironmentContext.getInstance(),
+    applicationContext: ApplicationContext.getInstance()
   };
 };
 
@@ -2663,804 +2558,6 @@ const WixSDKTypes = __importStar(__webpack_require__(/*! @wix/sdk-types */ "./no
 exports.WixSDKTypes = WixSDKTypes;
 var EventType_1 = __webpack_require__(/*! ./EventType */ "./node_modules/@wix/public-editor-platform-interfaces/dist/EventType.js");
 Object.defineProperty(exports, "EventType", ({ enumerable: true, get: function () { return EventType_1.EventType; } }));
-
-
-/***/ }),
-
-/***/ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/ambassador-modules.js":
-/*!************************************************************************************************!*\
-  !*** ./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/ambassador-modules.js ***!
-  \************************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ambassadorModuleOptions: () => (/* binding */ ambassadorModuleOptions),
-/* harmony export */   isAmbassadorModule: () => (/* binding */ isAmbassadorModule),
-/* harmony export */   toHTTPModule: () => (/* binding */ toHTTPModule)
-/* harmony export */ });
-const parseMethod = (method) => {
-    switch (method) {
-        case 'get':
-        case 'GET':
-            return 'GET';
-        case 'post':
-        case 'POST':
-            return 'POST';
-        case 'put':
-        case 'PUT':
-            return 'PUT';
-        case 'delete':
-        case 'DELETE':
-            return 'DELETE';
-        case 'patch':
-        case 'PATCH':
-            return 'PATCH';
-        case 'head':
-        case 'HEAD':
-            return 'HEAD';
-        case 'options':
-        case 'OPTIONS':
-            return 'OPTIONS';
-        default:
-            throw new Error(`Unknown method: ${method}`);
-    }
-};
-const toHTTPModule = (factory) => (httpClient) => async (payload) => {
-    let requestOptions;
-    const HTTPFactory = (context) => {
-        requestOptions = factory(payload)(context);
-        if (requestOptions.url === undefined) {
-            throw new Error('Url was not successfully created for this request, please reach out to support channels for assistance.');
-        }
-        const { method, url, params } = requestOptions;
-        return {
-            ...requestOptions,
-            method: parseMethod(method),
-            url,
-            data: requestOptions.data,
-            params,
-        };
-    };
-    try {
-        const response = await httpClient.request(HTTPFactory);
-        if (requestOptions === undefined) {
-            throw new Error('Request options were not created for this request, please reach out to support channels for assistance.');
-        }
-        const transformations = Array.isArray(requestOptions.transformResponse)
-            ? requestOptions.transformResponse
-            : [requestOptions.transformResponse];
-        /**
-         * Based on Axios implementation:
-         * https://github.com/axios/axios/blob/3f53eb6960f05a1f88409c4b731a40de595cb825/lib/core/transformData.js#L22
-         */
-        let data = response.data;
-        transformations.forEach((transform) => {
-            if (transform) {
-                data = transform(response.data, response.headers);
-            }
-        });
-        return data;
-    }
-    catch (e) {
-        if (typeof e === 'object' &&
-            e !== null &&
-            'response' in e &&
-            typeof e.response === 'object' &&
-            e.response !== null &&
-            'data' in e.response) {
-            throw e.response.data;
-        }
-        throw e;
-    }
-};
-const ambassadorModuleOptions = () => ({
-    HTTPHost: self.location.host,
-});
-/*
- * Because of issues with tree-shaking, we cant really put static parameter on module.
- * We still have check for __isAmbassador for backward compatibility
- */
-const isAmbassadorModule = (module) => {
-    if (module.__isAmbassador) {
-        return true;
-    }
-    const fn = module();
-    return Boolean(fn.__isAmbassador);
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/bi/biHeaderGenerator.js":
-/*!**************************************************************************************************!*\
-  !*** ./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/bi/biHeaderGenerator.js ***!
-  \**************************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   WixBIHeaderName: () => (/* binding */ WixBIHeaderName),
-/* harmony export */   biHeaderGenerator: () => (/* binding */ biHeaderGenerator)
-/* harmony export */ });
-const WixBIHeaderName = 'x-wix-bi-gateway';
-function biHeaderGenerator(apiMetadata, publicMetadata) {
-    return {
-        [WixBIHeaderName]: objectToKeyValue({
-            environment: 'js-sdk',
-            'package-name': apiMetadata.packageName ?? publicMetadata?.PACKAGE_NAME,
-            'method-fqn': apiMetadata.methodFqn,
-            entity: apiMetadata.entityFqdn,
-        }),
-    };
-}
-function objectToKeyValue(input) {
-    return Object.entries(input)
-        .filter(([_, value]) => Boolean(value))
-        .map(([key, value]) => `${key}=${value}`)
-        .join(',');
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/common.js":
-/*!************************************************************************************!*\
-  !*** ./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/common.js ***!
-  \************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   API_URL: () => (/* binding */ API_URL),
-/* harmony export */   FORCE_WRITE_API_URLS: () => (/* binding */ FORCE_WRITE_API_URLS),
-/* harmony export */   PUBLIC_METADATA_KEY: () => (/* binding */ PUBLIC_METADATA_KEY),
-/* harmony export */   READ_ONLY_API_URL: () => (/* binding */ READ_ONLY_API_URL)
-/* harmony export */ });
-const PUBLIC_METADATA_KEY = '__metadata';
-const API_URL = 'www.wixapis.com';
-const READ_ONLY_API_URL = 'readonly.wixapis.com';
-const FORCE_WRITE_API_URLS = ['/ecom/v1/carts/current'];
-
-
-/***/ }),
-
-/***/ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/event-handlers-modules.js":
-/*!****************************************************************************************************!*\
-  !*** ./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/event-handlers-modules.js ***!
-  \****************************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   buildEventDefinition: () => (/* binding */ buildEventDefinition),
-/* harmony export */   eventHandlersModules: () => (/* binding */ eventHandlersModules),
-/* harmony export */   isEventHandlerModule: () => (/* binding */ isEventHandlerModule)
-/* harmony export */ });
-/* harmony import */ var _wix_sdk_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wix/sdk-types */ "./node_modules/@wix/sdk-types/build/browser/index.mjs");
-/* harmony import */ var nanoevents__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! nanoevents */ "./node_modules/nanoevents/index.js");
-
-
-const isEventHandlerModule = (val) => val.__type === 'event-definition';
-function buildEventDefinition(eventDefinition, registerHandler) {
-    return (handler) => {
-        registerHandler(eventDefinition, handler);
-    };
-}
-function runHandler(eventDefinition, handler, payload, baseEventMetadata) {
-    let envelope;
-    if (eventDefinition.isDomainEvent) {
-        const domainEventPayload = payload;
-        const { deletedEvent, actionEvent, createdEvent, updatedEvent, ...domainEventMetadata } = domainEventPayload;
-        const metadata = {
-            ...baseEventMetadata,
-            ...domainEventMetadata,
-        };
-        if (deletedEvent) {
-            if (deletedEvent?.deletedEntity) {
-                envelope = {
-                    entity: deletedEvent?.deletedEntity,
-                    metadata,
-                };
-            }
-            else {
-                envelope = { metadata };
-            }
-        }
-        else if (actionEvent) {
-            envelope = {
-                data: actionEvent.body,
-                metadata,
-            };
-        }
-        else {
-            envelope = {
-                entity: createdEvent?.entity ?? updatedEvent?.currentEntity,
-                metadata,
-            };
-        }
-    }
-    else {
-        envelope = {
-            data: payload,
-            metadata: baseEventMetadata,
-        };
-    }
-    const transformFromRESTFn = eventDefinition.transformations ?? ((x) => x);
-    return handler(transformFromRESTFn(envelope));
-}
-function eventHandlersModules(authStrategy) {
-    const eventHandlers = new Map();
-    const webhooksEmitter = (0,nanoevents__WEBPACK_IMPORTED_MODULE_0__.createNanoEvents)();
-    const client = {
-        ...webhooksEmitter,
-        getRegisteredEvents: () => eventHandlers,
-        async process(jwt, opts = {
-            expectedEvents: [],
-        }) {
-            const { eventType, identity, instanceId, payload } = await this.parseJWT(jwt);
-            const allExpectedEvents = [
-                ...opts.expectedEvents,
-                ...Array.from(eventHandlers.keys()).map((type) => ({ type })),
-            ];
-            if (allExpectedEvents.length > 0 &&
-                !allExpectedEvents.some(({ type }) => type === eventType)) {
-                throw new Error(`Unexpected event type: ${eventType}. Expected one of: ${allExpectedEvents
-                    .map((x) => x.type)
-                    .join(', ')}`);
-            }
-            const handlers = eventHandlers.get(eventType) ?? [];
-            await Promise.all(handlers.map(({ eventDefinition, handler }) => runHandler(eventDefinition, handler, payload, {
-                instanceId,
-                identity,
-            })));
-            return {
-                instanceId,
-                eventType,
-                payload,
-                identity,
-            };
-        },
-        async processRequest(request, opts) {
-            const body = await request.text();
-            return this.process(body, opts);
-        },
-        async parseJWT(jwt) {
-            if (!authStrategy.decodeJWT) {
-                throw new Error('decodeJWT is not supported by the authentication strategy');
-            }
-            const { decoded, valid } = await authStrategy.decodeJWT(jwt);
-            if (!valid) {
-                throw new Error('JWT is not valid');
-            }
-            if (typeof decoded.data !== 'string') {
-                throw new Error(`Unexpected type of JWT data: expected string, got ${typeof decoded.data}`);
-            }
-            const parsedDecoded = JSON.parse(decoded.data);
-            const eventType = parsedDecoded.eventType;
-            const instanceId = parsedDecoded.instanceId;
-            const identity = parsedDecoded.identity
-                ? JSON.parse(parsedDecoded.identity)
-                : undefined;
-            const payload = JSON.parse(parsedDecoded.data);
-            return {
-                instanceId,
-                eventType,
-                payload,
-                identity,
-            };
-        },
-        async parseRequest(request) {
-            const jwt = await request.text();
-            return this.parseJWT(jwt);
-        },
-        async executeHandlers(event) {
-            const allExpectedEvents = Array.from(eventHandlers.keys()).map((type) => ({ type }));
-            if (allExpectedEvents.length > 0 &&
-                !allExpectedEvents.some(({ type }) => type === event.eventType)) {
-                throw new Error(`Unexpected event type: ${event.eventType}. Expected one of: ${allExpectedEvents
-                    .map((x) => x.type)
-                    .join(', ')}`);
-            }
-            const handlers = eventHandlers.get(event.eventType) ?? [];
-            await Promise.all(handlers.map(({ eventDefinition, handler }) => runHandler(eventDefinition, handler, event.payload, {
-                instanceId: event.instanceId,
-                identity: event.identity,
-            })));
-        },
-        apps: {
-            AppInstalled: (0,_wix_sdk_types__WEBPACK_IMPORTED_MODULE_1__.EventDefinition)('AppInstalled')(),
-            AppRemoved: (0,_wix_sdk_types__WEBPACK_IMPORTED_MODULE_1__.EventDefinition)('AppRemoved')(),
-        },
-    };
-    return {
-        initModule(eventDefinition) {
-            return (handler) => {
-                const handlers = eventHandlers.get(eventDefinition.type) ?? [];
-                handlers.push({ eventDefinition, handler });
-                eventHandlers.set(eventDefinition.type, handlers);
-                webhooksEmitter.emit('registered', eventDefinition);
-            };
-        },
-        client,
-    };
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/fetch-error.js":
-/*!*****************************************************************************************!*\
-  !*** ./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/fetch-error.js ***!
-  \*****************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   FetchErrorResponse: () => (/* binding */ FetchErrorResponse)
-/* harmony export */ });
-class FetchErrorResponse extends Error {
-    message;
-    response;
-    constructor(message, response) {
-        super(message);
-        this.message = message;
-        this.response = response;
-    }
-    async details() {
-        const dataError = await this.response.json();
-        return errorBuilder(this.response.status, dataError?.message, dataError?.details, {
-            requestId: this.response.headers.get('X-Wix-Request-Id'),
-            details: dataError,
-        });
-    }
-}
-const errorBuilder = (code, description, details, data) => {
-    return {
-        details: {
-            ...(!details?.validationError && {
-                applicationError: {
-                    description,
-                    code,
-                    data,
-                },
-            }),
-            ...details,
-        },
-        message: description,
-    };
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/helpers.js":
-/*!*************************************************************************************!*\
-  !*** ./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/helpers.js ***!
-  \*************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   getDefaultContentHeader: () => (/* binding */ getDefaultContentHeader),
-/* harmony export */   isObject: () => (/* binding */ isObject),
-/* harmony export */   parsePublicKeyIfEncoded: () => (/* binding */ parsePublicKeyIfEncoded)
-/* harmony export */ });
-// we follow a simplified version of the axios convention
-// https://github.com/axios/axios/blob/649d739288c8e2c55829ac60e2345a0f3439c730/lib/defaults/index.js#L65
-const getDefaultContentHeader = (options) => {
-    if (options?.method &&
-        ['post', 'put', 'patch'].includes(options.method.toLocaleLowerCase()) &&
-        options.body) {
-        return { 'Content-Type': 'application/json' };
-    }
-    return {};
-};
-const isObject = (val) => val && typeof val === 'object' && !Array.isArray(val);
-function parsePublicKeyIfEncoded(publicKey) {
-    if (publicKey.includes('\n') || publicKey.includes('\r')) {
-        // publicKey is multi-line string, can be used as is
-        return publicKey.trim();
-    }
-    else {
-        // publicKey is base64 encoded
-        return typeof atob !== 'undefined'
-            ? atob(publicKey)
-            : Buffer.from(publicKey, 'base64').toString('utf-8');
-    }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/host-modules.js":
-/*!******************************************************************************************!*\
-  !*** ./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/host-modules.js ***!
-  \******************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   buildHostModule: () => (/* binding */ buildHostModule),
-/* harmony export */   isHostModule: () => (/* binding */ isHostModule)
-/* harmony export */ });
-/* harmony import */ var _helpers_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers.js */ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/helpers.js");
-
-const isHostModule = (val) => (0,_helpers_js__WEBPACK_IMPORTED_MODULE_0__.isObject)(val) && val.__type === 'host';
-function buildHostModule(val, host) {
-    return val.create(host);
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/rest-modules.js":
-/*!******************************************************************************************!*\
-  !*** ./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/rest-modules.js ***!
-  \******************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   buildRESTDescriptor: () => (/* binding */ buildRESTDescriptor),
-/* harmony export */   getDefaultDomain: () => (/* binding */ getDefaultDomain)
-/* harmony export */ });
-/* harmony import */ var _bi_biHeaderGenerator_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bi/biHeaderGenerator.js */ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/bi/biHeaderGenerator.js");
-/* harmony import */ var _common_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common.js */ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/common.js");
-
-
-const getDefaultDomain = (_method, _url) => _common_js__WEBPACK_IMPORTED_MODULE_0__.API_URL;
-function buildRESTDescriptor(origFunc, publicMetadata, boundFetch, wixAPIFetch, options) {
-    return origFunc({
-        request: async (factory) => {
-            const requestOptions = factory({ host: options?.HTTPHost || _common_js__WEBPACK_IMPORTED_MODULE_0__.API_URL });
-            let request = requestOptions;
-            if (request.method === 'GET' &&
-                request.fallback?.length &&
-                request.params.toString().length > 4000) {
-                request = requestOptions.fallback[0];
-            }
-            const domain = options?.HTTPHost ?? getDefaultDomain(request.method, request.url);
-            let url = `https://${domain}${request.url}`;
-            if (request.params && request.params.toString()) {
-                url += `?${request.params.toString()}`;
-            }
-            try {
-                const biHeader = (0,_bi_biHeaderGenerator_js__WEBPACK_IMPORTED_MODULE_1__.biHeaderGenerator)(requestOptions, publicMetadata);
-                const res = await boundFetch(url, {
-                    method: request.method,
-                    ...(request.data && {
-                        body: JSON.stringify(request.data),
-                    }),
-                    headers: {
-                        ...biHeader,
-                    },
-                });
-                if (res.status !== 200) {
-                    let dataError = null;
-                    try {
-                        dataError = await res.json();
-                    }
-                    catch (e) {
-                        //
-                    }
-                    throw errorBuilder(res.status, dataError?.message, dataError?.details, {
-                        requestId: res.headers.get('X-Wix-Request-Id'),
-                        details: dataError,
-                    });
-                }
-                const data = await res.json();
-                return {
-                    data,
-                    headers: res.headers,
-                    status: res.status,
-                    statusText: res.statusText,
-                };
-            }
-            catch (e) {
-                if (e.message?.includes('fetch is not defined')) {
-                    console.error('Node.js v18+ is required');
-                }
-                throw e;
-            }
-        },
-        fetchWithAuth: boundFetch,
-        wixAPIFetch,
-    });
-}
-const errorBuilder = (code, description, details, data) => {
-    return {
-        response: {
-            data: {
-                details: {
-                    ...(!details?.validationError && {
-                        applicationError: {
-                            description,
-                            code,
-                            data,
-                        },
-                    }),
-                    ...details,
-                },
-                message: description,
-            },
-            status: code,
-        },
-    };
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/service-plugin-modules.js":
-/*!****************************************************************************************************!*\
-  !*** ./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/service-plugin-modules.js ***!
-  \****************************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   isServicePluginModule: () => (/* binding */ isServicePluginModule),
-/* harmony export */   servicePluginsModules: () => (/* binding */ servicePluginsModules)
-/* harmony export */ });
-/* harmony import */ var nanoevents__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! nanoevents */ "./node_modules/nanoevents/index.js");
-
-const isServicePluginModule = (val) => val.__type === 'service-plugin-definition';
-function servicePluginsModules(authStrategy) {
-    const servicePluginsImplementations = new Map();
-    const servicePluginsEmitter = (0,nanoevents__WEBPACK_IMPORTED_MODULE_0__.createNanoEvents)();
-    const client = {
-        ...servicePluginsEmitter,
-        getRegisteredServicePlugins: () => servicePluginsImplementations,
-        async parseJWT(jwt) {
-            if (!authStrategy.decodeJWT) {
-                throw new Error('decodeJWT is not supported by the authentication strategy');
-            }
-            const { decoded, valid } = await authStrategy.decodeJWT(jwt, true);
-            if (!valid) {
-                throw new Error('JWT is not valid');
-            }
-            if (typeof decoded.data !== 'object' ||
-                decoded.data === null ||
-                !('metadata' in decoded.data) ||
-                typeof decoded.data.metadata !== 'object' ||
-                decoded.data.metadata === null ||
-                !('appExtensionType' in decoded.data.metadata) ||
-                typeof decoded.data.metadata.appExtensionType !== 'string') {
-                throw new Error('Unexpected JWT data: expected object with metadata.appExtensionType string');
-            }
-            return decoded.data;
-        },
-        async process(request) {
-            const servicePluginRequest = await this.parseJWT(request.body);
-            return this.executeHandler(servicePluginRequest, request.url);
-        },
-        async parseRequest(request) {
-            const body = await request.text();
-            return this.parseJWT(body);
-        },
-        async processRequest(request) {
-            const url = request.url;
-            const body = await request.text();
-            const implMethodResult = await this.process({ url, body });
-            return Response.json(implMethodResult);
-        },
-        async executeHandler(servicePluginRequest, url) {
-            const componentType = servicePluginRequest.metadata.appExtensionType.toLowerCase();
-            const implementations = servicePluginsImplementations.get(componentType) ?? [];
-            if (implementations.length === 0) {
-                throw new Error(`No service plugin implementations found for component type ${componentType}`);
-            }
-            else if (implementations.length > 1) {
-                throw new Error(`Multiple service plugin implementations found for component type ${componentType}. This is currently not supported`);
-            }
-            const { implementation: impl, servicePluginDefinition } = implementations[0];
-            const method = servicePluginDefinition.methods.find((m) => url.endsWith(m.primaryHttpMappingPath));
-            if (!method) {
-                throw new Error('Unexpect request: request url did not match any method: ' + url);
-            }
-            const implMethod = impl[method.name];
-            if (!implMethod) {
-                throw new Error(`Got request for service plugin method ${method.name} but no implementation was provided. Available methods: ${Object.keys(impl).join(', ')}`);
-            }
-            return method.transformations.toREST(await implMethod(method.transformations.fromREST(servicePluginRequest)));
-        },
-    };
-    return {
-        initModule(servicePluginDefinition) {
-            return (implementation) => {
-                const implementations = servicePluginsImplementations.get(servicePluginDefinition.componentType.toLowerCase()) ?? [];
-                implementations.push({ servicePluginDefinition, implementation });
-                servicePluginsImplementations.set(servicePluginDefinition.componentType.toLowerCase(), implementations);
-                servicePluginsEmitter.emit('registered', servicePluginDefinition);
-            };
-        },
-        client,
-    };
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/wixClient.js":
-/*!***************************************************************************************!*\
-  !*** ./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/wixClient.js ***!
-  \***************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   createClient: () => (/* binding */ createClient)
-/* harmony export */ });
-/* harmony import */ var _wix_sdk_context__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wix/sdk-context */ "./node_modules/@wix/sdk-context/build/browser/index.mjs");
-/* harmony import */ var _wix_sdk_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wix/sdk-types */ "./node_modules/@wix/sdk-types/build/browser/index.mjs");
-/* harmony import */ var _ambassador_modules_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ambassador-modules.js */ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/ambassador-modules.js");
-/* harmony import */ var _common_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./common.js */ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/common.js");
-/* harmony import */ var _fetch_error_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./fetch-error.js */ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/fetch-error.js");
-/* harmony import */ var _helpers_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers.js */ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/helpers.js");
-/* harmony import */ var _host_modules_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./host-modules.js */ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/host-modules.js");
-/* harmony import */ var _rest_modules_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./rest-modules.js */ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/rest-modules.js");
-/* harmony import */ var _event_handlers_modules_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./event-handlers-modules.js */ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/event-handlers-modules.js");
-/* harmony import */ var _service_plugin_modules_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./service-plugin-modules.js */ "./node_modules/@wix/editor-application/node_modules/@wix/sdk/build/service-plugin-modules.js");
-
-
-
-
-
-
-
-
-
-
-function createClient(config) {
-    const _headers = config.headers || { Authorization: '' };
-    const authStrategy = config.auth ||
-        {
-            getAuthHeaders: (_) => Promise.resolve({ headers: {} }),
-        };
-    const boundGetAuthHeaders = authStrategy.getAuthHeaders.bind(undefined, config.host);
-    authStrategy.getAuthHeaders = boundGetAuthHeaders;
-    const { client: servicePluginsClient, initModule: initServicePluginModule } = (0,_service_plugin_modules_js__WEBPACK_IMPORTED_MODULE_0__.servicePluginsModules)(authStrategy);
-    const { client: eventHandlersClient, initModule: initEventHandlerModule } = (0,_event_handlers_modules_js__WEBPACK_IMPORTED_MODULE_1__.eventHandlersModules)(authStrategy);
-    const boundFetch = async (url, options) => {
-        const authHeaders = await boundGetAuthHeaders();
-        const defaultContentTypeHeader = (0,_helpers_js__WEBPACK_IMPORTED_MODULE_2__.getDefaultContentHeader)(options);
-        return fetch(url, {
-            ...options,
-            headers: {
-                ...defaultContentTypeHeader,
-                ..._headers,
-                ...authHeaders?.headers,
-                ...options?.headers,
-            },
-        });
-    };
-    // This is typed as `any` because when trying to properly type it as defined
-    // on the WixClient, typescript starts failing with `Type instantiation is
-    // excessively deep and possibly infinite.`
-    const use = (modules, metadata) => {
-        if ((0,_event_handlers_modules_js__WEBPACK_IMPORTED_MODULE_1__.isEventHandlerModule)(modules)) {
-            return initEventHandlerModule(modules);
-        }
-        else if ((0,_service_plugin_modules_js__WEBPACK_IMPORTED_MODULE_0__.isServicePluginModule)(modules)) {
-            return initServicePluginModule(modules);
-        }
-        else if ((0,_host_modules_js__WEBPACK_IMPORTED_MODULE_3__.isHostModule)(modules) && config.host) {
-            return (0,_host_modules_js__WEBPACK_IMPORTED_MODULE_3__.buildHostModule)(modules, config.host);
-        }
-        else if (typeof modules === 'function') {
-            // The generated namespaces all have the error classes on them and
-            // a class is also a function, so we need to explicitly ignore these
-            // error classes using a static field that exists on them.
-            if ('__type' in modules && modules.__type === _wix_sdk_types__WEBPACK_IMPORTED_MODULE_4__.SERVICE_PLUGIN_ERROR_TYPE) {
-                return modules;
-            }
-            const { module, options } = (0,_ambassador_modules_js__WEBPACK_IMPORTED_MODULE_5__.isAmbassadorModule)(modules)
-                ? {
-                    module: (0,_ambassador_modules_js__WEBPACK_IMPORTED_MODULE_5__.toHTTPModule)(modules),
-                    options: (0,_ambassador_modules_js__WEBPACK_IMPORTED_MODULE_5__.ambassadorModuleOptions)(),
-                }
-                : { module: modules, options: undefined };
-            return (0,_rest_modules_js__WEBPACK_IMPORTED_MODULE_6__.buildRESTDescriptor)(module, metadata ?? {}, boundFetch, (relativeUrl, fetchOptions) => {
-                const finalUrl = new URL(relativeUrl, `https://${_common_js__WEBPACK_IMPORTED_MODULE_7__.API_URL}`);
-                finalUrl.host = _common_js__WEBPACK_IMPORTED_MODULE_7__.API_URL;
-                finalUrl.protocol = 'https';
-                return boundFetch(finalUrl.toString(), fetchOptions);
-            }, options);
-        }
-        else if ((0,_helpers_js__WEBPACK_IMPORTED_MODULE_2__.isObject)(modules)) {
-            return Object.fromEntries(Object.entries(modules).map(([key, value]) => {
-                return [key, use(value, modules[_common_js__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_METADATA_KEY])];
-            }));
-        }
-        else {
-            return modules;
-        }
-    };
-    const setHeaders = (headers) => {
-        for (const k in headers) {
-            _headers[k] = headers[k];
-        }
-    };
-    const wrappedModules = config.modules
-        ? use(config.modules)
-        : {};
-    return {
-        ...wrappedModules,
-        auth: authStrategy,
-        setHeaders,
-        use,
-        enableContext(contextType, opts = { elevated: false }) {
-            if (contextType === 'global') {
-                if (globalThis.__wix_context__ != null) {
-                    if (opts.elevated) {
-                        globalThis.__wix_context__.elevatedClient = this;
-                    }
-                    else {
-                        globalThis.__wix_context__.client = this;
-                    }
-                }
-                else {
-                    if (opts.elevated) {
-                        globalThis.__wix_context__ = { elevatedClient: this };
-                    }
-                    else {
-                        globalThis.__wix_context__ = { client: this };
-                    }
-                }
-            }
-            else {
-                if (opts.elevated) {
-                    _wix_sdk_context__WEBPACK_IMPORTED_MODULE_8__.wixContext.elevatedClient = this;
-                }
-                else {
-                    _wix_sdk_context__WEBPACK_IMPORTED_MODULE_8__.wixContext.client = this;
-                }
-            }
-        },
-        fetch: (relativeUrl, options) => {
-            const finalUrl = new URL(relativeUrl, `https://${_common_js__WEBPACK_IMPORTED_MODULE_7__.API_URL}`);
-            finalUrl.host = _common_js__WEBPACK_IMPORTED_MODULE_7__.API_URL;
-            finalUrl.protocol = 'https';
-            return boundFetch(finalUrl.toString(), options);
-        },
-        fetchWithAuth: async (urlOrRequest, requestInit) => {
-            if (typeof urlOrRequest === 'string' || urlOrRequest instanceof URL) {
-                return fetch(urlOrRequest, {
-                    ...requestInit,
-                    headers: {
-                        ...requestInit?.headers,
-                        ...(await boundGetAuthHeaders()).headers,
-                    },
-                });
-            }
-            else {
-                for (const [k, v] of Object.entries((await boundGetAuthHeaders()).headers)) {
-                    urlOrRequest.headers.set(k, v);
-                }
-                return fetch(urlOrRequest, requestInit);
-            }
-        },
-        async graphql(query, variables, opts = {
-            apiVersion: 'alpha',
-        }) {
-            const res = await boundFetch(`https://${_common_js__WEBPACK_IMPORTED_MODULE_7__.API_URL}/graphql/${opts.apiVersion}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ query, variables }),
-            });
-            if (res.status !== 200) {
-                throw new _fetch_error_js__WEBPACK_IMPORTED_MODULE_9__.FetchErrorResponse(`GraphQL request failed with status ${res.status}`, res);
-            }
-            const { data, errors } = await res.json();
-            return { data: data ?? {}, errors };
-        },
-        webhooks: eventHandlersClient,
-        servicePlugins: servicePluginsClient,
-    };
-}
 
 
 /***/ }),
@@ -4423,7 +3520,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   eventHandlersModules: () => (/* binding */ eventHandlersModules),
 /* harmony export */   isEventHandlerModule: () => (/* binding */ isEventHandlerModule)
 /* harmony export */ });
-/* harmony import */ var _wix_sdk_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wix/sdk-types */ "./node_modules/@wix/sdk/node_modules/@wix/sdk-types/build/browser/index.mjs");
+/* harmony import */ var _wix_sdk_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wix/sdk-types */ "./node_modules/@wix/sdk-types/build/browser/index.mjs");
 /* harmony import */ var _nanoevents_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./nanoevents.js */ "./node_modules/@wix/sdk/build/nanoevents.js");
 
 
@@ -4741,7 +3838,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _bi_biHeaderGenerator_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./bi/biHeaderGenerator.js */ "./node_modules/@wix/sdk/build/bi/biHeaderGenerator.js");
 /* harmony import */ var _common_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common.js */ "./node_modules/@wix/sdk/build/common.js");
-/* harmony import */ var _wix_sdk_runtime_context__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/sdk-runtime/context */ "./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context.js");
+/* harmony import */ var _wix_sdk_runtime_context__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/sdk-runtime/context */ "./node_modules/@wix/sdk-runtime/build/context.js");
 
 
 
@@ -4931,7 +4028,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   createClient: () => (/* binding */ createClient)
 /* harmony export */ });
 /* harmony import */ var _wix_sdk_context__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wix/sdk-context */ "./node_modules/@wix/sdk-context/build/browser/index.mjs");
-/* harmony import */ var _wix_sdk_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wix/sdk-types */ "./node_modules/@wix/sdk/node_modules/@wix/sdk-types/build/browser/index.mjs");
+/* harmony import */ var _wix_sdk_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wix/sdk-types */ "./node_modules/@wix/sdk-types/build/browser/index.mjs");
 /* harmony import */ var _ambassador_modules_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ambassador-modules.js */ "./node_modules/@wix/sdk/build/ambassador-modules.js");
 /* harmony import */ var _common_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./common.js */ "./node_modules/@wix/sdk/build/common.js");
 /* harmony import */ var _fetch_error_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./fetch-error.js */ "./node_modules/@wix/sdk/build/fetch-error.js");
@@ -4940,7 +4037,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _rest_modules_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./rest-modules.js */ "./node_modules/@wix/sdk/build/rest-modules.js");
 /* harmony import */ var _event_handlers_modules_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./event-handlers-modules.js */ "./node_modules/@wix/sdk/build/event-handlers-modules.js");
 /* harmony import */ var _service_plugin_modules_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./service-plugin-modules.js */ "./node_modules/@wix/sdk/build/service-plugin-modules.js");
-/* harmony import */ var _wix_sdk_runtime_context__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wix/sdk-runtime/context */ "./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context.js");
+/* harmony import */ var _wix_sdk_runtime_context__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wix/sdk-runtime/context */ "./node_modules/@wix/sdk-runtime/build/context.js");
 
 
 
@@ -5109,325 +4206,6 @@ function createClient(config) {
 }
 
 
-/***/ }),
-
-/***/ "./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context-v2.js":
-/*!*********************************************************************************!*\
-  !*** ./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context-v2.js ***!
-  \*********************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   EventDefinition: () => (/* reexport safe */ _wix_sdk_types__WEBPACK_IMPORTED_MODULE_0__.EventDefinition),
-/* harmony export */   ServicePluginDefinition: () => (/* reexport safe */ _wix_sdk_types__WEBPACK_IMPORTED_MODULE_0__.ServicePluginDefinition),
-/* harmony export */   contextualizeEventDefinitionModuleV2: () => (/* binding */ contextualizeEventDefinitionModuleV2),
-/* harmony export */   contextualizeHostModuleV2: () => (/* binding */ contextualizeHostModuleV2),
-/* harmony export */   contextualizeRESTModuleV2: () => (/* binding */ contextualizeRESTModuleV2),
-/* harmony export */   contextualizeSerivcePluginModuleV2: () => (/* binding */ contextualizeSerivcePluginModuleV2)
-/* harmony export */ });
-/* harmony import */ var _wix_sdk_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/sdk-types */ "./node_modules/@wix/sdk/node_modules/@wix/sdk-types/build/browser/index.mjs");
-/* harmony import */ var _context_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./context.js */ "./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context.js");
-
-
-
-function contextualizeHostModuleV2(hostModule, props) {
-    return {
-        ...hostModule,
-        ...Object.fromEntries(props.map((prop) => [
-            prop,
-            (...args) => {
-                const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
-                if (!context) {
-                    throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-                }
-                return context
-                    .initWixModules(hostModule)[prop].apply(undefined, args);
-            },
-        ])),
-    };
-}
-function contextualizeRESTModuleV2(restModule, elevated) {
-    return ((...args) => {
-        const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
-        if (!context) {
-            // @ts-expect-error - if there is no context, we want to behave like the original module
-            return restModule.apply(undefined, args);
-        }
-        return (context
-            .initWixModules(restModule, elevated)
-            // @ts-expect-error - we know the args here are meant to be passed to the initalized module
-            .apply(undefined, args));
-    });
-}
-function contextualizeEventDefinitionModuleV2(eventDefinition) {
-    const contextualMethod = ((...args) => {
-        const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
-        if (!context) {
-            // this line should throw, but this would be a breaking change for older SDK versions
-            // this is because in wixClient there's code that calls any function it detects and checks
-            // if it's an ambassador module (see isAmbassadorModule)
-            return () => { };
-        }
-        return context.initWixModules(eventDefinition).apply(undefined, args);
-    });
-    contextualMethod.__type = eventDefinition.__type;
-    contextualMethod.type = eventDefinition.type;
-    contextualMethod.isDomainEvent = eventDefinition.isDomainEvent;
-    contextualMethod.transformations = eventDefinition.transformations;
-    return contextualMethod;
-}
-function contextualizeSerivcePluginModuleV2(servicePlugin) {
-    const contextualMethod = ((...args) => {
-        const context = (0,_context_js__WEBPACK_IMPORTED_MODULE_1__.resolveContext)();
-        if (!context) {
-            // this line should throw, but this would be a breaking change for older SDK versions
-            // this is because in wixClient there's code that calls any function it detects and checks
-            // if it's an ambassador module (see isAmbassadorModule)
-            return () => { };
-        }
-        return context.initWixModules(servicePlugin).apply(undefined, args);
-    });
-    contextualMethod.__type = servicePlugin.__type;
-    contextualMethod.componentType = servicePlugin.componentType;
-    contextualMethod.methods = servicePlugin.methods;
-    return contextualMethod;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context.js":
-/*!******************************************************************************!*\
-  !*** ./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context.js ***!
-  \******************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   EventDefinition: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.EventDefinition),
-/* harmony export */   ServicePluginDefinition: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.ServicePluginDefinition),
-/* harmony export */   contextualizeEventDefinitionModule: () => (/* binding */ contextualizeEventDefinitionModule),
-/* harmony export */   contextualizeEventDefinitionModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeEventDefinitionModuleV2),
-/* harmony export */   contextualizeHostModule: () => (/* binding */ contextualizeHostModule),
-/* harmony export */   contextualizeHostModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeHostModuleV2),
-/* harmony export */   contextualizeRESTModule: () => (/* binding */ contextualizeRESTModule),
-/* harmony export */   contextualizeRESTModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeRESTModuleV2),
-/* harmony export */   contextualizeSerivcePluginModule: () => (/* binding */ contextualizeSerivcePluginModule),
-/* harmony export */   contextualizeSerivcePluginModuleV2: () => (/* reexport safe */ _context_v2_js__WEBPACK_IMPORTED_MODULE_1__.contextualizeSerivcePluginModuleV2),
-/* harmony export */   resolveContext: () => (/* binding */ resolveContext),
-/* harmony export */   runWithoutContext: () => (/* binding */ runWithoutContext)
-/* harmony export */ });
-/* harmony import */ var _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/sdk-context */ "./node_modules/@wix/sdk-context/build/browser/index.mjs");
-/* harmony import */ var _context_v2_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./context-v2.js */ "./node_modules/@wix/sdk/node_modules/@wix/sdk-runtime/build/context-v2.js");
-
-function resolveContext() {
-    const oldContext = typeof $wixContext !== 'undefined' && $wixContext.initWixModules
-        ? $wixContext.initWixModules
-        : typeof globalThis.__wix_context__ !== 'undefined' &&
-            globalThis.__wix_context__.initWixModules
-            ? globalThis.__wix_context__.initWixModules
-            : undefined;
-    if (oldContext) {
-        return {
-            // @ts-expect-error
-            initWixModules(modules, elevated) {
-                return runWithoutContext(() => oldContext(modules, elevated));
-            },
-            fetchWithAuth() {
-                throw new Error('fetchWithAuth is not available in this context');
-            },
-            graphql() {
-                throw new Error('graphql is not available in this context');
-            },
-        };
-    }
-    const contextualClient = typeof $wixContext !== 'undefined'
-        ? $wixContext.client
-        : typeof _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client !== 'undefined'
-            ? _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client
-            : typeof globalThis.__wix_context__ !== 'undefined'
-                ? globalThis.__wix_context__.client
-                : undefined;
-    const elevatedClient = typeof $wixContext !== 'undefined'
-        ? $wixContext.elevatedClient
-        : typeof _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient !== 'undefined'
-            ? _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient
-            : typeof globalThis.__wix_context__ !== 'undefined'
-                ? globalThis.__wix_context__.elevatedClient
-                : undefined;
-    if (!contextualClient && !elevatedClient) {
-        return;
-    }
-    return {
-        initWixModules(wixModules, elevated) {
-            if (elevated) {
-                if (!elevatedClient) {
-                    throw new Error('An elevated client is required to use elevated modules. Make sure to initialize the Wix context with an elevated client before using elevated SDK modules');
-                }
-                return runWithoutContext(() => elevatedClient.use(wixModules));
-            }
-            if (!contextualClient) {
-                throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-            }
-            return runWithoutContext(() => contextualClient.use(wixModules));
-        },
-        fetchWithAuth: (urlOrRequest, requestInit) => {
-            if (!contextualClient) {
-                throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-            }
-            return contextualClient.fetchWithAuth(urlOrRequest, requestInit);
-        },
-        async graphql(query, variables, opts) {
-            if (!contextualClient) {
-                throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-            }
-            return contextualClient.graphql(query, variables, opts);
-        },
-    };
-}
-function contextualizeHostModule(hostModule, prop) {
-    return (...args) => {
-        const context = resolveContext();
-        if (!context) {
-            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-        }
-        return context.initWixModules(hostModule)[prop].apply(undefined, args);
-    };
-}
-function contextualizeRESTModule(restModule, expectedArgsLength) {
-    return ((...args) => {
-        const context = resolveContext();
-        if (!context) {
-            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-        }
-        return context
-            .initWixModules(restModule, args[expectedArgsLength]?.suppressAuth ? true : false)
-            .apply(undefined, args);
-    });
-}
-function contextualizeEventDefinitionModule(eventDefinition) {
-    return ((...args) => {
-        const context = resolveContext();
-        if (!context) {
-            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-        }
-        return context.initWixModules(eventDefinition).apply(undefined, args);
-    });
-}
-function contextualizeSerivcePluginModule(servicePlugin) {
-    return ((...args) => {
-        const context = resolveContext();
-        if (!context) {
-            throw new Error('Wix context is not available. Make sure to initialize the Wix context before using SDK modules');
-        }
-        return context.initWixModules(servicePlugin).apply(undefined, args);
-    });
-}
-
-function runWithoutContext(fn) {
-    const globalContext = globalThis.__wix_context__;
-    const moduleContext = {
-        client: _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client,
-        elevatedClient: _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient,
-    };
-    let closureContext;
-    globalThis.__wix_context__ = undefined;
-    _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client = undefined;
-    _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient = undefined;
-    if (typeof $wixContext !== 'undefined') {
-        closureContext = {
-            client: $wixContext?.client,
-            elevatedClient: $wixContext?.elevatedClient,
-        };
-        delete $wixContext.client;
-        delete $wixContext.elevatedClient;
-    }
-    try {
-        return fn();
-    }
-    finally {
-        globalThis.__wix_context__ = globalContext;
-        _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.client = moduleContext.client;
-        _wix_sdk_context__WEBPACK_IMPORTED_MODULE_0__.wixContext.elevatedClient = moduleContext.elevatedClient;
-        if (typeof $wixContext !== 'undefined') {
-            $wixContext.client = closureContext.client;
-            $wixContext.elevatedClient = closureContext.elevatedClient;
-        }
-    }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@wix/sdk/node_modules/@wix/sdk-types/build/browser/index.mjs":
-/*!***********************************************************************************!*\
-  !*** ./node_modules/@wix/sdk/node_modules/@wix/sdk-types/build/browser/index.mjs ***!
-  \***********************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   EventDefinition: () => (/* binding */ EventDefinition),
-/* harmony export */   SERVICE_PLUGIN_ERROR_TYPE: () => (/* binding */ SERVICE_PLUGIN_ERROR_TYPE),
-/* harmony export */   ServicePluginDefinition: () => (/* binding */ ServicePluginDefinition)
-/* harmony export */ });
-// src/event-handlers-modules.ts
-function EventDefinition(type, isDomainEvent = false, transformations = (x) => x) {
-  return () => ({
-    __type: "event-definition",
-    type,
-    isDomainEvent,
-    transformations
-  });
-}
-
-// src/service-plugins.ts
-function ServicePluginDefinition(componentType, methods) {
-  return {
-    __type: "service-plugin-definition",
-    componentType,
-    methods
-  };
-}
-var SERVICE_PLUGIN_ERROR_TYPE = "wix_spi_error";
-
-
-
-/***/ }),
-
-/***/ "./node_modules/nanoevents/index.js":
-/*!******************************************!*\
-  !*** ./node_modules/nanoevents/index.js ***!
-  \******************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   createNanoEvents: () => (/* binding */ createNanoEvents)
-/* harmony export */ });
-let createNanoEvents = () => ({
-  emit(event, ...args) {
-    for (
-      let i = 0,
-        callbacks = this.events[event] || [],
-        length = callbacks.length;
-      i < length;
-      i++
-    ) {
-      callbacks[i](...args)
-    }
-  },
-  events: {},
-  on(event, cb) {
-    ;(this.events[event] ||= []).push(cb)
-    return () => {
-      this.events[event] = this.events[event]?.filter(i => cb !== i)
-    }
-  }
-})
-
-
 /***/ })
 
 /******/ 	});
@@ -5499,6 +4277,8 @@ let createNanoEvents = () => ({
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
 /*!**********************!*\
   !*** ./src/panel.js ***!
   \**********************/
@@ -5524,6 +4304,8 @@ window.updateColor = function (color) {
     console.log("update color")
     client.widget.setProp('color', color);
 };
+
+})();
 
 /******/ })()
 ;
