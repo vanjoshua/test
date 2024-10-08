@@ -80,7 +80,7 @@ class MyCustomElement extends HTMLElement {
       this.setTextContent(JSON.stringify(product));
     } catch (error) {
       console.error("Error getting product:", error);
-      this.setTextContent("Error getting product");
+      this.setTextContent("Error getting product: ", productId);
     }
   }
 }
