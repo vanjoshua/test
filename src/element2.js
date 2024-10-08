@@ -75,6 +75,8 @@ class MyCustomElement extends HTMLElement {
     console.log("clean: ", productId);
     try {
       const myProduct = await myWixClient.products.getProduct(productId);
+      console.log("PRODUCT:");
+      console.log(myProduct);
       if (myProduct.product.stock.trackInventory) {
 
         const stock = myProduct.product.stock.quantity;
