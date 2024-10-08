@@ -6363,9 +6363,10 @@ class MyCustomElement extends HTMLElement {
   async getProduct(productId) {
     console.log("Client: ", myWixClient);
     try {
+      console.log("original: ", productId);
       productId = productId.replace(/&quot;/g, '');
       // Now `productId` should be clean without extra quotes
-      console.log(productId);
+      console.log("clean: ", productId);
 
       const product = await myWixClient.products.getProduct(productId);
 
