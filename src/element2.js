@@ -70,11 +70,12 @@ class MyCustomElement extends HTMLElement {
   async getProduct(productId) {
     console.log("Client: ", myWixClient);
     try {
-      //const myService = await myWixClient.services.getService(serviceId);
-     // console.log("Service object: ", JSON.stringify(myService));
+      productId = productId.replace(/&quot;/g, '');
+      // Now `productId` should be clean without extra quotes
+      console.log(productId);
 
       const product = await myWixClient.products.getProduct(productId);
-      
+
       this.setTextContent(JSON.stringify(product));
     } catch (error) {
       console.error("Error getting product:", error);
