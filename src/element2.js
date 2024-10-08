@@ -74,8 +74,8 @@ class MyCustomElement extends HTMLElement {
     // Now `productId` should be clean without extra quotes
     console.log("clean: ", productId);
     try {
-      const product = await myWixClient.products.getProduct(productId);
-      const stock = product.stock.quantity;
+      const myProduct = await myWixClient.products.getProduct(productId);
+      const stock = myProduct.product.stock.quantity;
       this.setTextContent("Stock: " + stock.toString());
     } catch (error) {
       console.error("Error getting product:", error);
