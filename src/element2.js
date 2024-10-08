@@ -71,7 +71,7 @@ class MyCustomElement extends HTMLElement {
     console.log("Client: ", myWixClient);
     try {
       console.log("original: ", productId);
-      productId = productId.replace(/&quot;/g, '');
+      productId = productId.replace(/^"(.*)"$/, '$1');
       // Now `productId` should be clean without extra quotes
       console.log("clean: ", productId);
 
