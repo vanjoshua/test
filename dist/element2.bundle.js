@@ -6342,18 +6342,18 @@ class MyCustomElement extends HTMLElement {
     this.setColor(this.getAttribute('color'));
     this.setTextContent("...");
 
-    this.getProduct(this.getAttribute('productid'))
+    this.getProduct(this.getAttribute('product-id'))
   }
 
   static get observedAttributes() {
-    return ['color', 'productid'];
+    return ['color', 'product-id'];
   }
 
   async attributeChangedCallback(name, oldValue, newValue) {
     if (name === 'color' && oldValue !== newValue) {
       console.log("Color attribute changed");
       this.setColor(newValue);
-    } else if (name === 'productid' && oldValue !== newValue) {
+    } else if (name === 'product-id' && oldValue !== newValue) {
       if (myWixClient) {
         this.getProduct(newValue)
       } else { console.log("No client") }
