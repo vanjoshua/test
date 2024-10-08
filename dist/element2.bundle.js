@@ -6368,8 +6368,8 @@ class MyCustomElement extends HTMLElement {
     console.log("clean: ", productId);
     try {
       const product = await myWixClient.products.getProduct(productId);
-
-      this.setTextContent(JSON.stringify(product));
+      const stock = product.stock.quantity;
+      this.setTextContent("Stock: " + stock.toString());
     } catch (error) {
       console.error("Error getting product:", error);
       this.setTextContent("Error getting product: " + productId);
