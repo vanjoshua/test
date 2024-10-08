@@ -73,7 +73,7 @@ class MyCustomElement extends HTMLElement {
       //const myService = await myWixClient.services.getService(serviceId);
      // console.log("Service object: ", JSON.stringify(myService));
 
-      const product = await myWixClient.products.getProduct(productid);
+      const product = await myWixClient.products.getProduct(productId);
       
       this.setTextContent(JSON.stringify(product));
     } catch (error) {
