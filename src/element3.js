@@ -6,13 +6,13 @@ const myWixClient = createClient({
   host: site.host({ applicationId: "32495748-fccb-41d4-8cc5-2852a2566a51" })
 });
 
-const headers = await client.auth.getAuthHeaders();
+const headers = await myWixClient.auth.getAuthHeaders();
 const authorization = headers.headers["Authorization"];
 
 const data = JSON.parse(JSON.parse(atob(authorization.split(".")[3])).data);
 const instanceId = data.instance.instanceId;
 
-console.log(instanceId)
+console.log("instanceId: ", instanceId)
 
 class MyCustomElement extends HTMLElement {
   constructor() {
