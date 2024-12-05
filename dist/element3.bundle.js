@@ -242,92 +242,6 @@ function getApiBaseUrl() {
 
 /***/ }),
 
-/***/ "./src/element3.js":
-/*!*************************!*\
-  !*** ./src/element3.js ***!
-  \*************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wix_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/sdk */ "./node_modules/@wix/sdk/build/wixClient.js");
-/* harmony import */ var _wix_site__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wix/site */ "./node_modules/@wix/site/dist/esm/index.js");
-
-
-
-const myWixClient = (0,_wix_sdk__WEBPACK_IMPORTED_MODULE_0__.createClient)({
-  auth: _wix_site__WEBPACK_IMPORTED_MODULE_1__.site.auth(),
-  host: _wix_site__WEBPACK_IMPORTED_MODULE_1__.site.host({ applicationId: "32495748-fccb-41d4-8cc5-2852a2566a51" })
-});
-
-const headers = await myWixClient.auth.getAuthHeaders();
-const authorization = headers.headers["Authorization"];
-
-const data = JSON.parse(JSON.parse(atob(authorization.split(".")[3])).data);
-const instanceId = data.instance.instanceId;
-
-console.log("instanceId: ", instanceId)
-
-class MyCustomElement extends HTMLElement {
-  constructor() {
-    super();
-    this.accessTokenListener = myWixClient.auth.getAccessTokenInjector();
-  }
-
-  setColor(color) {
-    this.container.style.backgroundColor = color || 'white';
-  }
-
-  setTextContent(text) {
-    this.textElement.textContent = text || '';
-  }
-
-  connectedCallback() {
-    // Create a shadow root
-    this.attachShadow({ mode: 'open' });
-
-    // Create a container for the content
-    this.container = document.createElement('div');
-    this.container.style.borderRadius = '10px';
-    this.container.style.padding = '10px';
-    this.shadowRoot.appendChild(this.container);
-
-    // Create a container for the text content
-    this.textElement = document.createElement('h2');
-
-    const root = document.documentElement;
-    const font = getComputedStyle(root).getPropertyValue('--wst-font-style-h2');
-    console.log(font); // Output: the value of the CSS variable
-
-    this.textElement.style.font = font;
-
-    this.container.appendChild(this.textElement);
-
-    // Set the initial color and text content
-    this.setColor(this.getAttribute('color'));
-    this.setTextContent("...");
-  }
-
-  static get observedAttributes() {
-    return ['color'];
-  }
-
-  async attributeChangedCallback(name, oldValue, newValue) {
-    if (name === 'color' && oldValue !== newValue) {
-      console.log("Color attribute changed");
-      this.setColor(newValue);
-    } 
-  }
-
-}
-
-customElements.define('ce-josh', MyCustomElement);
-__webpack_async_result__();
-} catch(e) { __webpack_async_result__(e); } }, 1);
-
-/***/ }),
-
 /***/ "./node_modules/@wix/sdk-context/build/browser/index.mjs":
 /*!***************************************************************!*\
   !*** ./node_modules/@wix/sdk-context/build/browser/index.mjs ***!
@@ -1524,75 +1438,6 @@ function createClient(config) {
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/async module */
-/******/ 	(() => {
-/******/ 		var webpackQueues = typeof Symbol === "function" ? Symbol("webpack queues") : "__webpack_queues__";
-/******/ 		var webpackExports = typeof Symbol === "function" ? Symbol("webpack exports") : "__webpack_exports__";
-/******/ 		var webpackError = typeof Symbol === "function" ? Symbol("webpack error") : "__webpack_error__";
-/******/ 		var resolveQueue = (queue) => {
-/******/ 			if(queue && queue.d < 1) {
-/******/ 				queue.d = 1;
-/******/ 				queue.forEach((fn) => (fn.r--));
-/******/ 				queue.forEach((fn) => (fn.r-- ? fn.r++ : fn()));
-/******/ 			}
-/******/ 		}
-/******/ 		var wrapDeps = (deps) => (deps.map((dep) => {
-/******/ 			if(dep !== null && typeof dep === "object") {
-/******/ 				if(dep[webpackQueues]) return dep;
-/******/ 				if(dep.then) {
-/******/ 					var queue = [];
-/******/ 					queue.d = 0;
-/******/ 					dep.then((r) => {
-/******/ 						obj[webpackExports] = r;
-/******/ 						resolveQueue(queue);
-/******/ 					}, (e) => {
-/******/ 						obj[webpackError] = e;
-/******/ 						resolveQueue(queue);
-/******/ 					});
-/******/ 					var obj = {};
-/******/ 					obj[webpackQueues] = (fn) => (fn(queue));
-/******/ 					return obj;
-/******/ 				}
-/******/ 			}
-/******/ 			var ret = {};
-/******/ 			ret[webpackQueues] = x => {};
-/******/ 			ret[webpackExports] = dep;
-/******/ 			return ret;
-/******/ 		}));
-/******/ 		__webpack_require__.a = (module, body, hasAwait) => {
-/******/ 			var queue;
-/******/ 			hasAwait && ((queue = []).d = -1);
-/******/ 			var depQueues = new Set();
-/******/ 			var exports = module.exports;
-/******/ 			var currentDeps;
-/******/ 			var outerResolve;
-/******/ 			var reject;
-/******/ 			var promise = new Promise((resolve, rej) => {
-/******/ 				reject = rej;
-/******/ 				outerResolve = resolve;
-/******/ 			});
-/******/ 			promise[webpackExports] = exports;
-/******/ 			promise[webpackQueues] = (fn) => (queue && fn(queue), depQueues.forEach(fn), promise["catch"](x => {}));
-/******/ 			module.exports = promise;
-/******/ 			body((deps) => {
-/******/ 				currentDeps = wrapDeps(deps);
-/******/ 				var fn;
-/******/ 				var getResult = () => (currentDeps.map((d) => {
-/******/ 					if(d[webpackError]) throw d[webpackError];
-/******/ 					return d[webpackExports];
-/******/ 				}))
-/******/ 				var promise = new Promise((resolve) => {
-/******/ 					fn = () => (resolve(getResult));
-/******/ 					fn.r = 0;
-/******/ 					var fnQueue = (q) => (q !== queue && !depQueues.has(q) && (depQueues.add(q), q && !q.d && (fn.r++, q.push(fn))));
-/******/ 					currentDeps.map((dep) => (dep[webpackQueues](fnQueue)));
-/******/ 				});
-/******/ 				return fn.r ? promise : getResult();
-/******/ 			}, (err) => ((err ? reject(promise[webpackError] = err) : outerResolve(exports)), resolveQueue(queue)));
-/******/ 			queue && queue.d < 0 && (queue.d = 0);
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -1634,11 +1479,86 @@ function createClient(config) {
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module used 'module' so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/element3.js");
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
+/*!*************************!*\
+  !*** ./src/element3.js ***!
+  \*************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wix_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wix/sdk */ "./node_modules/@wix/sdk/build/wixClient.js");
+/* harmony import */ var _wix_site__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wix/site */ "./node_modules/@wix/site/dist/esm/index.js");
+
+
+
+const myWixClient = (0,_wix_sdk__WEBPACK_IMPORTED_MODULE_0__.createClient)({
+  auth: _wix_site__WEBPACK_IMPORTED_MODULE_1__.site.auth(),
+  host: _wix_site__WEBPACK_IMPORTED_MODULE_1__.site.host({ applicationId: "32495748-fccb-41d4-8cc5-2852a2566a51" })
+});
+
+class MyCustomElement extends HTMLElement {
+  constructor() {
+    super();
+    this.accessTokenListener = myWixClient.auth.getAccessTokenInjector();
+  }
+
+  async setColor(color) {
+    this.container.style.backgroundColor = color || 'pink';
+    const headers = await myWixClient.auth.getAuthHeaders();
+    const authorization = headers.headers["Authorization"];
+
+    const data = JSON.parse(JSON.parse(atob(authorization.split(".")[3])).data);
+    const instanceId = data.instance.instanceId;
+
+    console.log("instanceId: ", instanceId)
+  }
+
+  setTextContent(text) {
+    this.textElement.textContent = text || '';
+  }
+
+  connectedCallback() {
+    // Create a shadow root
+    this.attachShadow({ mode: 'open' });
+
+    // Create a container for the content
+    this.container = document.createElement('div');
+    this.container.style.borderRadius = '10px';
+    this.container.style.padding = '10px';
+    this.shadowRoot.appendChild(this.container);
+
+    // Create a container for the text content
+    this.textElement = document.createElement('h2');
+
+    const root = document.documentElement;
+    const font = getComputedStyle(root).getPropertyValue('--wst-font-style-h2');
+    console.log(font); // Output: the value of the CSS variable
+
+    this.textElement.style.font = font;
+
+    this.container.appendChild(this.textElement);
+
+    // Set the initial color and text content
+    this.setColor(this.getAttribute('color'));
+    this.setTextContent("...");
+  }
+
+  static get observedAttributes() {
+    return ['color'];
+  }
+
+  async attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'color' && oldValue !== newValue) {
+      console.log("Color attribute changed");
+      this.setColor(newValue);
+    }
+  }
+
+}
+
+customElements.define('ce-josh', MyCustomElement);
+})();
+
 /******/ })()
 ;

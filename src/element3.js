@@ -6,22 +6,21 @@ const myWixClient = createClient({
   host: site.host({ applicationId: "32495748-fccb-41d4-8cc5-2852a2566a51" })
 });
 
-const headers = await myWixClient.auth.getAuthHeaders();
-const authorization = headers.headers["Authorization"];
-
-const data = JSON.parse(JSON.parse(atob(authorization.split(".")[3])).data);
-const instanceId = data.instance.instanceId;
-
-console.log("instanceId: ", instanceId)
-
 class MyCustomElement extends HTMLElement {
   constructor() {
     super();
     this.accessTokenListener = myWixClient.auth.getAccessTokenInjector();
   }
 
-  setColor(color) {
-    this.container.style.backgroundColor = color || 'white';
+  async setColor(color) {
+    this.container.style.backgroundColor = color || 'pink';
+    const headers = await myWixClient.auth.getAuthHeaders();
+    const authorization = headers.headers["Authorization"];
+
+    const data = JSON.parse(JSON.parse(atob(authorization.split(".")[3])).data);
+    const instanceId = data.instance.instanceId;
+
+    console.log("instanceId: ", instanceId)
   }
 
   setTextContent(text) {
@@ -62,7 +61,7 @@ class MyCustomElement extends HTMLElement {
     if (name === 'color' && oldValue !== newValue) {
       console.log("Color attribute changed");
       this.setColor(newValue);
-    } 
+    }
   }
 
 }
