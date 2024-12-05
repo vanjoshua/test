@@ -6,6 +6,7 @@ module.exports = {
   entry: {
     element: './src/element.js',
     element2: './src/element2.js',
+    element3: './src/element3.js',
     panel: './src/panel.js',
     panel2: './src/panel2.tsx',
   },
