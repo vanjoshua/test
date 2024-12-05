@@ -1512,10 +1512,7 @@ class MyCustomElement extends HTMLElement {
     const instanceId = data.instance.instanceId;
 
     console.log("instanceId: ", instanceId)
-  }
-
-  setTextContent(text) {
-    this.textElement.textContent = text || '';
+    console.log("Full headers object: ", headers)
   }
 
   connectedCallback() {
@@ -1524,24 +1521,10 @@ class MyCustomElement extends HTMLElement {
 
     // Create a container for the content
     this.container = document.createElement('div');
-    this.container.style.borderRadius = '10px';
-    this.container.style.padding = '10px';
     this.shadowRoot.appendChild(this.container);
-
-    // Create a container for the text content
-    this.textElement = document.createElement('h2');
-
-    const root = document.documentElement;
-    const font = getComputedStyle(root).getPropertyValue('--wst-font-style-h2');
-    console.log(font); // Output: the value of the CSS variable
-
-    this.textElement.style.font = font;
-
-    this.container.appendChild(this.textElement);
 
     // Set the initial color and text content
     this.setColor(this.getAttribute('color'));
-    this.setTextContent("...");
   }
 
   static get observedAttributes() {
@@ -1554,7 +1537,6 @@ class MyCustomElement extends HTMLElement {
       this.setColor(newValue);
     }
   }
-
 }
 
 customElements.define('ce-josh', MyCustomElement);
